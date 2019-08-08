@@ -7,7 +7,9 @@ import com.neu.management.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.awt.print.Book;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/equipment")
@@ -47,6 +49,17 @@ public class EquipmentController {
         return deleteEquipmentMessage;
     }
 
+    // 批量删除 ok
+    @RequestMapping("deleteList")
+    public Message deleteEquipmentList(@RequestBody List<Integer> ids){
+        System.out.println(ids.get(0));
+        equipmentService.deleteEquipmentList(ids);
+        Message deleteEquipmentListMessage = new Message();
+        deleteEquipmentListMessage.setCode(200);
+        deleteEquipmentListMessage.setMessage("批量删除设备成功！");
+        return deleteEquipmentListMessage;
+    }
+
     // 根据id获取设备信息 ok
     @GetMapping("get/{id}")
     public Message getEquipment(@PathVariable Integer id){
@@ -78,11 +91,11 @@ public class EquipmentController {
         return getEquipmentMessage;
     }
 
-    // 更新设备信息
+    // 更新设备信息 ok
     @RequestMapping("update")
     public Message updateEquipment(@RequestBody TEquipment tEquipment){
         Message updateEquipmentMessage = new Message();
-        if (equipmentService.addEquipment(tEquipment) == 1){
+        if (equipmentService.updateEquipment(tEquipment) == 1){
             // 序列号重复
             updateEquipmentMessage.setCode(202);
             updateEquipmentMessage.setMessage("更新设备失败，设备序列号已存在，请重试！");
@@ -93,7 +106,7 @@ public class EquipmentController {
         return updateEquipmentMessage;
     }
 
-    // 获取全部数据、分页
+    // 获取全部数据、分页 ok
     @RequestMapping("list/{currPage}")
     public Message listEquipment(@PathVariable Integer currPage, @RequestBody TEquipment tEquipment){
         Message listEquipmentMessage = new Message();

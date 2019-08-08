@@ -2,37 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab83baa9-c749-4ea8-adec-e33e013cd6a1" name="Default Changelist" comment="lcm">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_9.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_spring_boot_starter_1_1_9.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_4.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_1_4.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_autoconfigure_1_2_5.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_starter_1_2_5.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Management/src/main/resources/META-INF/additional-spring-configuration-metadata.json" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Management/pom.xml" afterPath="$PROJECT_DIR$/Management/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/config/WebMvcConfig.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/config/WebMvcConfig.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/MyInterceptor.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/MyInterceptor.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TestDao.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TEquipment.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TEquipment.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TEquipmentProduct.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TEquipmentProduct.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TFactory.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TFactory.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TOrderTrack.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TOrderTrack.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TPermit.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TPermit.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProduct.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProduct.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProductOrder.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProductOrder.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProductPlan.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProductPlan.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProductSchedule.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProductSchedule.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TRolePermit.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TRolePermit.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TUser.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TUser.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TUserRole.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TUserRole.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/TestService.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/util/TestUtil.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/Management/src/main/resources/application.yml" />
+      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/CommonController.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/CommonController.java" />
+      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentController.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentController.java" />
+      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java" />
+      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -85,7 +59,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Management/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
+            <state relative-caret-position="828">
               <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
               <folding />
             </state>
@@ -95,8 +69,8 @@
       <file leaf-file-name="EquipmentService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="12" />
+            <state relative-caret-position="260">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,45 +91,57 @@
       <file leaf-file-name="EquipmentServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+            <state relative-caret-position="360">
+              <caret line="41" column="38" lean-forward="true" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#595#596#0" expanded="true" />
-                <element signature="e#995#996#0" expanded="true" />
-                <element signature="e#1038#1039#0" expanded="true" />
-                <element signature="e#1444#1445#0" expanded="true" />
-                <element signature="e#1494#1495#0" expanded="true" />
-                <element signature="e#1572#1573#0" expanded="true" />
-                <element signature="e#1633#1634#0" expanded="true" />
+                <element signature="e#571#572#0" expanded="true" />
+                <element signature="e#619#620#0" expanded="true" />
+                <element signature="e#1019#1020#0" expanded="true" />
+                <element signature="e#1062#1063#0" expanded="true" />
+                <element signature="e#1134#1135#0" expanded="true" />
+                <element signature="e#1179#1180#0" expanded="true" />
+                <element signature="e#1585#1586#0" expanded="true" />
+                <element signature="e#1635#1636#0" expanded="true" />
+                <element signature="e#1713#1714#0" expanded="true" />
+                <element signature="e#1774#1775#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EquipmentController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EquipmentController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="145">
+              <caret line="108" column="19" lean-forward="false" selection-start-line="108" selection-start-column="19" selection-end-line="108" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#584#585#0" expanded="true" />
-                <element signature="e#640#641#0" expanded="true" />
+                <element signature="e#608#609#0" expanded="true" />
+                <element signature="e#664#665#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EquipmentDao.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EquipmentDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="131" column="50" lean-forward="true" selection-start-line="131" selection-start-column="50" selection-end-line="131" selection-end-column="50" />
+            <state relative-caret-position="368">
+              <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebMvcConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/config/WebMvcConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -204,16 +190,16 @@
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TRolePermit.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TUser.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TUserRole.java" />
-        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java" />
-        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/CommonController.java" />
         <option value="$PROJECT_DIR$/Management/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/MyInterceptor.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/config/WebMvcConfig.java" />
         <option value="$PROJECT_DIR$/Management/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/Management/pom.xml" />
+        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java" />
+        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/CommonController.java" />
+        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentController.java" />
-        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java" />
       </list>
     </option>
   </component>
@@ -342,6 +328,36 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="management" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudPlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="Management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="management" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudPlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="Management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="management" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudPlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="Management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="management" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -452,7 +468,7 @@
       <workItem from="1565181708625" duration="3486000" />
       <workItem from="1565225909698" duration="7391000" />
       <workItem from="1565233817415" duration="2490000" />
-      <workItem from="1565241160493" duration="21066000" />
+      <workItem from="1565241160493" duration="22993000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1565226974170</created>
@@ -496,11 +512,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565242960114</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="lcm">
+      <created>1565267594926</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1565267594926</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37625000" />
+    <option name="totallyTimeSpent" value="39552000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -514,7 +537,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Websocket Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14145234" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38124055" sideWeight="0.7642981" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -525,11 +548,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.045751635" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07189543" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6748366" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.073529415" sideWeight="0.4969743" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27382752" sideWeight="0.3153153" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20953101" sideWeight="0.3153153" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44251135" sideWeight="0.50766283" order="8" side_tool="true" content_ui="tabs" />
@@ -966,22 +989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/CommonController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="46" column="33" lean-forward="true" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/MyInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -1000,18 +1007,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/config/WebMvcConfig.java">
+    <entry file="file://$PROJECT_DIR$/CloudPlatform.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="23">
+          <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/cecdef14/8c1952ab-19ad-4030-a47b-5f8975f8f973/cloudplatform.t_equipment">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1023,29 +1023,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CloudPlatform.iml">
+    <entry file="file://$PROJECT_DIR$/Management/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+        <state relative-caret-position="828">
+          <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java">
+    <entry file="file://$PROJECT_DIR$/Management/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="12" />
+        <state relative-caret-position="161">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/CommonController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="e#594#614#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/config/WebMvcConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/pom.xml">
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="360">
+          <caret line="41" column="38" lean-forward="true" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#1019#1020#0" expanded="true" />
+            <element signature="e#1062#1063#0" expanded="true" />
+            <element signature="e#1134#1135#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
+            <element signature="e#1585#1586#0" expanded="true" />
+            <element signature="e#1635#1636#0" expanded="true" />
+            <element signature="e#1713#1714#0" expanded="true" />
+            <element signature="e#1774#1775#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1057,42 +1095,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="260">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#995#996#0" expanded="true" />
-            <element signature="e#1038#1039#0" expanded="true" />
-            <element signature="e#1444#1445#0" expanded="true" />
-            <element signature="e#1494#1495#0" expanded="true" />
-            <element signature="e#1572#1573#0" expanded="true" />
-            <element signature="e#1633#1634#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/cecdef14/8c1952ab-19ad-4030-a47b-5f8975f8f973/cloudplatform.t_equipment">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="145">
+          <caret line="108" column="19" lean-forward="false" selection-start-line="108" selection-start-column="19" selection-end-line="108" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#640#641#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="131" column="50" lean-forward="true" selection-start-line="131" selection-start-column="50" selection-end-line="131" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#608#609#0" expanded="true" />
+            <element signature="e#664#665#0" expanded="true" />
           </folding>
         </state>
       </provider>

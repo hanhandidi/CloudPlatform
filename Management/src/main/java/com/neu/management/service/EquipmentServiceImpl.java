@@ -8,6 +8,8 @@ import com.neu.management.util.Define;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EquipmentServiceImpl implements EquipmentService{
     private final EquipmentDao equipmentDao;
@@ -33,6 +35,11 @@ public class EquipmentServiceImpl implements EquipmentService{
     @Override
     public void deleteEquipment(Integer id) {
         equipmentDao.deleteById(id);
+    }
+
+    @Override
+    public void deleteEquipmentList(List<Integer> ids) {
+        equipmentDao.deleteBatch(ids);
     }
 
     @Override

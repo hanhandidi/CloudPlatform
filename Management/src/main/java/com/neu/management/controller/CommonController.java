@@ -25,11 +25,11 @@ public class CommonController {
     @RequestMapping("upload")
     public Message upload(@RequestParam("file") MultipartFile file) {
         //System.out.println(file.getOriginalFilename());
-        //取原文件名
+        // 取原文件名
         String oldName = file.getOriginalFilename();
-        //取原文件扩展名
+        // 取原文件扩展名
         String ext = oldName.substring(oldName.lastIndexOf("."));
-        //构造新文件名
+        // 构造新文件名
         String newName = UUID.randomUUID().toString() + ext;
 
         Message uploadMessage = new Message();
