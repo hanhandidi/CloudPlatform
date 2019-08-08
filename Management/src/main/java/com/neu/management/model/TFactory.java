@@ -1,4 +1,4 @@
-package com.sample;
+package com.neu.management.model;
 
 
 public class TFactory {

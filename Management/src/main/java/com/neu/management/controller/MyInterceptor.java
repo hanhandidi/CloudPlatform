@@ -32,18 +32,6 @@ public class MyInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        // 登录拦截 路径修改 session保存登录信息
-//        HttpSession session = request.getSession();
-//        if(session.getAttribute("admin") != null){
-//            return true;
-//        }else{
-//            try {
-//                response.sendRedirect("/admin/login");	//未登录，跳转到登录页
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            return false;
-//        }
         return true;
     }
 }

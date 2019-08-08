@@ -28,6 +28,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addFormatters(FormatterRegistry registry) {
         //注册转换器
-        registry.addConverter(new DateConverter());
+//        registry.addConverter(new DateConverter());
     }
 }
