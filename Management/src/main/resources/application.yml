@@ -1,8 +1,15 @@
 server:
   port: 80
 
+# 热部署
+debug: true
 
 spring:
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+  freemarker:
+    cache: false    #页面不加载缓存，修改即时生效
   datasource:
     url: jdbc:mysql://49.232.1.117:3306/auth?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: hanhan
