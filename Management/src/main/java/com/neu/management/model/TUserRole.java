@@ -1,6 +1,8 @@
 package com.neu.management.model;
 
 
+import java.sql.Timestamp;
+
 public class TUserRole {
 
   private long id;
@@ -14,6 +16,21 @@ public class TUserRole {
   private long roleStatus;
   private long factoryId;
 
+  public TUserRole() {
+  }
+
+  public TUserRole(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String roleDesc, String roleName, long roleStatus, long factoryId) {
+    this.id = id;
+    this.flag = flag;
+    this.createTime = createTime;
+    this.createUserid = createUserid;
+    this.updateTime = updateTime;
+    this.updateUserid = updateUserid;
+    this.roleDesc = roleDesc;
+    this.roleName = roleName;
+    this.roleStatus = roleStatus;
+    this.factoryId = factoryId;
+  }
 
   public long getId() {
     return id;
