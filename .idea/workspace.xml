@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab83baa9-c749-4ea8-adec-e33e013cd6a1" name="Default Changelist" comment="lcm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/CommonController.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/CommonController.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentController.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentController.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -468,7 +464,7 @@
       <workItem from="1565181708625" duration="3486000" />
       <workItem from="1565225909698" duration="7391000" />
       <workItem from="1565233817415" duration="2490000" />
-      <workItem from="1565241160493" duration="22993000" />
+      <workItem from="1565241160493" duration="23057000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1565226974170</created>
@@ -519,15 +515,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565267594926</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="lcm">
+      <created>1565269513201</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1565269513201</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39552000" />
+    <option name="totallyTimeSpent" value="39616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6650327" sideWeight="0.5060514" order="13" side_tool="true" content_ui="tabs" />
@@ -548,7 +550,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07189543" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.75653595" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6748366" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.073529415" sideWeight="0.4969743" order="13" side_tool="false" content_ui="tabs" />
