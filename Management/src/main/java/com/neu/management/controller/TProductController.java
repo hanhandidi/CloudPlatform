@@ -28,9 +28,9 @@ public class TProductController {
      * ok
      */
     @RequestMapping("list/{currentPage}")
-    public Message selectProducts(@RequestBody TProduct product, @PathVariable  Integer currentPage)
+    public Message selectProducts(@RequestBody TProduct product, @PathVariable  Long currentPage)
     {
-        Integer page =currentPage;
+        Long page =currentPage;
         System.out.println(currentPage);
         Message selectProducts = new Message();
         PageInfo<TProduct> data=tProductService.selectProducts(product,page);
@@ -47,7 +47,7 @@ public class TProductController {
     }
     //查询id  ok
     @RequestMapping("selById/{id}")
-    public Message selectProductById(@PathVariable Integer id)
+    public Message selectProductById(@PathVariable Long id)
     {
         Message selectProducts = new Message();
         TProduct data=tProductService.selectById(id);
@@ -85,8 +85,8 @@ public class TProductController {
     public Message addProduct(@RequestBody TProduct product, HttpSession session){
 
         Message message =new Message();
-        int resoult =tProductService.addProduct(product);
-        if(resoult==-1)
+        int result =tProductService.addProduct(product);
+        if(result==-1)
         {
             message.setCode(202);
             message.setMessage("产品信息及序列号不能为空");
@@ -102,12 +102,12 @@ public class TProductController {
 //            }
             message.setCode(200);
             message.setMessage("添加成功");
-            if(resoult==-2)
+            if(result==-2)
             {
                 message.setMessage("序列号重复,添加失败");
             }
         }
-        message.setData(resoult);
+        message.setData(result);
         return message;
 
     }
@@ -124,25 +124,29 @@ public class TProductController {
 //                tUser = (TUser)session.getAttribute("user");
 //                product.setCreateUserid(tUser.getId());
 //            }
-            int resoult = tProductService.updateProduct(product);
+            int result = tProductService.updateProduct(product);
 
             message.setCode(200);
-            message.setData("更新条数:"+resoult);
+            if(result==-2)
+            {
+                message.setMessage("已存在相同序产品名不同id产品");
+            }
+            message.setData("更新条数:"+result);
             return  message;
 
         }
         message.setCode(202);
-        message.setMessage("产品信息不能为空");
+        message.setMessage("产品信息不全");
         return message;
     }
     //id删除, ok
     @RequestMapping("del/{id}")
-    public Message deleteProduct(@PathVariable Integer id)
+    public Message deleteProduct(@PathVariable Long id)
     {
         Message message = new Message();
         System.out.println(id);
-        int resoult=tProductService.deleteById(id);
-        if (resoult == -1){
+        int result=tProductService.deleteById(id);
+        if (result == -1){
         // id为空
             message.setCode(202);
             message.setMessage("Id不能为空");
@@ -150,25 +154,25 @@ public class TProductController {
         }else {
             message.setCode(200);
             message.setMessage("删除成功");
-            message.setData("删除条数:"+resoult);
+            message.setData("删除条数:"+result);
             return message;
         }
     }
     //批量删除 ok
     @RequestMapping("deleteList")
-    public Message deleteProducts(@RequestBody List<Integer> ids)
+    public Message deleteProducts(@RequestBody List<Long> ids)
     {
         System.out.println(ids);
         Message message = new Message();
-        int resoult=tProductService.deleteProductByIds(ids);
-        if (resoult == -1){
+        int result=tProductService.deleteProductByIds(ids);
+        if (result == -1){
             // id为空
             message.setCode(202);
             message.setMessage("Id不能为空");
         }else {
             message.setCode(200);
             message.setMessage("删除成功");
-            message.setData("删除条数:"+resoult);
+            message.setData("删除条数:"+result);
         }
 
         return message;

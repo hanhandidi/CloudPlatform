@@ -18,7 +18,7 @@ public class TProductServiceImpl implements TProductService {
     @Autowired
     private TProductMapper tProductMapper;
     @Override
-    public PageInfo<TProduct> selectProducts(TProduct record,Integer currentPage) {
+    public PageInfo<TProduct> selectProducts(TProduct record,Long currentPage) {
         if(currentPage==null)
             currentPage=1;
         PageHelper.startPage(currentPage, Define.PAGE_SIZE);
@@ -42,31 +42,34 @@ public class TProductServiceImpl implements TProductService {
     @Override
     public int updateProduct(TProduct tProduct) {
 //        tProduct.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-        if (tProduct==null||tProduct.getId()==null)
+        if (tProduct==null||tProduct.getId()==null||tProduct.getProductName()==null)
             return -1;
+        TProduct tp =selectByName(tProduct.getProductName());
+        if(tp!=null&&tp.getId()!=tProduct.getId())
+            return -2;
         Timestamp t=new Timestamp(System.currentTimeMillis());
         tProduct.setUpdateTime(t);
         return tProductMapper.updateProduct(tProduct);
     }
 
     @Override
-    public int deleteProductByIds(List<Integer> ids) {
+    public int deleteProductByIds(List<Long> ids) {
         if(ids==null)
             return-1;
-        Map<String,List<Integer>> map= new HashMap<String, List<Integer>>();
+        Map<String,List<Long>> map= new HashMap<String, List<Long>>();
         map.put("list",ids);
         return tProductMapper.deleteProductsByIds(map);
     }
 
     @Override
-    public int deleteById(Integer id) {
+    public int deleteById(Long id) {
         if(id==null)
             return-1;
         return tProductMapper.deleteById(id);
     }
 
     @Override
-    public TProduct selectById(Integer id) {
+    public TProduct selectById(Long id) {
         if(id==null)
             return null;
         return tProductMapper.selectById(id);
@@ -77,5 +80,10 @@ public class TProductServiceImpl implements TProductService {
             return null;
         return tProductMapper.selectByNum(num);
     }
-
+    @Override
+    public TProduct selectByName(String name) {
+        if(name==null)
+            return null;
+        return tProductMapper.selectByName(name);
+    }
 }
