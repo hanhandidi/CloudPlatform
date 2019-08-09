@@ -31,7 +31,7 @@ public class TProductServiceImpl implements TProductService {
         if(tProduct==null||tProduct.getProductNum()==null)
             return -1;
         if(selectByNum(tProduct.getProductNum())!=null)
-            return 0;
+            return -2;
         tProduct.setId(null);
         Timestamp t=new Timestamp(System.currentTimeMillis());
         tProduct.setCreateTime(t);

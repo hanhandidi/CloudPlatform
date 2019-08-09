@@ -102,6 +102,10 @@ public class TProductController {
 //            }
             message.setCode(200);
             message.setMessage("添加成功");
+            if(resoult==-2)
+            {
+                message.setMessage("序列号重复,添加失败");
+            }
         }
         message.setData(resoult);
         return message;
@@ -150,7 +154,7 @@ public class TProductController {
             return message;
         }
     }
-    //批量删除
+    //批量删除 ok
     @RequestMapping("deleteList")
     public Message deleteProducts(@RequestBody List<Integer> ids)
     {
