@@ -1,8 +1,16 @@
 package com.neu.management.model;
 
 
-public class TEquipment {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Mapping;
 
+import java.io.Serializable;
+
+@Mapping(mappingPath = "/json/equipment_mapping.json")
+@Document(indexName = "equipment",type = "doc",shards = 1,replicas = 0)
+public class TEquipment implements Serializable {
+  @Id
   private long id;
   private long flag;
   private java.sql.Timestamp createTime;

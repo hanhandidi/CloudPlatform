@@ -62,6 +62,9 @@ spring:
         max-wait: -1ms # 连接池最大阻塞等待时间，若使用负值表示没有限制
         max-idle: 8 # 连接池中的最大空闲连接
         min-idle: 0
+  data:
+    elasticsearch: # ES
+      cluster-nodes: localhost:9300
 
 pagehelper:
   helperDialect: mysql

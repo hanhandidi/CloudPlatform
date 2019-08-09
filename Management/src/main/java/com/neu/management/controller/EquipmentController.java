@@ -1,14 +1,11 @@
 package com.neu.management.controller;
-
-import com.github.pagehelper.PageInfo;
 import com.neu.management.model.Message;
 import com.neu.management.model.TEquipment;
 import com.neu.management.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
-import java.awt.print.Book;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -26,15 +23,21 @@ public class EquipmentController {
     @ResponseBody
     @PostMapping("add")
     public Message addEquipment(@RequestBody TEquipment tEquipment) {
-        int resultCode = equipmentService.addEquipment(tEquipment);
         Message addEquipmentMessage = new Message();
-        if (resultCode == 1){
+        tEquipment.setCreateTime(new Timestamp(new Date().getTime()));
+        tEquipment.setUpdateTime(new Timestamp(new Date().getTime()));
+        TEquipment tEquipment1 = equipmentService.addEquipment(tEquipment);
+        if (tEquipment1 == null){
             // 序列号重复
             addEquipmentMessage.setCode(202);
             addEquipmentMessage.setMessage("添加设备失败，设备序列号已存在，请重试！");
         }else {
+            // 借助get方法添加缓存
+            System.out.println(tEquipment1.getId());
+            equipmentService.getEquipment((int) tEquipment1.getId());
             addEquipmentMessage.setCode(200);
             addEquipmentMessage.setMessage("添加设备成功！");
+            addEquipmentMessage.setData(tEquipment1);
         }
         return addEquipmentMessage;
     }
@@ -95,18 +98,20 @@ public class EquipmentController {
     @RequestMapping("update")
     public Message updateEquipment(@RequestBody TEquipment tEquipment){
         Message updateEquipmentMessage = new Message();
-        if (equipmentService.updateEquipment(tEquipment) == 1){
+        tEquipment.setUpdateTime(new Timestamp(new Date().getTime()));
+        if (equipmentService.updateEquipment(tEquipment) == null){
             // 序列号重复
             updateEquipmentMessage.setCode(202);
             updateEquipmentMessage.setMessage("更新设备失败，设备序列号已存在，请重试！");
         }else {
             updateEquipmentMessage.setCode(200);
             updateEquipmentMessage.setMessage("更新设备成功！");
+            updateEquipmentMessage.setData(tEquipment);
         }
         return updateEquipmentMessage;
     }
 
-    // 获取全部数据、分页 ok
+    // 获取全部数据、分页、简易查找 ok
     @RequestMapping("list/{currPage}")
     public Message listEquipment(@PathVariable Integer currPage, @RequestBody TEquipment tEquipment){
         Message listEquipmentMessage = new Message();
@@ -119,5 +124,35 @@ public class EquipmentController {
             listEquipmentMessage.setMessage("分页查询失败！");
         }
         return listEquipmentMessage;
+    }
+
+    // ES 检索 根据设备名称进行检索 ok
+    @RequestMapping("search/{currPage}")
+    public Message search(@PathVariable Integer currPage, @RequestBody String equipmentName){
+        Message searchEquipmentMessage = new Message();
+        if (equipmentService.search(currPage,equipmentName) != null){
+            searchEquipmentMessage.setCode(200);
+            searchEquipmentMessage.setMessage("文件检索成功！");
+            searchEquipmentMessage.setData(equipmentService.search(currPage,equipmentName));
+        }else {
+            searchEquipmentMessage.setCode(202);
+            searchEquipmentMessage.setMessage("文件检索成功！");
+        }
+        return searchEquipmentMessage;
+    }
+
+    // ES 检索 高亮 根据设备名称进行检索 ok
+    @RequestMapping("searchHighlight/{currPage}")
+    public Message searchHighlight(@PathVariable Integer currPage,@RequestBody String equipmentName){
+        Message searchHighlightEquipmentMessage = new Message();
+        if (equipmentService.searchHighlight(currPage,equipmentName) != null){
+            searchHighlightEquipmentMessage.setCode(200);
+            searchHighlightEquipmentMessage.setMessage("文件检索成功(高亮)！");
+            searchHighlightEquipmentMessage.setData(equipmentService.searchHighlight(currPage,equipmentName));
+        }else {
+            searchHighlightEquipmentMessage.setCode(202);
+            searchHighlightEquipmentMessage.setMessage("文件检索成功(高亮)！");
+        }
+        return searchHighlightEquipmentMessage;
     }
 }

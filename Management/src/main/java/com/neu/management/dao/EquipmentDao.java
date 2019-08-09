@@ -17,7 +17,8 @@ public interface EquipmentDao {
             "equipment_seq,equipment_name,equipment_img_url,equipment_status,factory_id) " +
             "values(#{flag},#{createTime},#{createUserid},#{updateTime},#{updateUserid}," +
             "#{equipmentSeq},#{equipmentName},#{equipmentImgUrl},#{equipmentStatus},#{factoryId})")
-    int insert(TEquipment record);
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn="id") // 添加成功之后将主键值赋值给tEquipment id
+    void insert(TEquipment tEquipment);
 
     // 批量添加
     @InsertProvider(type = Provider.class, method = "insertBatch")
