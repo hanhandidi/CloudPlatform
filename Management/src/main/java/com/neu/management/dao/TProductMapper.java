@@ -6,6 +6,7 @@ import org.apache.ibatis.type.JdbcType;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface TProductMapper {
@@ -24,6 +25,43 @@ public interface TProductMapper {
             @Result(column="factory_id", property="factoryId", jdbcType= JdbcType.INTEGER),
     })
     public List<TProduct> selectProducts(TProduct record);
+
+    @Select({
+            "select * from t_product where id = #{id,jdbcType=INTEGER}"
+    })
+    @Results({
+            @Result(column="id", property="id", jdbcType= JdbcType.INTEGER, id=true),
+            @Result(column="flag", property="flag", jdbcType= JdbcType.INTEGER),
+            @Result(column="create_time", property="createTime", jdbcType= JdbcType.TIMESTAMP),
+            @Result(column="create_userid", property="createUserid", jdbcType= JdbcType.INTEGER),
+            @Result(column="update_time", property="updateTime", jdbcType= JdbcType.TIMESTAMP),
+            @Result(column="update_userid", property="updateUserid", jdbcType= JdbcType.INTEGER),
+            @Result(column="product_num", property="productNum", jdbcType= JdbcType.VARCHAR),
+            @Result(column="product_name", property="productName", jdbcType= JdbcType.VARCHAR),
+            @Result(column="product_img_url", property="productImgUrl", jdbcType= JdbcType.VARCHAR),
+            @Result(column="factory_id", property="factoryId", jdbcType= JdbcType.INTEGER),
+    })
+    public TProduct selectById(int id);
+
+    @Select({
+            "select * from t_product where product_num = #{num,jdbcType=VARCHAR}"
+    })
+    @Results({
+            @Result(column="id", property="id", jdbcType= JdbcType.INTEGER, id=true),
+            @Result(column="flag", property="flag", jdbcType= JdbcType.INTEGER),
+            @Result(column="create_time", property="createTime", jdbcType= JdbcType.TIMESTAMP),
+            @Result(column="create_userid", property="createUserid", jdbcType= JdbcType.INTEGER),
+            @Result(column="update_time", property="updateTime", jdbcType= JdbcType.TIMESTAMP),
+            @Result(column="update_userid", property="updateUserid", jdbcType= JdbcType.INTEGER),
+            @Result(column="product_num", property="productNum", jdbcType= JdbcType.VARCHAR),
+            @Result(column="product_name", property="productName", jdbcType= JdbcType.VARCHAR),
+            @Result(column="product_img_url", property="productImgUrl", jdbcType= JdbcType.VARCHAR),
+            @Result(column="factory_id", property="factoryId", jdbcType= JdbcType.INTEGER),
+    })
+    public TProduct selectByNum(String num);
+
+
+
     @Insert({
             "insert into t_product ( flag, create_time," +
                     "create_userid, update_time, update_userid,product_num, product_name, product_img_url," +
@@ -50,6 +88,9 @@ public interface TProductMapper {
     public int updateProduct(TProduct record);
 
 
-    @DeleteProvider(type = TProductSqlProvider.class,method = "deleteProductsById")
-    public int deleteProductsById(Integer[] id);
+    @DeleteProvider(type = TProductSqlProvider.class,method = "deleteProductByIds")
+    public int deleteProductsByIds(Map<String,List<Integer>> map);
+
+    @Delete({"delete from t_product where id =#{id}"})
+    public int deleteById(Integer id);
 }

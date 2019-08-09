@@ -6,9 +6,9 @@ public class TProduct {
 
     private Integer id;
     private Integer flag;
-    private java.sql.Timestamp createTime;
+    private Timestamp createTime;
     private Integer createUserid;
-    private java.sql.Timestamp updateTime;
+    private Timestamp updateTime;
     private Integer updateUserid;
     private String productNum;
     private String productName;

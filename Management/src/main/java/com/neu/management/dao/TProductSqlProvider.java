@@ -2,6 +2,9 @@ package com.neu.management.dao;
 
 import com.neu.management.model.TProduct;
 
+import java.util.List;
+import java.util.Map;
+
 import static org.apache.ibatis.jdbc.SqlBuilder.*;
 
 public class TProductSqlProvider {
@@ -20,21 +23,22 @@ public class TProductSqlProvider {
         }
         return  SQL();
     }
-    public String deleteProductsById(Integer[] id)
+    public String deleteProductByIds(Map<String,List<Integer>> map)
     {
-        BEGIN();;
-        DELETE_FROM("t_product");
-        if(id!=null&&id.length>0)
-        {
-            for(Integer i:id)
-            {
-                WHERE("id="+i);
-                OR();
-            }
-            return SQL();
+
+        List<Integer> ids =map.get("list");
+        System.out.println(ids+"aa");
+        StringBuilder sb = new StringBuilder();
+        sb.append("DELETE FROM t_product WHERE id IN (");
+        for (int i = 0; i < ids.size(); i++) {
+            sb.append("'").append(ids.get(i)).append("'");
+            if (i < ids.size() - 1)
+                sb.append(",");
         }
-        WHERE("1=2");
-        return SQL();
+        sb.append(")");
+        System.out.println("99999999999999999999999");
+        return sb.toString();
+
 
     }
 }
