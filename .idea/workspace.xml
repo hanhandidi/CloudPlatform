@@ -64,8 +64,8 @@
       <file leaf-file-name="EquipmentServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="114" column="5" lean-forward="true" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+            <state relative-caret-position="508">
+              <caret line="117" column="13" lean-forward="true" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4825#4826#0" expanded="true" />
@@ -458,7 +458,7 @@
       <workItem from="1565233817415" duration="2490000" />
       <workItem from="1565241160493" duration="23764000" />
       <workItem from="1565312844343" duration="24290000" />
-      <workItem from="1565349311185" duration="1920000" />
+      <workItem from="1565349311185" duration="1962000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1565226974170</created>
@@ -558,11 +558,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565350505963</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="lcm">
+      <created>1565351273724</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1565351273724</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66533000" />
+    <option name="totallyTimeSpent" value="66575000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1167,8 +1174,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="114" column="5" lean-forward="true" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+        <state relative-caret-position="508">
+          <caret line="117" column="13" lean-forward="true" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4825#4826#0" expanded="true" />
