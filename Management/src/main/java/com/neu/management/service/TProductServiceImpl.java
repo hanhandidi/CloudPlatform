@@ -18,8 +18,8 @@ public class TProductServiceImpl implements TProductService {
     @Autowired
     private TProductMapper tProductMapper;
     @Override
-    public PageInfo<TProduct> selectProducts(TProduct record,Long currentPage) {
-        if(currentPage==null)
+    public PageInfo<TProduct> selectProducts(TProduct record,Integer currentPage) {
+        if(currentPage==0)
             currentPage=1;
         PageHelper.startPage(currentPage, Define.PAGE_SIZE);
         PageInfo<TProduct> pageInfo = new PageInfo<>(tProductMapper.selectProducts(record));
@@ -32,7 +32,7 @@ public class TProductServiceImpl implements TProductService {
             return -1;
         if(selectByNum(tProduct.getProductNum())!=null)
             return -2;
-        tProduct.setId(null);
+        tProduct.setId(0);
         Timestamp t=new Timestamp(System.currentTimeMillis());
         tProduct.setCreateTime(t);
         tProduct.setUpdateTime(t);
@@ -42,35 +42,36 @@ public class TProductServiceImpl implements TProductService {
     @Override
     public int updateProduct(TProduct tProduct) {
 //        tProduct.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-        if (tProduct==null||tProduct.getId()==null||tProduct.getProductName()==null)
+        if (tProduct==null||tProduct.getId()==0||tProduct.getProductName()==null)
             return -1;
         TProduct tp =selectByName(tProduct.getProductName());
         if(tp!=null&&tp.getId()!=tProduct.getId())
             return -2;
         Timestamp t=new Timestamp(System.currentTimeMillis());
         tProduct.setUpdateTime(t);
+        System.out.println(tProduct);
         return tProductMapper.updateProduct(tProduct);
     }
 
     @Override
-    public int deleteProductByIds(List<Long> ids) {
+    public int deleteProductByIds(List<Integer> ids) {
         if(ids==null)
             return-1;
-        Map<String,List<Long>> map= new HashMap<String, List<Long>>();
+        Map<String,List<Integer>> map= new HashMap<String, List<Integer>>();
         map.put("list",ids);
         return tProductMapper.deleteProductsByIds(map);
     }
 
     @Override
-    public int deleteById(Long id) {
-        if(id==null)
+    public int deleteById(Integer id) {
+        if(id==0)
             return-1;
         return tProductMapper.deleteById(id);
     }
 
     @Override
-    public TProduct selectById(Long id) {
-        if(id==null)
+    public TProduct selectById(Integer id) {
+        if(id==0)
             return null;
         return tProductMapper.selectById(id);
     }

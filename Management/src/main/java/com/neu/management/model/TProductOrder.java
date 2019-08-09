@@ -6,34 +6,34 @@ import java.sql.Timestamp;
 
 public class TProductOrder {
 
-  private Long id;
-  private Long flag;
+  private long id;
+  private long flag;
   private java.sql.Timestamp createTime;
-  private Long createUserid;
+  private long createUserid;
   private java.sql.Timestamp updateTime;
-  private Long updateUserid;
+  private long updateUserid;
   private String orderSeq;
-  private Long orderSource;
-  private Long productId;
-  private Long productCount;
+  private long orderSource;
+  private long productId;
+  private long productCount;
   private java.sql.Date endDate;
-  private Long orderStatus;
-  private Long factoryId;
-  private Long factoryYield;
+  private long orderStatus;
+  private long factoryId;
+  private long factoryYield;
 
-  public Long getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(long id) {
     this.id = id;
   }
 
-  public Long getFlag() {
+  public long getFlag() {
     return flag;
   }
 
-  public void setFlag(Long flag) {
+  public void setFlag(long flag) {
     this.flag = flag;
   }
 
@@ -45,11 +45,11 @@ public class TProductOrder {
     this.createTime = createTime;
   }
 
-  public Long getCreateUserid() {
+  public long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(Long createUserid) {
+  public void setCreateUserid(long createUserid) {
     this.createUserid = createUserid;
   }
 
@@ -61,11 +61,11 @@ public class TProductOrder {
     this.updateTime = updateTime;
   }
 
-  public Long getUpdateUserid() {
+  public long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(Long updateUserid) {
+  public void setUpdateUserid(long updateUserid) {
     this.updateUserid = updateUserid;
   }
 
@@ -77,27 +77,27 @@ public class TProductOrder {
     this.orderSeq = orderSeq;
   }
 
-  public Long getOrderSource() {
+  public long getOrderSource() {
     return orderSource;
   }
 
-  public void setOrderSource(Long orderSource) {
+  public void setOrderSource(long orderSource) {
     this.orderSource = orderSource;
   }
 
-  public Long getProductId() {
+  public long getProductId() {
     return productId;
   }
 
-  public void setProductId(Long productId) {
+  public void setProductId(long productId) {
     this.productId = productId;
   }
 
-  public Long getProductCount() {
+  public long getProductCount() {
     return productCount;
   }
 
-  public void setProductCount(Long productCount) {
+  public void setProductCount(long productCount) {
     this.productCount = productCount;
   }
 
@@ -109,31 +109,31 @@ public class TProductOrder {
     this.endDate = endDate;
   }
 
-  public Long getOrderStatus() {
+  public long getOrderStatus() {
     return orderStatus;
   }
 
-  public void setOrderStatus(Long orderStatus) {
+  public void setOrderStatus(long orderStatus) {
     this.orderStatus = orderStatus;
   }
 
-  public Long getFactoryId() {
+  public long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(Long factoryId) {
+  public void setFactoryId(long factoryId) {
     this.factoryId = factoryId;
   }
 
-  public Long getFactoryYield() {
+  public long getFactoryYield() {
     return factoryYield;
   }
 
-  public void setFactoryYield(Long factoryYield) {
+  public void setFactoryYield(long factoryYield) {
     this.factoryYield = factoryYield;
   }
 
-  public TProductOrder(Long id, Long flag, Timestamp createTime, Long createUserid, Timestamp updateTime, Long updateUserid, String orderSeq, Long orderSource, Long productId, Long productCount, Date endDate, Long orderStatus, Long factoryId, Long factoryYield) {
+  public TProductOrder(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String orderSeq, long orderSource, long productId, long productCount, Date endDate, long orderStatus, long factoryId, long factoryYield) {
     this.id = id;
     this.flag = flag;
     this.createTime = createTime;

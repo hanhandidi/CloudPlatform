@@ -3,47 +3,47 @@ package com.neu.management.model;
 
 public class TPermit {
 
-  private Long id;
-  private Long flag;
-  private Long status;
-  private Long parentId;
+  private long id;
+  private long flag;
+  private long status;
+  private long parentId;
   private String permitName;
   private String permitDesc;
   private String permitPath;
 
 
-  public Long getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(long id) {
     this.id = id;
   }
 
 
-  public Long getFlag() {
+  public long getFlag() {
     return flag;
   }
 
-  public void setFlag(Long flag) {
+  public void setFlag(long flag) {
     this.flag = flag;
   }
 
 
-  public Long getStatus() {
+  public long getStatus() {
     return status;
   }
 
-  public void setStatus(Long status) {
+  public void setStatus(long status) {
     this.status = status;
   }
 
 
-  public Long getParentId() {
+  public long getParentId() {
     return parentId;
   }
 
-  public void setParentId(Long parentId) {
+  public void setParentId(long parentId) {
     this.parentId = parentId;
   }
 

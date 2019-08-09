@@ -6,26 +6,26 @@ import java.sql.Timestamp;
 
 public class TProductPlan {
 
-  private Long id;
-  private Long flag;
+  private long id;
+  private long flag;
   private java.sql.Timestamp createTime;
-  private Long createUserid;
+  private long createUserid;
   private java.sql.Timestamp updateTime;
-  private Long updateUserid;
+  private long updateUserid;
   private String planSeq;
-  private Long orderId;
-  private Long productId;
-  private Long planCount;
+  private long orderId;
+  private long productId;
+  private long planCount;
   private java.sql.Date deliveryDate;
   private java.sql.Date planStartDate;
   private java.sql.Date planEndDate;
-  private Long planStatus;
-  private Long factoryId;
+  private long planStatus;
+  private long factoryId;
 
   public TProductPlan() {
   }
 
-  public TProductPlan(Long id, Long flag, Timestamp createTime, Long createUserid, Timestamp updateTime, Long updateUserid, String planSeq, Long orderId, Long productId, Long planCount, Date deliveryDate, Date planStartDate, Date planEndDate, Long planStatus, Long factoryId) {
+  public TProductPlan(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String planSeq, long orderId, long productId, long planCount, Date deliveryDate, Date planStartDate, Date planEndDate, long planStatus, long factoryId) {
     this.id = id;
     this.flag = flag;
     this.createTime = createTime;
@@ -43,19 +43,19 @@ public class TProductPlan {
     this.factoryId = factoryId;
   }
 
-  public Long getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(long id) {
     this.id = id;
   }
 
-  public Long getFlag() {
+  public long getFlag() {
     return flag;
   }
 
-  public void setFlag(Long flag) {
+  public void setFlag(long flag) {
     this.flag = flag;
   }
 
@@ -67,11 +67,11 @@ public class TProductPlan {
     this.createTime = createTime;
   }
 
-  public Long getCreateUserid() {
+  public long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(Long createUserid) {
+  public void setCreateUserid(long createUserid) {
     this.createUserid = createUserid;
   }
 
@@ -83,11 +83,11 @@ public class TProductPlan {
     this.updateTime = updateTime;
   }
 
-  public Long getUpdateUserid() {
+  public long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(Long updateUserid) {
+  public void setUpdateUserid(long updateUserid) {
     this.updateUserid = updateUserid;
   }
 
@@ -99,27 +99,27 @@ public class TProductPlan {
     this.planSeq = planSeq;
   }
 
-  public Long getOrderId() {
+  public long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(Long orderId) {
+  public void setOrderId(long orderId) {
     this.orderId = orderId;
   }
 
-  public Long getProductId() {
+  public long getProductId() {
     return productId;
   }
 
-  public void setProductId(Long productId) {
+  public void setProductId(long productId) {
     this.productId = productId;
   }
 
-  public Long getPlanCount() {
+  public long getPlanCount() {
     return planCount;
   }
 
-  public void setPlanCount(Long planCount) {
+  public void setPlanCount(long planCount) {
     this.planCount = planCount;
   }
 
@@ -147,19 +147,19 @@ public class TProductPlan {
     this.planEndDate = planEndDate;
   }
 
-  public Long getPlanStatus() {
+  public long getPlanStatus() {
     return planStatus;
   }
 
-  public void setPlanStatus(Long planStatus) {
+  public void setPlanStatus(long planStatus) {
     this.planStatus = planStatus;
   }
 
-  public Long getFactoryId() {
+  public long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(Long factoryId) {
+  public void setFactoryId(long factoryId) {
     this.factoryId = factoryId;
   }
 }

@@ -4,33 +4,33 @@ import java.sql.Timestamp;
 
 public class TProduct {
 
-    private Long id;
-    private Long flag;
+    private long id;
+    private long flag;
     private Timestamp createTime;
-    private Long createUserid;
+    private long createUserid;
     private Timestamp updateTime;
-    private Long updateUserid;
+    private long updateUserid;
     private String productNum;
     private String productName;
     private String productImgUrl;
-    private Long factoryId;
+    private long factoryId;
 
     public TProduct() {
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getFlag() {
+    public long getFlag() {
         return flag;
     }
 
-    public void setFlag(Long flag) {
+    public void setFlag(long flag) {
         this.flag = flag;
     }
 
@@ -42,11 +42,11 @@ public class TProduct {
         this.createTime = createTime;
     }
 
-    public Long getCreateUserid() {
+    public long getCreateUserid() {
         return createUserid;
     }
 
-    public void setCreateUserid(Long createUserid) {
+    public void setCreateUserid(long createUserid) {
         this.createUserid = createUserid;
     }
 
@@ -58,16 +58,32 @@ public class TProduct {
         this.updateTime = updateTime;
     }
 
-    public Long getUpdateUserid() {
+    public long getUpdateUserid() {
         return updateUserid;
     }
 
-    public void setUpdateUserid(Long updateUserid) {
+    public void setUpdateUserid(long updateUserid) {
         this.updateUserid = updateUserid;
     }
 
     public String getProductNum() {
         return productNum;
+    }
+
+    @Override
+    public String toString() {
+        return "TProduct{" +
+                "id=" + id +
+                ", flag=" + flag +
+                ", createTime=" + createTime +
+                ", createUserid=" + createUserid +
+                ", updateTime=" + updateTime +
+                ", updateUserid=" + updateUserid +
+                ", productNum='" + productNum + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productImgUrl='" + productImgUrl + '\'' +
+                ", factoryId=" + factoryId +
+                '}';
     }
 
     public void setProductNum(String productNum) {
@@ -90,15 +106,15 @@ public class TProduct {
         this.productImgUrl = productImgUrl;
     }
 
-    public Long getFactoryId() {
+    public long getFactoryId() {
         return factoryId;
     }
 
-    public void setFactoryId(Long factoryId) {
+    public void setFactoryId(long factoryId) {
         this.factoryId = factoryId;
     }
 
-    public TProduct(Long id, Long flag, Timestamp createTime, Long createUserid, Timestamp updateTime, Long updateUserid, String productNum, String productName, String productImgUrl, Long factoryId) {
+    public TProduct(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String productNum, String productName, String productImgUrl, long factoryId) {
         this.id = id;
         this.flag = flag;
         this.createTime = createTime;

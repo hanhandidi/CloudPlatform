@@ -3,37 +3,37 @@ package com.neu.management.model;
 
 public class TUser {
 
-  private Long id;
-  private Long flag;
+  private long id;
+  private long flag;
   private java.sql.Timestamp createTime;
-  private Long createUserid;
+  private long createUserid;
   private java.sql.Timestamp updateTime;
-  private Long updateUserid;
-  private Long userStatus;
+  private long updateUserid;
+  private long userStatus;
   private String userName;
   private String userRealName;
   private String userPasswd;
   private String userJobNum;
   private String userPhoneNum;
   private String userEmail;
-  private Long roleId;
-  private Long factoryId;
+  private long roleId;
+  private long factoryId;
 
 
-  public Long getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(long id) {
     this.id = id;
   }
 
 
-  public Long getFlag() {
+  public long getFlag() {
     return flag;
   }
 
-  public void setFlag(Long flag) {
+  public void setFlag(long flag) {
     this.flag = flag;
   }
 
@@ -47,11 +47,11 @@ public class TUser {
   }
 
 
-  public Long getCreateUserid() {
+  public long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(Long createUserid) {
+  public void setCreateUserid(long createUserid) {
     this.createUserid = createUserid;
   }
 
@@ -65,20 +65,20 @@ public class TUser {
   }
 
 
-  public Long getUpdateUserid() {
+  public long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(Long updateUserid) {
+  public void setUpdateUserid(long updateUserid) {
     this.updateUserid = updateUserid;
   }
 
 
-  public Long getUserStatus() {
+  public long getUserStatus() {
     return userStatus;
   }
 
-  public void setUserStatus(Long userStatus) {
+  public void setUserStatus(long userStatus) {
     this.userStatus = userStatus;
   }
 
@@ -137,20 +137,20 @@ public class TUser {
   }
 
 
-  public Long getRoleId() {
+  public long getRoleId() {
     return roleId;
   }
 
-  public void setRoleId(Long roleId) {
+  public void setRoleId(long roleId) {
     this.roleId = roleId;
   }
 
 
-  public Long getFactoryId() {
+  public long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(Long factoryId) {
+  public void setFactoryId(long factoryId) {
     this.factoryId = factoryId;
   }
 

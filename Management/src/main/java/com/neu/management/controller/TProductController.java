@@ -28,9 +28,9 @@ public class TProductController {
      * ok
      */
     @RequestMapping("list/{currentPage}")
-    public Message selectProducts(@RequestBody TProduct product, @PathVariable  Long currentPage)
+    public Message selectProducts(@RequestBody TProduct product, @PathVariable  Integer currentPage)
     {
-        Long page =currentPage;
+        Integer page =currentPage;
         System.out.println(currentPage);
         Message selectProducts = new Message();
         PageInfo<TProduct> data=tProductService.selectProducts(product,page);
@@ -47,7 +47,7 @@ public class TProductController {
     }
     //查询id  ok
     @RequestMapping("selById/{id}")
-    public Message selectProductById(@PathVariable Long id)
+    public Message selectProductById(@PathVariable Integer id)
     {
         Message selectProducts = new Message();
         TProduct data=tProductService.selectById(id);
@@ -116,7 +116,7 @@ public class TProductController {
     public Message updateProduct(@RequestBody TProduct product,HttpSession session)
     {
         Message message =new Message();
-        if(product!=null&&product.getId()!=null)
+        if(product!=null&&product.getId()!=0&&product.getProductName()!=null)
         {
 //            if(session.getAttribute("user")!=null)
 //            {
@@ -132,6 +132,7 @@ public class TProductController {
                 message.setMessage("已存在相同序产品名不同id产品");
             }
             message.setData("更新条数:"+result);
+            message.setMessage("更新成功");
             return  message;
 
         }
@@ -141,7 +142,7 @@ public class TProductController {
     }
     //id删除, ok
     @RequestMapping("del/{id}")
-    public Message deleteProduct(@PathVariable Long id)
+    public Message deleteProduct(@PathVariable Integer id)
     {
         Message message = new Message();
         System.out.println(id);
@@ -160,7 +161,7 @@ public class TProductController {
     }
     //批量删除 ok
     @RequestMapping("deleteList")
-    public Message deleteProducts(@RequestBody List<Long> ids)
+    public Message deleteProducts(@RequestBody List<Integer> ids)
     {
         System.out.println(ids);
         Message message = new Message();

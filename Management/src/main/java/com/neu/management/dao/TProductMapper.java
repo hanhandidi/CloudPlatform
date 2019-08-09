@@ -13,16 +13,16 @@ public interface TProductMapper {
 
     @SelectProvider(type=TProductSqlProvider.class, method="selectProducts")
     @Results({
-            @Result(column="id", property="id", jdbcType= JdbcType.INTEGER, id=true),
-            @Result(column="flag", property="flag", jdbcType= JdbcType.INTEGER),
-            @Result(column="create_time", property="createTime", jdbcType= JdbcType.TIMESTAMP),
-            @Result(column="create_userid", property="createUserid", jdbcType= JdbcType.INTEGER),
-            @Result(column="update_time", property="updateTime", jdbcType= JdbcType.TIMESTAMP),
-            @Result(column="update_userid", property="updateUserid", jdbcType= JdbcType.INTEGER),
-            @Result(column="product_num", property="productNum", jdbcType= JdbcType.VARCHAR),
-            @Result(column="product_name", property="productName", jdbcType= JdbcType.VARCHAR),
-            @Result(column="product_img_url", property="productImgUrl", jdbcType= JdbcType.VARCHAR),
-            @Result(column="factory_id", property="factoryId", jdbcType= JdbcType.INTEGER),
+            @Result(column="id", property="id" ,id=true),
+            @Result(column="flag", property="flag"),
+            @Result(column="create_time", property="createTime"),
+            @Result(column="create_userid", property="createUserid"),
+            @Result(column="update_time", property="updateTime"),
+            @Result(column="update_userid", property="updateUserid"),
+            @Result(column="product_num", property="productNum"),
+            @Result(column="product_name", property="productName"),
+            @Result(column="product_img_url", property="productImgUrl"),
+            @Result(column="factory_id", property="factoryId"),
     })
     public List<TProduct> selectProducts(TProduct record);
 
@@ -30,35 +30,52 @@ public interface TProductMapper {
             "select * from t_product where id = #{id,jdbcType=INTEGER}"
     })
     @Results({
-            @Result(column="id", property="id", jdbcType= JdbcType.INTEGER, id=true),
-            @Result(column="flag", property="flag", jdbcType= JdbcType.INTEGER),
+            @Result(column="id", property="id",  id=true),
+            @Result(column="flag", property="flag"),
             @Result(column="create_time", property="createTime", jdbcType= JdbcType.TIMESTAMP),
-            @Result(column="create_userid", property="createUserid", jdbcType= JdbcType.INTEGER),
+            @Result(column="create_userid", property="createUserid"),
             @Result(column="update_time", property="updateTime", jdbcType= JdbcType.TIMESTAMP),
-            @Result(column="update_userid", property="updateUserid", jdbcType= JdbcType.INTEGER),
-            @Result(column="product_num", property="productNum", jdbcType= JdbcType.VARCHAR),
-            @Result(column="product_name", property="productName", jdbcType= JdbcType.VARCHAR),
-            @Result(column="product_img_url", property="productImgUrl", jdbcType= JdbcType.VARCHAR),
-            @Result(column="factory_id", property="factoryId", jdbcType= JdbcType.INTEGER),
+            @Result(column="update_userid", property="updateUserid"),
+            @Result(column="product_num", property="productNum"),
+            @Result(column="product_name", property="productName"),
+            @Result(column="product_img_url", property="productImgUrl"),
+            @Result(column="factory_id", property="factoryId"),
     })
-    public TProduct selectById(int id);
+    public TProduct selectById(Integer id);
 
     @Select({
             "select * from t_product where product_num = #{num,jdbcType=VARCHAR}"
     })
     @Results({
-            @Result(column="id", property="id", jdbcType= JdbcType.INTEGER, id=true),
-            @Result(column="flag", property="flag", jdbcType= JdbcType.INTEGER),
+            @Result(column="id", property="id", id=true),
+            @Result(column="flag", property="flag"),
             @Result(column="create_time", property="createTime", jdbcType= JdbcType.TIMESTAMP),
-            @Result(column="create_userid", property="createUserid", jdbcType= JdbcType.INTEGER),
+            @Result(column="create_userid", property="createUserid"),
             @Result(column="update_time", property="updateTime", jdbcType= JdbcType.TIMESTAMP),
-            @Result(column="update_userid", property="updateUserid", jdbcType= JdbcType.INTEGER),
-            @Result(column="product_num", property="productNum", jdbcType= JdbcType.VARCHAR),
-            @Result(column="product_name", property="productName", jdbcType= JdbcType.VARCHAR),
-            @Result(column="product_img_url", property="productImgUrl", jdbcType= JdbcType.VARCHAR),
-            @Result(column="factory_id", property="factoryId", jdbcType= JdbcType.INTEGER),
+            @Result(column="update_userid", property="updateUserid"),
+            @Result(column="product_num", property="productNum"),
+            @Result(column="product_name", property="productName"),
+            @Result(column="product_img_url", property="productImgUrl"),
+            @Result(column="factory_id", property="factoryId"),
     })
     public TProduct selectByNum(String num);
+
+    @Select({
+            "select * from t_product where product_name = #{name,jdbcType=VARCHAR}"
+    })
+    @Results({
+            @Result(column="id", property="id",  id=true),
+            @Result(column="flag", property="flag"),
+            @Result(column="create_time", property="createTime", jdbcType= JdbcType.TIMESTAMP),
+            @Result(column="create_userid", property="createUserid"),
+            @Result(column="update_time", property="updateTime", jdbcType= JdbcType.TIMESTAMP),
+            @Result(column="update_userid", property="updateUserid"),
+            @Result(column="product_num", property="productNum"),
+            @Result(column="product_name", property="productName"),
+            @Result(column="product_img_url", property="productImgUrl"),
+            @Result(column="factory_id", property="factoryId"),
+    })
+    public TProduct selectByName(String name);
 
 
 

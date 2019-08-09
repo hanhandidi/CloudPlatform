@@ -5,20 +5,20 @@ import java.sql.Timestamp;
 
 public class TRolePermit {
 
-  private Long id;
-  private Long flag;
+  private long id;
+  private long flag;
   private java.sql.Timestamp createTime;
-  private Long createUserid;
+  private long createUserid;
   private java.sql.Timestamp updateTime;
-  private Long updateUserid;
-  private Long factoryId;
-  private Long roleId;
-  private Long permitId;
+  private long updateUserid;
+  private long factoryId;
+  private long roleId;
+  private long permitId;
 
   public TRolePermit() {
   }
 
-  public TRolePermit(Long id, Long flag, Timestamp createTime, Long createUserid, Timestamp updateTime, Long updateUserid, Long factoryId, Long roleId, Long permitId) {
+  public TRolePermit(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, long factoryId, long roleId, long permitId) {
     this.id = id;
     this.flag = flag;
     this.createTime = createTime;
@@ -30,19 +30,19 @@ public class TRolePermit {
     this.permitId = permitId;
   }
 
-  public Long getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(long id) {
     this.id = id;
   }
 
-  public Long getFlag() {
+  public long getFlag() {
     return flag;
   }
 
-  public void setFlag(Long flag) {
+  public void setFlag(long flag) {
     this.flag = flag;
   }
 
@@ -54,11 +54,11 @@ public class TRolePermit {
     this.createTime = createTime;
   }
 
-  public Long getCreateUserid() {
+  public long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(Long createUserid) {
+  public void setCreateUserid(long createUserid) {
     this.createUserid = createUserid;
   }
 
@@ -70,35 +70,35 @@ public class TRolePermit {
     this.updateTime = updateTime;
   }
 
-  public Long getUpdateUserid() {
+  public long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(Long updateUserid) {
+  public void setUpdateUserid(long updateUserid) {
     this.updateUserid = updateUserid;
   }
 
-  public Long getFactoryId() {
+  public long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(Long factoryId) {
+  public void setFactoryId(long factoryId) {
     this.factoryId = factoryId;
   }
 
-  public Long getRoleId() {
+  public long getRoleId() {
     return roleId;
   }
 
-  public void setRoleId(Long roleId) {
+  public void setRoleId(long roleId) {
     this.roleId = roleId;
   }
 
-  public Long getPermitId() {
+  public long getPermitId() {
     return permitId;
   }
 
-  public void setPermitId(Long permitId) {
+  public void setPermitId(long permitId) {
     this.permitId = permitId;
   }
 }

@@ -6,26 +6,26 @@ import java.sql.Timestamp;
 
 public class TProductSchedule {
 
-  private Long id;
-  private Long flag;
+  private long id;
+  private long flag;
   private java.sql.Timestamp createTime;
-  private Long createUserid;
+  private long createUserid;
   private java.sql.Timestamp updateTime;
-  private Long updateUserid;
+  private long updateUserid;
   private String scheduleSeq;
-  private Long scheduleCount;
-  private Long scheduleStatus;
-  private Long planId;
-  private Long productId;
-  private Long equipmentId;
+  private long scheduleCount;
+  private long scheduleStatus;
+  private long planId;
+  private long productId;
+  private long equipmentId;
   private java.sql.Date startDate;
   private java.sql.Date endDate;
-  private Long factoryId;
+  private long factoryId;
 
   public TProductSchedule() {
   }
 
-  public TProductSchedule(Long id, Long flag, Timestamp createTime, Long createUserid, Timestamp updateTime, Long updateUserid, String scheduleSeq, Long scheduleCount, Long scheduleStatus, Long planId, Long productId, Long equipmentId, Date startDate, Date endDate, Long factoryId) {
+  public TProductSchedule(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String scheduleSeq, long scheduleCount, long scheduleStatus, long planId, long productId, long equipmentId, Date startDate, Date endDate, long factoryId) {
     this.id = id;
     this.flag = flag;
     this.createTime = createTime;
@@ -43,19 +43,19 @@ public class TProductSchedule {
     this.factoryId = factoryId;
   }
 
-  public Long getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(long id) {
     this.id = id;
   }
 
-  public Long getFlag() {
+  public long getFlag() {
     return flag;
   }
 
-  public void setFlag(Long flag) {
+  public void setFlag(long flag) {
     this.flag = flag;
   }
 
@@ -67,11 +67,11 @@ public class TProductSchedule {
     this.createTime = createTime;
   }
 
-  public Long getCreateUserid() {
+  public long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(Long createUserid) {
+  public void setCreateUserid(long createUserid) {
     this.createUserid = createUserid;
   }
 
@@ -83,11 +83,11 @@ public class TProductSchedule {
     this.updateTime = updateTime;
   }
 
-  public Long getUpdateUserid() {
+  public long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(Long updateUserid) {
+  public void setUpdateUserid(long updateUserid) {
     this.updateUserid = updateUserid;
   }
 
@@ -99,43 +99,43 @@ public class TProductSchedule {
     this.scheduleSeq = scheduleSeq;
   }
 
-  public Long getScheduleCount() {
+  public long getScheduleCount() {
     return scheduleCount;
   }
 
-  public void setScheduleCount(Long scheduleCount) {
+  public void setScheduleCount(long scheduleCount) {
     this.scheduleCount = scheduleCount;
   }
 
-  public Long getScheduleStatus() {
+  public long getScheduleStatus() {
     return scheduleStatus;
   }
 
-  public void setScheduleStatus(Long scheduleStatus) {
+  public void setScheduleStatus(long scheduleStatus) {
     this.scheduleStatus = scheduleStatus;
   }
 
-  public Long getPlanId() {
+  public long getPlanId() {
     return planId;
   }
 
-  public void setPlanId(Long planId) {
+  public void setPlanId(long planId) {
     this.planId = planId;
   }
 
-  public Long getProductId() {
+  public long getProductId() {
     return productId;
   }
 
-  public void setProductId(Long productId) {
+  public void setProductId(long productId) {
     this.productId = productId;
   }
 
-  public Long getEquipmentId() {
+  public long getEquipmentId() {
     return equipmentId;
   }
 
-  public void setEquipmentId(Long equipmentId) {
+  public void setEquipmentId(long equipmentId) {
     this.equipmentId = equipmentId;
   }
 
@@ -155,11 +155,11 @@ public class TProductSchedule {
     this.endDate = endDate;
   }
 
-  public Long getFactoryId() {
+  public long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(Long factoryId) {
+  public void setFactoryId(long factoryId) {
     this.factoryId = factoryId;
   }
 }

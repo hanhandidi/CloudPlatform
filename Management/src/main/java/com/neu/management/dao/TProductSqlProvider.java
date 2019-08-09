@@ -18,8 +18,6 @@ public class TProductSqlProvider {
                 WHERE("product_num="+product.getProductNum());
             if(product.getProductName()!=null)
                 WHERE("product_name"+product.getProductName());
-            if(product.getFlag()!=null)
-                WHERE("flag="+product.getFlag());
         }
         return  SQL();
     }
