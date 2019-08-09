@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public TUser selectById(long id) {
+    public TUser selectById(Integer id) {
         if (id==0)
             return null;
         return tUserMapper.selectById(id);

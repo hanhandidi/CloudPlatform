@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public interface TUserDao {
 
-    @Select({"select * from t_user where id = #{id,jdbcType=Long}"})
+    @Select({"select * from t_user where id = #{id}"})
     @Results({
             @Result(column ="id",property = "id"),
             @Result(column ="flag",property = "flag"),
@@ -27,9 +27,9 @@ public interface TUserDao {
             @Result(column ="role_id",property = "roleId"),
             @Result(column ="factory_id",property = "factoryId")
     })
-    TUser selectById(Long id);
+    TUser selectById(Integer id);
 
-    @Select({"select * from t_user where user_name= #{userName,jdbcType=VARCHAR}"+
-            " and user_passwd =#{userPasswd,jdbType=VARCHAR } "})
+    @Select({"select * from t_user where user_name= #{userName}"+
+            " and user_passwd =#{userPasswd} "})
     TUser selectByNameAndPwd(TUser tUser);
 }
