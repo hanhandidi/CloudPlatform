@@ -27,17 +27,15 @@ public class TProductSqlProvider {
     {
 
         List<Integer> ids =map.get("list");
-        System.out.println(ids+"aa");
         StringBuilder sb = new StringBuilder();
         sb.append("DELETE FROM t_product WHERE id IN (");
-        for (int i = 0; i < ids.size(); i++) {
+        for(int i = 0; i < ids.size(); i++) {
             sb.append("'").append(ids.get(i)).append("'");
             if (i < ids.size() - 1)
                 sb.append(",");
         }
         sb.append(")");
-        System.out.println("99999999999999999999999");
-        return sb.toString();
+        return  sb.toString();
 
 
     }
