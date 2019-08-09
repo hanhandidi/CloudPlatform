@@ -1,78 +1,95 @@
 package com.neu.management.model;
 
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 public class TProductPlan {
 
-  private long id;
-  private long flag;
+  private Long id;
+  private Long flag;
   private java.sql.Timestamp createTime;
-  private long createUserid;
+  private Long createUserid;
   private java.sql.Timestamp updateTime;
-  private long updateUserid;
+  private Long updateUserid;
   private String planSeq;
-  private long orderId;
-  private long productId;
-  private long planCount;
+  private Long orderId;
+  private Long productId;
+  private Long planCount;
   private java.sql.Date deliveryDate;
   private java.sql.Date planStartDate;
   private java.sql.Date planEndDate;
-  private long planStatus;
-  private long factoryId;
+  private Long planStatus;
+  private Long factoryId;
 
+  public TProductPlan() {
+  }
 
-  public long getId() {
+  public TProductPlan(Long id, Long flag, Timestamp createTime, Long createUserid, Timestamp updateTime, Long updateUserid, String planSeq, Long orderId, Long productId, Long planCount, Date deliveryDate, Date planStartDate, Date planEndDate, Long planStatus, Long factoryId) {
+    this.id = id;
+    this.flag = flag;
+    this.createTime = createTime;
+    this.createUserid = createUserid;
+    this.updateTime = updateTime;
+    this.updateUserid = updateUserid;
+    this.planSeq = planSeq;
+    this.orderId = orderId;
+    this.productId = productId;
+    this.planCount = planCount;
+    this.deliveryDate = deliveryDate;
+    this.planStartDate = planStartDate;
+    this.planEndDate = planEndDate;
+    this.planStatus = planStatus;
+    this.factoryId = factoryId;
+  }
+
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-
-  public long getFlag() {
+  public Long getFlag() {
     return flag;
   }
 
-  public void setFlag(long flag) {
+  public void setFlag(Long flag) {
     this.flag = flag;
   }
 
-
-  public java.sql.Timestamp getCreateTime() {
+  public Timestamp getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(java.sql.Timestamp createTime) {
+  public void setCreateTime(Timestamp createTime) {
     this.createTime = createTime;
   }
 
-
-  public long getCreateUserid() {
+  public Long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(long createUserid) {
+  public void setCreateUserid(Long createUserid) {
     this.createUserid = createUserid;
   }
 
-
-  public java.sql.Timestamp getUpdateTime() {
+  public Timestamp getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(java.sql.Timestamp updateTime) {
+  public void setUpdateTime(Timestamp updateTime) {
     this.updateTime = updateTime;
   }
 
-
-  public long getUpdateUserid() {
+  public Long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(long updateUserid) {
+  public void setUpdateUserid(Long updateUserid) {
     this.updateUserid = updateUserid;
   }
-
 
   public String getPlanSeq() {
     return planSeq;
@@ -82,76 +99,67 @@ public class TProductPlan {
     this.planSeq = planSeq;
   }
 
-
-  public long getOrderId() {
+  public Long getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(long orderId) {
+  public void setOrderId(Long orderId) {
     this.orderId = orderId;
   }
 
-
-  public long getProductId() {
+  public Long getProductId() {
     return productId;
   }
 
-  public void setProductId(long productId) {
+  public void setProductId(Long productId) {
     this.productId = productId;
   }
 
-
-  public long getPlanCount() {
+  public Long getPlanCount() {
     return planCount;
   }
 
-  public void setPlanCount(long planCount) {
+  public void setPlanCount(Long planCount) {
     this.planCount = planCount;
   }
 
-
-  public java.sql.Date getDeliveryDate() {
+  public Date getDeliveryDate() {
     return deliveryDate;
   }
 
-  public void setDeliveryDate(java.sql.Date deliveryDate) {
+  public void setDeliveryDate(Date deliveryDate) {
     this.deliveryDate = deliveryDate;
   }
 
-
-  public java.sql.Date getPlanStartDate() {
+  public Date getPlanStartDate() {
     return planStartDate;
   }
 
-  public void setPlanStartDate(java.sql.Date planStartDate) {
+  public void setPlanStartDate(Date planStartDate) {
     this.planStartDate = planStartDate;
   }
 
-
-  public java.sql.Date getPlanEndDate() {
+  public Date getPlanEndDate() {
     return planEndDate;
   }
 
-  public void setPlanEndDate(java.sql.Date planEndDate) {
+  public void setPlanEndDate(Date planEndDate) {
     this.planEndDate = planEndDate;
   }
 
-
-  public long getPlanStatus() {
+  public Long getPlanStatus() {
     return planStatus;
   }
 
-  public void setPlanStatus(long planStatus) {
+  public void setPlanStatus(Long planStatus) {
     this.planStatus = planStatus;
   }
 
-
-  public long getFactoryId() {
+  public Long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(long factoryId) {
+  public void setFactoryId(Long factoryId) {
     this.factoryId = factoryId;
   }
-
 }

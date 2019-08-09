@@ -3,64 +3,64 @@ package com.neu.management.model;
 
 public class TEquipmentProduct {
 
-  private long id;
-  private long equipmentId;
-  private long productId;
-  private long yield;
-  private long unit;
-  private long factoryId;
+  private Long id;
+  private Long equipmentId;
+  private Long productId;
+  private Long yield;
+  private Long unit;
+  private Long factoryId;
 
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public long getEquipmentId() {
+  public Long getEquipmentId() {
     return equipmentId;
   }
 
-  public void setEquipmentId(long equipmentId) {
+  public void setEquipmentId(Long equipmentId) {
     this.equipmentId = equipmentId;
   }
 
 
-  public long getProductId() {
+  public Long getProductId() {
     return productId;
   }
 
-  public void setProductId(long productId) {
+  public void setProductId(Long productId) {
     this.productId = productId;
   }
 
 
-  public long getYield() {
+  public Long getYield() {
     return yield;
   }
 
-  public void setYield(long yield) {
+  public void setYield(Long yield) {
     this.yield = yield;
   }
 
 
-  public long getUnit() {
+  public Long getUnit() {
     return unit;
   }
 
-  public void setUnit(long unit) {
+  public void setUnit(Long unit) {
     this.unit = unit;
   }
 
 
-  public long getFactoryId() {
+  public Long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(long factoryId) {
+  public void setFactoryId(Long factoryId) {
     this.factoryId = factoryId;
   }
 

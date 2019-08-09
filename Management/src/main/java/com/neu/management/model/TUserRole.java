@@ -5,21 +5,21 @@ import java.sql.Timestamp;
 
 public class TUserRole {
 
-  private long id;
-  private long flag;
+  private Long id;
+  private Long flag;
   private java.sql.Timestamp createTime;
-  private long createUserid;
+  private Long createUserid;
   private java.sql.Timestamp updateTime;
-  private long updateUserid;
+  private Long updateUserid;
   private String roleDesc;
   private String roleName;
-  private long roleStatus;
-  private long factoryId;
+  private Long roleStatus;
+  private Long factoryId;
 
   public TUserRole() {
   }
 
-  public TUserRole(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String roleDesc, String roleName, long roleStatus, long factoryId) {
+  public TUserRole(Long id, Long flag, Timestamp createTime, Long createUserid, Timestamp updateTime, Long updateUserid, String roleDesc, String roleName, Long roleStatus, Long factoryId) {
     this.id = id;
     this.flag = flag;
     this.createTime = createTime;
@@ -32,20 +32,20 @@ public class TUserRole {
     this.factoryId = factoryId;
   }
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public long getFlag() {
+  public Long getFlag() {
     return flag;
   }
 
-  public void setFlag(long flag) {
+  public void setFlag(Long flag) {
     this.flag = flag;
   }
 
@@ -59,11 +59,11 @@ public class TUserRole {
   }
 
 
-  public long getCreateUserid() {
+  public Long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(long createUserid) {
+  public void setCreateUserid(Long createUserid) {
     this.createUserid = createUserid;
   }
 
@@ -77,11 +77,11 @@ public class TUserRole {
   }
 
 
-  public long getUpdateUserid() {
+  public Long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(long updateUserid) {
+  public void setUpdateUserid(Long updateUserid) {
     this.updateUserid = updateUserid;
   }
 
@@ -104,20 +104,20 @@ public class TUserRole {
   }
 
 
-  public long getRoleStatus() {
+  public Long getRoleStatus() {
     return roleStatus;
   }
 
-  public void setRoleStatus(long roleStatus) {
+  public void setRoleStatus(Long roleStatus) {
     this.roleStatus = roleStatus;
   }
 
 
-  public long getFactoryId() {
+  public Long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(long factoryId) {
+  public void setFactoryId(Long factoryId) {
     this.factoryId = factoryId;
   }
 

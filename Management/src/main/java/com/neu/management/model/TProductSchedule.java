@@ -1,78 +1,95 @@
 package com.neu.management.model;
 
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 public class TProductSchedule {
 
-  private long id;
-  private long flag;
+  private Long id;
+  private Long flag;
   private java.sql.Timestamp createTime;
-  private long createUserid;
+  private Long createUserid;
   private java.sql.Timestamp updateTime;
-  private long updateUserid;
+  private Long updateUserid;
   private String scheduleSeq;
-  private long scheduleCount;
-  private long scheduleStatus;
-  private long planId;
-  private long productId;
-  private long equipmentId;
+  private Long scheduleCount;
+  private Long scheduleStatus;
+  private Long planId;
+  private Long productId;
+  private Long equipmentId;
   private java.sql.Date startDate;
   private java.sql.Date endDate;
-  private long factoryId;
+  private Long factoryId;
 
+  public TProductSchedule() {
+  }
 
-  public long getId() {
+  public TProductSchedule(Long id, Long flag, Timestamp createTime, Long createUserid, Timestamp updateTime, Long updateUserid, String scheduleSeq, Long scheduleCount, Long scheduleStatus, Long planId, Long productId, Long equipmentId, Date startDate, Date endDate, Long factoryId) {
+    this.id = id;
+    this.flag = flag;
+    this.createTime = createTime;
+    this.createUserid = createUserid;
+    this.updateTime = updateTime;
+    this.updateUserid = updateUserid;
+    this.scheduleSeq = scheduleSeq;
+    this.scheduleCount = scheduleCount;
+    this.scheduleStatus = scheduleStatus;
+    this.planId = planId;
+    this.productId = productId;
+    this.equipmentId = equipmentId;
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.factoryId = factoryId;
+  }
+
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-
-  public long getFlag() {
+  public Long getFlag() {
     return flag;
   }
 
-  public void setFlag(long flag) {
+  public void setFlag(Long flag) {
     this.flag = flag;
   }
 
-
-  public java.sql.Timestamp getCreateTime() {
+  public Timestamp getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(java.sql.Timestamp createTime) {
+  public void setCreateTime(Timestamp createTime) {
     this.createTime = createTime;
   }
 
-
-  public long getCreateUserid() {
+  public Long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(long createUserid) {
+  public void setCreateUserid(Long createUserid) {
     this.createUserid = createUserid;
   }
 
-
-  public java.sql.Timestamp getUpdateTime() {
+  public Timestamp getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(java.sql.Timestamp updateTime) {
+  public void setUpdateTime(Timestamp updateTime) {
     this.updateTime = updateTime;
   }
 
-
-  public long getUpdateUserid() {
+  public Long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(long updateUserid) {
+  public void setUpdateUserid(Long updateUserid) {
     this.updateUserid = updateUserid;
   }
-
 
   public String getScheduleSeq() {
     return scheduleSeq;
@@ -82,76 +99,67 @@ public class TProductSchedule {
     this.scheduleSeq = scheduleSeq;
   }
 
-
-  public long getScheduleCount() {
+  public Long getScheduleCount() {
     return scheduleCount;
   }
 
-  public void setScheduleCount(long scheduleCount) {
+  public void setScheduleCount(Long scheduleCount) {
     this.scheduleCount = scheduleCount;
   }
 
-
-  public long getScheduleStatus() {
+  public Long getScheduleStatus() {
     return scheduleStatus;
   }
 
-  public void setScheduleStatus(long scheduleStatus) {
+  public void setScheduleStatus(Long scheduleStatus) {
     this.scheduleStatus = scheduleStatus;
   }
 
-
-  public long getPlanId() {
+  public Long getPlanId() {
     return planId;
   }
 
-  public void setPlanId(long planId) {
+  public void setPlanId(Long planId) {
     this.planId = planId;
   }
 
-
-  public long getProductId() {
+  public Long getProductId() {
     return productId;
   }
 
-  public void setProductId(long productId) {
+  public void setProductId(Long productId) {
     this.productId = productId;
   }
 
-
-  public long getEquipmentId() {
+  public Long getEquipmentId() {
     return equipmentId;
   }
 
-  public void setEquipmentId(long equipmentId) {
+  public void setEquipmentId(Long equipmentId) {
     this.equipmentId = equipmentId;
   }
 
-
-  public java.sql.Date getStartDate() {
+  public Date getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(java.sql.Date startDate) {
+  public void setStartDate(Date startDate) {
     this.startDate = startDate;
   }
 
-
-  public java.sql.Date getEndDate() {
+  public Date getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(java.sql.Date endDate) {
+  public void setEndDate(Date endDate) {
     this.endDate = endDate;
   }
 
-
-  public long getFactoryId() {
+  public Long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(long factoryId) {
+  public void setFactoryId(Long factoryId) {
     this.factoryId = factoryId;
   }
-
 }

@@ -3,34 +3,34 @@ package com.neu.management.model;
 
 public class TOrderTrack {
 
-  private long id;
-  private long flag;
+  private Long id;
+  private Long flag;
   private java.sql.Timestamp createTime;
-  private long createUserid;
+  private Long createUserid;
   private java.sql.Timestamp updateTime;
-  private long updateUserid;
-  private long scheduleId;
-  private long planId;
-  private long productId;
-  private long workingCount;
-  private long qualifiedCount;
-  private long factoryId;
+  private Long updateUserid;
+  private Long scheduleId;
+  private Long planId;
+  private Long productId;
+  private Long workingCount;
+  private Long qualifiedCount;
+  private Long factoryId;
 
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public long getFlag() {
+  public Long getFlag() {
     return flag;
   }
 
-  public void setFlag(long flag) {
+  public void setFlag(Long flag) {
     this.flag = flag;
   }
 
@@ -44,11 +44,11 @@ public class TOrderTrack {
   }
 
 
-  public long getCreateUserid() {
+  public Long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(long createUserid) {
+  public void setCreateUserid(Long createUserid) {
     this.createUserid = createUserid;
   }
 
@@ -62,65 +62,65 @@ public class TOrderTrack {
   }
 
 
-  public long getUpdateUserid() {
+  public Long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(long updateUserid) {
+  public void setUpdateUserid(Long updateUserid) {
     this.updateUserid = updateUserid;
   }
 
 
-  public long getScheduleId() {
+  public Long getScheduleId() {
     return scheduleId;
   }
 
-  public void setScheduleId(long scheduleId) {
+  public void setScheduleId(Long scheduleId) {
     this.scheduleId = scheduleId;
   }
 
 
-  public long getPlanId() {
+  public Long getPlanId() {
     return planId;
   }
 
-  public void setPlanId(long planId) {
+  public void setPlanId(Long planId) {
     this.planId = planId;
   }
 
 
-  public long getProductId() {
+  public Long getProductId() {
     return productId;
   }
 
-  public void setProductId(long productId) {
+  public void setProductId(Long productId) {
     this.productId = productId;
   }
 
 
-  public long getWorkingCount() {
+  public Long getWorkingCount() {
     return workingCount;
   }
 
-  public void setWorkingCount(long workingCount) {
+  public void setWorkingCount(Long workingCount) {
     this.workingCount = workingCount;
   }
 
 
-  public long getQualifiedCount() {
+  public Long getQualifiedCount() {
     return qualifiedCount;
   }
 
-  public void setQualifiedCount(long qualifiedCount) {
+  public void setQualifiedCount(Long qualifiedCount) {
     this.qualifiedCount = qualifiedCount;
   }
 
 
-  public long getFactoryId() {
+  public Long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(long factoryId) {
+  public void setFactoryId(Long factoryId) {
     this.factoryId = factoryId;
   }
 

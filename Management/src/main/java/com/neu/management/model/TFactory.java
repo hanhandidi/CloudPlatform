@@ -3,35 +3,35 @@ package com.neu.management.model;
 
 public class TFactory {
 
-  private long id;
-  private long flag;
+  private Long id;
+  private Long flag;
   private java.sql.Timestamp createTime;
-  private long createUserid;
+  private Long createUserid;
   private java.sql.Timestamp updateTime;
-  private long updateUserid;
+  private Long updateUserid;
   private String bak;
   private String factoryName;
   private String factoryImgUrl;
   private String factoryAddr;
   private String factoryUrl;
-  private long factoryWorker;
-  private long factoryStatus;
+  private Long factoryWorker;
+  private Long factoryStatus;
 
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public long getFlag() {
+  public Long getFlag() {
     return flag;
   }
 
-  public void setFlag(long flag) {
+  public void setFlag(Long flag) {
     this.flag = flag;
   }
 
@@ -45,11 +45,11 @@ public class TFactory {
   }
 
 
-  public long getCreateUserid() {
+  public Long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(long createUserid) {
+  public void setCreateUserid(Long createUserid) {
     this.createUserid = createUserid;
   }
 
@@ -63,11 +63,11 @@ public class TFactory {
   }
 
 
-  public long getUpdateUserid() {
+  public Long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(long updateUserid) {
+  public void setUpdateUserid(Long updateUserid) {
     this.updateUserid = updateUserid;
   }
 
@@ -117,20 +117,20 @@ public class TFactory {
   }
 
 
-  public long getFactoryWorker() {
+  public Long getFactoryWorker() {
     return factoryWorker;
   }
 
-  public void setFactoryWorker(long factoryWorker) {
+  public void setFactoryWorker(Long factoryWorker) {
     this.factoryWorker = factoryWorker;
   }
 
 
-  public long getFactoryStatus() {
+  public Long getFactoryStatus() {
     return factoryStatus;
   }
 
-  public void setFactoryStatus(long factoryStatus) {
+  public void setFactoryStatus(Long factoryStatus) {
     this.factoryStatus = factoryStatus;
   }
 

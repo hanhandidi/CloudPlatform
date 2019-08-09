@@ -3,33 +3,33 @@ package com.neu.management.model;
 
 public class TEquipment {
 
-  private long id;
-  private long flag;
+  private Long id;
+  private Long flag;
   private java.sql.Timestamp createTime;
-  private long createUserid;
+  private Long createUserid;
   private java.sql.Timestamp updateTime;
-  private long updateUserid;
+  private Long updateUserid;
   private String equipmentSeq;
   private String equipmentName;
   private String equipmentImgUrl;
-  private long equipmentStatus;
-  private long factoryId;
+  private Long equipmentStatus;
+  private Long factoryId;
 
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public long getFlag() {
+  public Long getFlag() {
     return flag;
   }
 
-  public void setFlag(long flag) {
+  public void setFlag(Long flag) {
     this.flag = flag;
   }
 
@@ -43,11 +43,11 @@ public class TEquipment {
   }
 
 
-  public long getCreateUserid() {
+  public Long getCreateUserid() {
     return createUserid;
   }
 
-  public void setCreateUserid(long createUserid) {
+  public void setCreateUserid(Long createUserid) {
     this.createUserid = createUserid;
   }
 
@@ -61,11 +61,11 @@ public class TEquipment {
   }
 
 
-  public long getUpdateUserid() {
+  public Long getUpdateUserid() {
     return updateUserid;
   }
 
-  public void setUpdateUserid(long updateUserid) {
+  public void setUpdateUserid(Long updateUserid) {
     this.updateUserid = updateUserid;
   }
 
@@ -97,20 +97,20 @@ public class TEquipment {
   }
 
 
-  public long getEquipmentStatus() {
+  public Long getEquipmentStatus() {
     return equipmentStatus;
   }
 
-  public void setEquipmentStatus(long equipmentStatus) {
+  public void setEquipmentStatus(Long equipmentStatus) {
     this.equipmentStatus = equipmentStatus;
   }
 
 
-  public long getFactoryId() {
+  public Long getFactoryId() {
     return factoryId;
   }
 
-  public void setFactoryId(long factoryId) {
+  public void setFactoryId(Long factoryId) {
     this.factoryId = factoryId;
   }
 
