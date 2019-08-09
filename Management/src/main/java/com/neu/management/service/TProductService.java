@@ -8,12 +8,19 @@ import java.util.List;
 
 
 public interface TProductService {
-    public PageInfo<TProduct> selectProducts(TProduct record, Integer currentPage);
-    public int addProduct(TProduct tProduct);
-    public int updateProduct(TProduct tProduct);
-    public int deleteProductByIds(List<Integer> ids);
-    public int deleteById(Integer id);
-    public TProduct selectById(Integer id);
-    public TProduct selectByNum(String num);
-    public TProduct selectByName(String name);
+    PageInfo<TProduct> selectProducts(TProduct record, Integer currentPage);
+
+    int addProduct(TProduct tProduct);
+
+    int updateProduct(TProduct tProduct);
+
+    int deleteProductByIds(List<Integer> ids);
+
+    int deleteById(Integer id);
+
+    TProduct selectById(Integer id);
+
+    TProduct selectByNum(String num);
+
+    TProduct selectByName(String name);
 }

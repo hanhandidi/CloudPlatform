@@ -26,7 +26,7 @@ public interface EquipmentDao {
 
     // 根据ID删除一条设备
     @Delete({"delete from t_equipment where id = #{id}"})
-    int deleteById(Integer id);
+    void deleteById(Integer id);
 
     // 批量删除
     @DeleteProvider(type = Provider.class, method = "deleteBatch")

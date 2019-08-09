@@ -1,6 +1,6 @@
 package com.neu.management.service;
 
-import com.neu.management.dao.TUserMapper;
+import com.neu.management.dao.TUserDao;
 import com.neu.management.model.TUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    private TUserMapper tUserMapper;
+    private TUserDao tUserMapper;
     @Override
     public TUser selectById(long id) {
         if (id==0)
             return null;
-        return (TUser) tUserMapper.selectById((int)id);
+        return (TUser) tUserMapper.selectById((long) id);
     }
 
     @Override
