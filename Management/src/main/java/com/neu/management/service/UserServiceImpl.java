@@ -7,21 +7,26 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
+    private final TUserDao tUserMapper;
+
     @Autowired
-    private TUserDao tUserMapper;
+    public UserServiceImpl(TUserDao tUserMapper) {
+        this.tUserMapper = tUserMapper;
+    }
+
     @Override
     public TUser selectById(long id) {
         if (id==0)
             return null;
-        return (TUser) tUserMapper.selectById((long) id);
+        return tUserMapper.selectById(id);
     }
 
     @Override
     public TUser selectForLogin(TUser tUser) {
 //        if(tUser=null||tUser.getUserName()==null||tUser.getUserPasswd()==null)
-////        {
-////
-////        }
+//        {
+//
+//        }
         return null;
     }
 }

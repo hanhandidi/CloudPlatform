@@ -23,7 +23,6 @@ public class TProductSqlProvider {
     }
     public String deleteProductByIds(Map<String,List<Integer>> map)
     {
-
         List<Integer> ids =map.get("list");
         StringBuilder sb = new StringBuilder();
         sb.append("DELETE FROM t_product WHERE id IN (");
@@ -34,7 +33,5 @@ public class TProductSqlProvider {
         }
         sb.append(")");
         return  sb.toString();
-
-
     }
 }

@@ -24,7 +24,7 @@ public interface TProductMapper {
             @Result(column="product_img_url", property="productImgUrl"),
             @Result(column="factory_id", property="factoryId"),
     })
-    public List<TProduct> selectProducts(TProduct record);
+    List<TProduct> selectProducts(TProduct record);
 
     @Select({
             "select * from t_product where id = #{id,jdbcType=INTEGER}"
@@ -41,7 +41,7 @@ public interface TProductMapper {
             @Result(column="product_img_url", property="productImgUrl"),
             @Result(column="factory_id", property="factoryId"),
     })
-    public TProduct selectById(Integer id);
+    TProduct selectById(Integer id);
 
     @Select({
             "select * from t_product where product_num = #{num,jdbcType=VARCHAR}"
@@ -58,7 +58,7 @@ public interface TProductMapper {
             @Result(column="product_img_url", property="productImgUrl"),
             @Result(column="factory_id", property="factoryId"),
     })
-    public TProduct selectByNum(String num);
+    TProduct selectByNum(String num);
 
     @Select({
             "select * from t_product where product_name = #{name,jdbcType=VARCHAR}"
@@ -75,7 +75,7 @@ public interface TProductMapper {
             @Result(column="product_img_url", property="productImgUrl"),
             @Result(column="factory_id", property="factoryId"),
     })
-    public TProduct selectByName(String name);
+    TProduct selectByName(String name);
 
 
 
@@ -88,7 +88,7 @@ public interface TProductMapper {
                     "#{productNum,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{productImgUrl,jdbcType=VARCHAR}," +
                     "#{factoryId,jdbcType=INTEGER})"
     })
-    public int addProduct(TProduct record);
+    int addProduct(TProduct record);
     @Update({
             "update t_product " +
                     "set flag = #{flag,jdbcType=INTEGER}," +
@@ -102,12 +102,12 @@ public interface TProductMapper {
                     "factory_id = #{factoryId,jdbcType=INTEGER} " +
                     "where id = #{id,jdbcType=INTEGER}"
     })
-    public int updateProduct(TProduct record);
+    int updateProduct(TProduct record);
 
 
     @DeleteProvider(type = TProductSqlProvider.class,method = "deleteProductByIds")
-    public int deleteProductsByIds(Map<String,List<Integer>> map);
+    int deleteProductsByIds(Map<String,List<Integer>> map);
 
     @Delete({"delete from t_product where id =#{id}"})
-    public int deleteById(Integer id);
+    int deleteById(Integer id);
 }
