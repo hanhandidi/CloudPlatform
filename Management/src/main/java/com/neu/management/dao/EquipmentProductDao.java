@@ -33,7 +33,7 @@ public interface EquipmentProductDao {
             @Result(column="yield", property="yield"),
             @Result(column="unit", property="unit"),
             @Result(column="factory_id", property="factoryId"),
-            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.TProductMapper.selectById",fetchType= FetchType.EAGER))
+            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.ProductDao.selectById",fetchType= FetchType.EAGER))
     })
     TEquipmentProduct selectById(Integer id);
 
@@ -45,7 +45,7 @@ public interface EquipmentProductDao {
             @Result(column="yield", property="yield"),
             @Result(column="unit", property="unit"),
             @Result(column="factory_id", property="factoryId"),
-            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.TProductMapper.selectById",fetchType= FetchType.EAGER))
+            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.ProductDao.selectById",fetchType= FetchType.EAGER))
     })
     TEquipmentProduct selectByEquipmentIdAndProductId(TEquipmentProduct tEquipmentProduct);
 
@@ -57,7 +57,7 @@ public interface EquipmentProductDao {
             @Result(column="yield", property="yield"),
             @Result(column="unit", property="unit"),
             @Result(column="factory_id", property="factoryId"),
-            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.TProductMapper.selectById",fetchType= FetchType.EAGER))
+            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.ProductDao.selectById",fetchType= FetchType.EAGER))
     })
     List<TEquipmentProduct> selectByEquipmentId(Integer id);
 
@@ -69,7 +69,7 @@ public interface EquipmentProductDao {
             @Result(column="yield", property="yield"),
             @Result(column="unit", property="unit"),
             @Result(column="factory_id", property="factoryId"),
-            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.TProductMapper.selectById",fetchType= FetchType.EAGER))
+            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.ProductDao.selectById",fetchType= FetchType.EAGER))
     })
     List<TEquipmentProduct> selectByProductId(Integer id);
 
@@ -81,7 +81,7 @@ public interface EquipmentProductDao {
             @Result(column="yield", property="yield"),
             @Result(column="unit", property="unit"),
             @Result(column="factory_id", property="factoryId"),
-            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.TProductMapper.selectById",fetchType= FetchType.EAGER))
+            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.ProductDao.selectById",fetchType= FetchType.EAGER))
     })
     List<TEquipmentProduct> selectByFactoryId(Integer id);
 }

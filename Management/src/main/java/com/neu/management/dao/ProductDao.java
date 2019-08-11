@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public interface TProductMapper {
+public interface ProductDao {
 
     @SelectProvider(type=TProductSqlProvider.class, method="selectProducts")
     @Results({

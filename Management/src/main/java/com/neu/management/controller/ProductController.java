@@ -3,8 +3,7 @@ package com.neu.management.controller;
 import com.github.pagehelper.PageInfo;
 import com.neu.management.model.Message;
 import com.neu.management.model.TProduct;
-import com.neu.management.model.TUser;
-import com.neu.management.service.TProductServiceImpl;
+import com.neu.management.service.ProductServiceImpl;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,14 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/product")
-public class TProductController {
+public class ProductController {
     @Resource
-    private TProductServiceImpl tProductService;
+    private ProductServiceImpl productService;
 
     /**
      * 根据product.flag或product.num或product.name来查询;
@@ -28,76 +26,65 @@ public class TProductController {
      * ok
      */
     @RequestMapping("list/{currentPage}")
-    public Message selectProducts(@RequestBody TProduct product, @PathVariable  Integer currentPage)
-    {
+    public Message selectProducts(@RequestBody TProduct product, @PathVariable Integer currentPage) {
         Message selectProducts = new Message();
-        PageInfo<TProduct> data=tProductService.selectProducts(product,currentPage);
-        if (data != null){
+        PageInfo<TProduct> data = productService.selectProducts(product, currentPage);
+        if ( data != null ) {
             selectProducts.setCode(200);
             selectProducts.setData(data);
             selectProducts.setMessage("查询成功");
-        }else {
+        } else {
             selectProducts.setCode(202);
             selectProducts.setMessage("查询失败！");
         }
         return selectProducts;
     }
+
     //查询id  ok
     @RequestMapping("selById/{id}")
-    public Message selectProductById(@PathVariable Integer id)
-    {
+    public Message selectProductById(@PathVariable Integer id) {
         Message selectProducts = new Message();
-        TProduct data=tProductService.selectById(id);
-        if ( data!=null){
+        TProduct data = productService.selectById(id);
+        if ( data != null ) {
             selectProducts.setCode(200);
             selectProducts.setData(data);
             selectProducts.setMessage("查询成功");
-        }else {
+        } else {
             selectProducts.setCode(202);
             selectProducts.setMessage("查询失败！");
         }
         return selectProducts;
     }
+
     //查询num ok
     @RequestMapping("selByNum/{num}")
-    public Message selectProductByNum(@PathVariable String num)
-    {
+    public Message selectProductByNum(@PathVariable String num) {
         System.out.println(num);
         Message selectProducts = new Message();
-        TProduct data=tProductService.selectByNum(num);
-        if ( data!=null){
+        TProduct data = productService.selectByNum(num);
+        if ( data != null ) {
             selectProducts.setCode(200);
             selectProducts.setData(data);
             selectProducts.setMessage("查询成功");
-        }else {
+        } else {
             selectProducts.setCode(202);
             selectProducts.setMessage("查询失败！");
         }
         return selectProducts;
     }
+
     //添加产品 ok
     @RequestMapping("add")
-    public Message addProduct(@RequestBody TProduct product, HttpSession session){
-        Message message =new Message();
-        int result =tProductService.addProduct(product);
-        if(result==-1)
-        {
+    public Message addProduct(@RequestBody TProduct product, HttpSession session) {
+        Message message = new Message();
+        int result = productService.addProduct(product);
+        if ( result == -1 ) {
             message.setCode(202);
             message.setMessage("产品信息及序列号不能为空");
-        }
-        else
-        {
-
-//            if(session.getAttribute("user")!=null)
-//            {
-//                TUser tUser;
-//                tUser = (TUser)session.getAttribute("user");
-//                product.setCreateUserid(tUser.getId());
-//            }
+        } else {
             message.setCode(200);
             message.setMessage("添加成功");
-            if(result==-2)
-            {
+            if ( result == -2 ) {
                 message.setMessage("序列号重复,添加失败");
             }
         }
@@ -105,68 +92,60 @@ public class TProductController {
         return message;
 
     }
+
     //更新产品 ok
     @RequestMapping("update")
-    public Message updateProduct(@RequestBody TProduct product,HttpSession session)
-    {
-        Message message =new Message();
-        if(product!=null&&product.getId()!=0&&product.getProductName()!=null)
-        {
-//            if(session.getAttribute("user")!=null)
-//            {
-//                TUser tUser;
-//                tUser = (TUser)session.getAttribute("user");
-//                product.setCreateUserid(tUser.getId());
-//            }
-            int result = tProductService.updateProduct(product);
+    public Message updateProduct(@RequestBody TProduct product, HttpSession session) {
+        Message message = new Message();
+        if ( product != null && product.getId() != 0 && product.getProductName() != null ) {
+            int result = productService.updateProduct(product);
             message.setCode(200);
-            if(result==-2)
-            {
+            if ( result == -2 ) {
                 message.setMessage("已存在相同序产品名不同id产品");
             }
-            message.setData("更新条数:"+result);
+            message.setData("更新条数:" + result);
             message.setMessage("更新成功");
-            return  message;
+            return message;
 
         }
         message.setCode(202);
         message.setMessage("产品信息不全");
         return message;
     }
+
     //id删除, ok
     @RequestMapping("del/{id}")
-    public Message deleteProduct(@PathVariable Integer id)
-    {
+    public Message deleteProduct(@PathVariable Integer id) {
         Message message = new Message();
         System.out.println(id);
-        int result=tProductService.deleteById(id);
-        if (result == -1){
-        // id为空
-            message.setCode(202);
-            message.setMessage("Id不能为空");
-            return message;
-        }else {
-            message.setCode(200);
-            message.setMessage("删除成功");
-            message.setData("删除条数:"+result);
-            return message;
-        }
-    }
-    //批量删除 ok
-    @RequestMapping("deleteList")
-    public Message deleteProducts(@RequestBody List<Integer> ids)
-    {
-        System.out.println(ids);
-        Message message = new Message();
-        int result=tProductService.deleteProductByIds(ids);
-        if (result == -1){
+        int result = productService.deleteById(id);
+        if ( result == -1 ) {
             // id为空
             message.setCode(202);
             message.setMessage("Id不能为空");
-        }else {
+            return message;
+        } else {
             message.setCode(200);
             message.setMessage("删除成功");
-            message.setData("删除条数:"+result);
+            message.setData("删除条数:" + result);
+            return message;
+        }
+    }
+
+    //批量删除 ok
+    @RequestMapping("deleteList")
+    public Message deleteProducts(@RequestBody List<Integer> ids) {
+        System.out.println(ids);
+        Message message = new Message();
+        int result = productService.deleteProductByIds(ids);
+        if ( result == -1 ) {
+            // id为空
+            message.setCode(202);
+            message.setMessage("Id不能为空");
+        } else {
+            message.setCode(200);
+            message.setMessage("删除成功");
+            message.setData("删除条数:" + result);
         }
         return message;
     }

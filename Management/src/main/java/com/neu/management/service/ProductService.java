@@ -7,7 +7,7 @@ import java.security.PublicKey;
 import java.util.List;
 
 
-public interface TProductService {
+public interface ProductService {
     PageInfo<TProduct> selectProducts(TProduct record, Integer currentPage);
 
     int addProduct(TProduct tProduct);
