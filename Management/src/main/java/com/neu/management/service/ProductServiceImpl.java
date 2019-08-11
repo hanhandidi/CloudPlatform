@@ -6,9 +6,11 @@ import com.neu.management.dao.ProductDao;
 import com.neu.management.model.TProduct;
 import com.neu.management.util.Define;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,50 +25,62 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public PageInfo<TProduct> selectProducts(TProduct record, Integer currentPage) {
+    public PageInfo<TProduct> selectProducts(TProduct tProduct, Integer currentPage) {
         if ( currentPage == 0 ) currentPage = 1;
         PageHelper.startPage(currentPage, Define.PAGE_SIZE);
-        return new PageInfo<>(productDao.selectProducts(record));
+        return new PageInfo<>(productDao.selectProducts(tProduct));
     }
 
     @Override
-    public int addProduct(TProduct tProduct) {
-        if ( tProduct == null || tProduct.getProductNum() == null ) return -1;
-        if ( selectByNum(tProduct.getProductNum()) != null ) return -2;
-        tProduct.setId(0);
-        Timestamp t = new Timestamp(System.currentTimeMillis());
-        tProduct.setCreateTime(t);
-        tProduct.setUpdateTime(t);
-        return productDao.addProduct(tProduct);
+    public TProduct addProduct(TProduct tProduct) {
+        // 同一工厂产品不可重名
+        // 同一工厂产品序列号不可重复
+        if(productDao.selectByNameAndFactoryId(tProduct) != null || productDao.selectByNumAndFactoryId(tProduct) != null){
+            return null;
+        } else
+        {
+            productDao.addProduct(tProduct);
+            return tProduct;
+        }
     }
 
     @Override
-    public int updateProduct(TProduct tProduct) {
-        if ( tProduct == null || tProduct.getId() == 0 || tProduct.getProductName() == null ) return -1;
-        TProduct tp = selectByName(tProduct.getProductName());
-        if ( tp != null && tp.getId() != tProduct.getId() ) return -2;
-        Timestamp t = new Timestamp(System.currentTimeMillis());
-        tProduct.setUpdateTime(t);
-        return productDao.updateProduct(tProduct);
+    @CachePut(value="TProduct",key="T(String).valueOf('TProduct').concat('-').concat(#tProduct.id)",unless="#result == null")
+    public TProduct updateProduct(TProduct tProduct) {
+        // 同一工厂产品不可重名
+        // 同一工厂产品序列号不可重复
+        if(productDao.selectByNameAndFactoryId(tProduct) != null || productDao.selectByNumAndFactoryId(tProduct) != null){
+            return null;
+        } else
+        {
+            productDao.updateProduct(tProduct);
+            return tProduct;
+        }
     }
 
     @Override
     public int deleteProductByIds(List<Integer> ids) {
         if ( ids == null ) return -1;
-        Map<String, List<Integer>> map = new HashMap<String, List<Integer>>();
+        Map<String, List<Integer>> map = new HashMap<>();
         map.put("list", ids);
         return productDao.deleteProductsByIds(map);
     }
 
     @Override
+    @CacheEvict(value="TProduct",key="T(String).valueOf('TProduct').concat('-').concat(#id)")
     public int deleteById(Integer id) {
-        if ( id == 0 ) return -1;
-        return productDao.deleteById(id);
+        if ( id == null ) return -1;
+        if ( productDao.isInGetOrder(id) == null ){
+            productDao.deleteById(id);
+            return 1;
+        }
+        return 0;
     }
 
     @Override
+    @Cacheable(value="TProduct",key="T(String).valueOf('TProduct').concat('-').concat(#id)",unless="#result == null")
     public TProduct selectById(Integer id) {
-        if ( id == 0 ) return null;
+        if ( id == null ) return null;
         return productDao.selectById(id);
     }
 

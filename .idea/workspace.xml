@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ab83baa9-c749-4ea8-adec-e33e013cd6a1" name="Default Changelist" comment="lcm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java" />
+      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java" />
       <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductSqlProvider.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductService.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductService.java" />
       <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -47,41 +49,12 @@
       <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="107" column="27" lean-forward="true" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductDao.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="143" column="34" lean-forward="true" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
+            <state relative-caret-position="69">
+              <caret line="3" column="40" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#selectProductById#0;class#ProductController#0" expanded="false" />
+                <element signature="method#selectProductByNum#0;class#ProductController#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FactoryDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/FactoryDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="88" column="6" lean-forward="false" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EquipmentProductDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentProductDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-582">
-              <caret line="35" column="110" lean-forward="false" selection-start-line="35" selection-start-column="110" selection-end-line="35" selection-end-column="110" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -89,28 +62,8 @@
       <file leaf-file-name="EquipmentDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EquipmentProductService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentProductService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="41" />
+            <state relative-caret-position="4416">
+              <caret line="192" column="32" lean-forward="false" selection-start-line="192" selection-start-column="32" selection-end-line="192" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,25 +71,71 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EquipmentSelectVO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/modelVO/EquipmentSelectVO.java">
+      <file leaf-file-name="ProductDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="414">
+              <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="class#Provider#0;class#ProductDao#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#767#768#0" expanded="true" />
+                <element signature="e#811#812#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FactoryServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/FactoryServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java">
+      <file leaf-file-name="EquipmentServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-835">
-              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding>
-                <element signature="e#629#630#0" expanded="true" />
-                <element signature="e#673#674#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="322">
+              <caret line="85" column="9" lean-forward="true" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EquipmentProductServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentProductServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="32" column="37" lean-forward="true" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -173,7 +172,6 @@
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/DateConverter.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/util/Define.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/config/RedisConfig.java" />
-        <option value="$PROJECT_DIR$/Management/src/main/resources/META-INF/additional-spring-configuration-metadata.json" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TOrderTrack.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TFactory.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TPermit.java" />
@@ -208,16 +206,17 @@
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentProductController.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentService.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentController.java" />
-        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProductOrder.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/TProductController.java" />
-        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductService.java" />
-        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentProductDao.java" />
-        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductSqlProvider.java" />
+        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java" />
+        <option value="$PROJECT_DIR$/Management/src/main/resources/META-INF/additional-spring-configuration-metadata.json" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java" />
+        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java" />
+        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductService.java" />
       </list>
     </option>
   </component>
@@ -378,6 +377,33 @@
               <item name="management" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CloudPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudPlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="Management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="management" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudPlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="Management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudPlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="Management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -468,7 +494,7 @@
       <workItem from="1565415704144" duration="16935000" />
       <workItem from="1565500297896" duration="4918000" />
       <workItem from="1565506247772" duration="3249000" />
-      <workItem from="1565511383164" duration="814000" />
+      <workItem from="1565511383164" duration="8177000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1565226974170</created>
@@ -617,15 +643,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565512041275</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="lcm">
+      <created>1565512237420</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1565512237420</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97130000" />
+    <option name="totallyTimeSpent" value="104493000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7647059" sideWeight="0.50907713" order="7" side_tool="true" content_ui="tabs" />
@@ -641,15 +673,16 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.04248366" sideWeight="0.49092284" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4117647" sideWeight="0.49092284" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.58006537" sideWeight="0.48487142" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.74346405" sideWeight="0.4969743" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3139183" sideWeight="0.3153153" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2655068" sideWeight="0.3153153" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44251135" sideWeight="0.50766283" order="6" side_tool="true" content_ui="tabs" />
@@ -664,7 +697,6 @@
       <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06699347" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -681,17 +713,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="lcm" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TRolePermit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -728,22 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/util/Define.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/dataSources/8c1952ab-19ad-4030-a47b-5f8975f8f973.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -769,6 +780,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1217">
           <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -863,42 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/FactoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/FactoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentProductServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="44" column="69" lean-forward="false" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1418#1419#0" expanded="true" />
-            <element signature="e#1468#1469#0" expanded="true" />
-            <element signature="e#2189#2190#0" expanded="true" />
-            <element signature="e#2246#2247#0" expanded="true" />
-            <element signature="e#2328#2329#0" expanded="true" />
-            <element signature="e#2394#2395#0" expanded="true" />
-            <element signature="e#2474#2475#0" expanded="true" />
-            <element signature="e#2538#2539#0" expanded="true" />
-            <element signature="e#2618#2619#0" expanded="true" />
-            <element signature="e#2682#2683#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/EquipmentProductController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -921,14 +897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="40" column="58" lean-forward="true" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -1004,47 +972,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/FactoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="101" column="7" lean-forward="true" selection-start-line="100" selection-start-column="4" selection-end-line="115" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="107" column="27" lean-forward="true" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-835">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#629#630#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentProductService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1057,30 +990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentProductDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-582">
-          <caret line="35" column="110" lean-forward="false" selection-start-line="35" selection-start-column="110" selection-end-line="35" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/FactoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="88" column="6" lean-forward="false" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductSqlProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1089,12 +998,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java">
+    <entry file="file://$PROJECT_DIR$/Management/src/main/resources/META-INF/additional-spring-configuration-metadata.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="58" lean-forward="true" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/util/Define.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/FactoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/FactoryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1656">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/FactoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentProductDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="73" column="58" lean-forward="true" selection-start-line="73" selection-start-column="58" selection-end-line="73" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="32" column="37" lean-forward="true" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
-          <caret line="143" column="34" lean-forward="true" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
+          <caret line="85" column="9" lean-forward="true" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/FactoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4416">
+          <caret line="192" column="32" lean-forward="false" selection-start-line="192" selection-start-column="32" selection-end-line="192" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#Provider#0;class#ProductDao#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="40" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+          <folding>
+            <element signature="method#selectProductById#0;class#ProductController#0" expanded="false" />
+            <element signature="method#selectProductByNum#0;class#ProductController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#767#768#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
           </folding>
         </state>
       </provider>

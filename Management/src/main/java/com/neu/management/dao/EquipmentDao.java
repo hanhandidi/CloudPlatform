@@ -94,6 +94,9 @@ public interface EquipmentDao {
             + "  <if test='equipmentName != null and equipmentName != &quot;&quot;'> "
             + "    and equipment_name like CONCAT('%', #{equipmentName}, '%')        "
             + "  </if>                                             "
+            + "  <if test='factoryId != null and factoryId != &quot;&quot;'> "
+            + "    and factory_id = #{factoryId})                  "
+            + "  </if>                                             "
             + "</where> </script>")
     @Results({
             @Result(column="id", property="id", id=true),
