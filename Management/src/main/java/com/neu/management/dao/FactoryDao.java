@@ -15,7 +15,7 @@ public interface FactoryDao {
             "bak,factory_name,factory_img_url,factory_addr,factory_url,factory_worker,factory_status) " +
             "values(#{flag},#{createTime},#{createUserid},#{updateTime},#{updateUserid}," +
             "#{bak},#{factoryName},#{factoryImgUrl},#{factoryAddr},#{factoryUrl},#{factoryWorker},#{factoryStatus})")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn="id") // 添加成功之后将主键值赋值给tEquipment id
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn="id")
     void insert(TFactory tFactory);
 
     // 根据ID删除一条工厂信息

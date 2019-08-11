@@ -1,6 +1,7 @@
 package com.neu.management.dao;
 
 import com.neu.management.model.TEquipment;
+import com.neu.management.modelVO.EquipmentSelectVO;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
@@ -46,6 +47,28 @@ public interface EquipmentDao {
     })
     int update(TEquipment record);
 
+    // 检查该设备ID是否有已启动的工单
+    @Select({"select t_equipment.* from t_equipment INNER JOIN t_equipment_product on " +
+            "t_equipment.id = t_equipment_product.equipment_id INNER JOIN t_product_plan on " +
+            "t_equipment_product.product_id = t_product_plan.product_id WHERE t_equipment.id = #{id} " +
+            "and t_product_plan.plan_status = 20 AND t_equipment.factory_id = t_equipment_product.factory_id " +
+            "AND t_equipment.factory_id = t_product_plan.factory_id"})
+    @Results({
+            @Result(column="id", property="id", id=true),
+            @Result(column="flag", property="flag"),
+            @Result(column="create_time", property="createTime"),
+            @Result(column="create_userid", property="createUserid"),
+            @Result(column="update_time", property="updateTime"),
+            @Result(column="update_userid", property="updateUserid"),
+            @Result(column="equipment_seq", property="equipmentSeq"),
+            @Result(column="equipment_name", property="equipmentName"),
+            @Result(column="equipment_img_url", property="equipmentImgUrl"),
+            @Result(column="equipment_status", property="equipmentStatus"),
+            @Result(column="factory_id", property="factoryId")
+    })
+    TEquipment isInPlaned(Integer id);
+
+
     // 根据ID获取设备信息
     @Select({"select * from t_equipment where id = #{id}"})
     @Results({
@@ -87,8 +110,11 @@ public interface EquipmentDao {
     })
     List<TEquipment> selectAll(TEquipment tEquipment);
 
-    // 根据序列号获取设备信息
-    @Select({"select * from t_equipment where equipment_seq = #{equipmentSeq}"})
+    @Select({"select t_equipment.* FROM t_equipment INNER JOIN t_equipment_product " +
+            "on t_equipment.id = t_equipment_product.equipment_id " +
+            "INNER JOIN t_product on t_equipment_product.product_id = t_product.id " +
+            "INNER JOIN t_factory on t_product.factory_id = t_factory.id " +
+            "where t_equipment.equipment_name = #{equipmentName} AND t_product.product_name = #{productName} AND t_factory.id = #{factoryId}"})
     @Results({
             @Result(column="id", property="id", id=true),
             @Result(column="flag", property="flag"),
@@ -102,7 +128,41 @@ public interface EquipmentDao {
             @Result(column="equipment_status", property="equipmentStatus"),
             @Result(column="factory_id", property="factoryId")
     })
-    TEquipment selectBySeq(String equipmentSeq);
+    List<TEquipment> getAll(EquipmentSelectVO equipmentSelectVO);
+
+    // 根据序列号以及工厂ID获取设备信息  同一工厂序列号不能重复
+    @Select({"select * from t_equipment where equipment_seq = #{equipmentSeq} and factory_id = #{factoryId}"})
+    @Results({
+            @Result(column="id", property="id", id=true),
+            @Result(column="flag", property="flag"),
+            @Result(column="create_time", property="createTime"),
+            @Result(column="create_userid", property="createUserid"),
+            @Result(column="update_time", property="updateTime"),
+            @Result(column="update_userid", property="updateUserid"),
+            @Result(column="equipment_seq", property="equipmentSeq"),
+            @Result(column="equipment_name", property="equipmentName"),
+            @Result(column="equipment_img_url", property="equipmentImgUrl"),
+            @Result(column="equipment_status", property="equipmentStatus"),
+            @Result(column="factory_id", property="factoryId")
+    })
+    TEquipment selectBySeqAndFactoryId(TEquipment tEquipment);
+
+    // 根据工厂ID获取设备信息
+    @Select({"select * from t_equipment where factory_id = #{id}"})
+    @Results({
+            @Result(column="id", property="id", id=true),
+            @Result(column="flag", property="flag"),
+            @Result(column="create_time", property="createTime"),
+            @Result(column="create_userid", property="createUserid"),
+            @Result(column="update_time", property="updateTime"),
+            @Result(column="update_userid", property="updateUserid"),
+            @Result(column="equipment_seq", property="equipmentSeq"),
+            @Result(column="equipment_name", property="equipmentName"),
+            @Result(column="equipment_img_url", property="equipmentImgUrl"),
+            @Result(column="equipment_status", property="equipmentStatus"),
+            @Result(column="factory_id", property="factoryId")
+    })
+    List<TEquipment> selectByFactoryId(Integer id);
 
     class Provider {
         /* 批量插入 */

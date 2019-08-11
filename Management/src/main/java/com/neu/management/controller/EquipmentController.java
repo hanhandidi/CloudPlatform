@@ -1,6 +1,7 @@
 package com.neu.management.controller;
 import com.neu.management.model.Message;
 import com.neu.management.model.TEquipment;
+import com.neu.management.modelVO.EquipmentSelectVO;
 import com.neu.management.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,13 +43,17 @@ public class EquipmentController {
         return addEquipmentMessage;
     }
 
-    // 根据id删除设备信息 ok
+    // 根据id删除设备信息 ok 要求已关联启动工单的设备不可删除
     @RequestMapping("delete/{id}")
     public Message deleteEquipment(@PathVariable  Integer id){
-        equipmentService.deleteEquipment(id);
         Message deleteEquipmentMessage = new Message();
-        deleteEquipmentMessage.setCode(200);
-        deleteEquipmentMessage.setMessage("删除设备成功！");
+        if(equipmentService.deleteEquipment(id) == 1){
+            deleteEquipmentMessage.setCode(200);
+            deleteEquipmentMessage.setMessage("删除设备成功！");
+        }else {
+            deleteEquipmentMessage.setCode(202);
+            deleteEquipmentMessage.setMessage("删除设备失败，改设备正在生产产品！");
+        }
         return deleteEquipmentMessage;
     }
 
@@ -71,22 +76,6 @@ public class EquipmentController {
             getEquipmentMessage.setCode(200);
             getEquipmentMessage.setMessage("获取设备成功！");
             getEquipmentMessage.setData(equipmentService.getEquipment(id));
-        }else {
-            getEquipmentMessage.setCode(202);
-            getEquipmentMessage.setMessage("获取设备失败！");
-        }
-        return getEquipmentMessage;
-    }
-
-    // 根据序列号获取设备信息 ok
-    @RequestMapping("getBySeq")
-    public Message getEquipmentBySeq(@RequestBody String equipmentSeq){
-        Message getEquipmentMessage = new Message();
-        if (equipmentService.getEquipmentBySeq(equipmentSeq) != null){
-            TEquipment tEquipment = equipmentService.getEquipmentBySeq(equipmentSeq);
-            getEquipmentMessage.setCode(200);
-            getEquipmentMessage.setMessage("获取设备成功！");
-            getEquipmentMessage.setData(tEquipment);
         }else {
             getEquipmentMessage.setCode(202);
             getEquipmentMessage.setMessage("获取设备失败！");
@@ -124,6 +113,36 @@ public class EquipmentController {
             listEquipmentMessage.setMessage("分页查询失败！");
         }
         return listEquipmentMessage;
+    }
+
+    // 获取工厂的全部数据、分页、简易查找 ok
+    @RequestMapping("listByFactoryId/{currPage}")
+    public Message listEquipmentByFactoryId(@PathVariable Integer currPage, @RequestBody Integer id){
+        Message listByFactoryIdEquipmentMessage = new Message();
+        if ( equipmentService.listEquipment(currPage, id) != null) {
+            listByFactoryIdEquipmentMessage.setCode(200);
+            listByFactoryIdEquipmentMessage.setMessage("分页查询成功！");
+            listByFactoryIdEquipmentMessage.setData(equipmentService.listEquipment(currPage,id));
+        }else {
+            listByFactoryIdEquipmentMessage.setCode(202);
+            listByFactoryIdEquipmentMessage.setMessage("分页查询失败！");
+        }
+        return listByFactoryIdEquipmentMessage;
+    }
+
+    // 查询：根据产品名称、设备名称查询当前工厂所有相关设备内容列表
+    @RequestMapping("select/{currPage}")
+    public Message selectEquipment(@PathVariable Integer currPage, @RequestBody EquipmentSelectVO equipmentSelectVO){
+        Message selectEquipmentMessage = new Message();
+        if (equipmentService.selectEquipment(currPage,equipmentSelectVO) != null){
+            selectEquipmentMessage.setCode(200);
+            selectEquipmentMessage.setMessage("分页查询成功！");
+            selectEquipmentMessage.setData(equipmentService.selectEquipment(currPage,equipmentSelectVO));
+        }else {
+            selectEquipmentMessage.setCode(202);
+            selectEquipmentMessage.setMessage("分页查询失败！");
+        }
+        return selectEquipmentMessage;
     }
 
     // ES 检索 根据设备名称进行检索 ok

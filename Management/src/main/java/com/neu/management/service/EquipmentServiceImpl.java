@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.neu.management.dao.EquipmentDao;
 import com.neu.management.dao.EquipmentRepository;
 import com.neu.management.model.TEquipment;
+import com.neu.management.modelVO.EquipmentSelectVO;
 import com.neu.management.util.Define;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.index.query.BoolQueryBuilder;
@@ -57,10 +58,8 @@ public class EquipmentServiceImpl implements EquipmentService{
     // @Cacheable 先检查传过来的对象是否缓存 对于新数据 尚未生成id，默认id = 0 -》key值被固定了 借助get方法添加缓存
     // @Cacheable(value="TEquipment",key="T(String).valueOf('TEquipment').concat('-').concat(#tEquipment.id)",unless="#result == null")
     public TEquipment addEquipment(TEquipment tEquipment) {
-        // 设备序列号
-        String seq = tEquipment.getEquipmentSeq();
-        // 根据序列号查询（设备序列号不能重复）
-        if (equipmentDao.selectBySeq(seq) != null){
+        // 根据序列号以及工厂ID查询（同一工厂设备序列号不能重复）
+        if (equipmentDao.selectBySeqAndFactoryId(tEquipment) != null){
             return null;
         }else {
             equipmentDao.insert(tEquipment);
@@ -74,10 +73,17 @@ public class EquipmentServiceImpl implements EquipmentService{
 
     @Override
     @CacheEvict(value="TEquipment",key="T(String).valueOf('TEquipment').concat('-').concat(#id)")
-    public void deleteEquipment(Integer id) {
-        // 删除文档
-        equipmentRepository.deleteById(id);
-        equipmentDao.deleteById(id);
+    public int deleteEquipment(Integer id) {
+        // 删除设备记录，要求已关联启动工单的设备不可删除
+        // 根据id在设备产品
+        if ( equipmentDao.isInPlaned(id) == null ){
+            // 删除文档
+            equipmentRepository.deleteById(id);
+            equipmentDao.deleteById(id);
+            return 1;
+        }else {
+            return 0;
+        }
     }
 
     // 批量删除清除所有缓存
@@ -95,10 +101,8 @@ public class EquipmentServiceImpl implements EquipmentService{
     @Override
     @CachePut(value="TEquipment",key="T(String).valueOf('TEquipment').concat('-').concat(#tEquipment.id)")
     public TEquipment updateEquipment(TEquipment tEquipment) {
-        // 设备序列号
-        String seq = tEquipment.getEquipmentSeq();
-        // 根据序列号查询（设备序列号不能重复）
-        if (equipmentDao.selectBySeq(seq) != null){
+        // 根据序列号以及工厂ID查询（同一工厂设备序列号不能重复）
+        if (equipmentDao.selectBySeqAndFactoryId(tEquipment) != null){
             return null;
         }else {
             // 修改文档
@@ -114,12 +118,6 @@ public class EquipmentServiceImpl implements EquipmentService{
         return equipmentDao.selectById(id);
     }
 
-    // 根据序列号不缓存
-    @Override
-    public TEquipment getEquipmentBySeq(String equipmentSeq) {
-        return equipmentDao.selectBySeq(equipmentSeq);
-    }
-
     @Override
     public PageInfo<TEquipment> listEquipment(Integer currPage, TEquipment tEquipment) {
         if(currPage == null)
@@ -128,6 +126,26 @@ public class EquipmentServiceImpl implements EquipmentService{
         PageHelper.startPage(currPage, Define.PAGE_SIZE);
         //分页查询
         return new PageInfo<>(equipmentDao.selectAll(tEquipment));
+    }
+
+    @Override
+    public PageInfo<TEquipment> listEquipment(Integer currPage, Integer id) {
+        if(currPage == null)
+            currPage = 1;
+        //设置从第几页查询N条
+        PageHelper.startPage(currPage, Define.PAGE_SIZE);
+        //分页查询
+        return new PageInfo<>(equipmentDao.selectByFactoryId(id));
+    }
+
+    @Override
+    public PageInfo<TEquipment> selectEquipment(Integer currPage, EquipmentSelectVO equipmentSelectVO) {
+        if(currPage == null)
+            currPage = 1;
+        //设置从第几页查询N条
+        PageHelper.startPage(currPage, Define.PAGE_SIZE);
+        //分页查询
+        return new PageInfo<>(equipmentDao.getAll(equipmentSelectVO));
     }
 
     @Override

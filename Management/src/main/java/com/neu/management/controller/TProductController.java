@@ -30,11 +30,9 @@ public class TProductController {
     @RequestMapping("list/{currentPage}")
     public Message selectProducts(@RequestBody TProduct product, @PathVariable  Integer currentPage)
     {
-        Integer page =currentPage;
-        System.out.println(currentPage);
         Message selectProducts = new Message();
-        PageInfo<TProduct> data=tProductService.selectProducts(product,page);
-        if (data !=null){
+        PageInfo<TProduct> data=tProductService.selectProducts(product,currentPage);
+        if (data != null){
             selectProducts.setCode(200);
             selectProducts.setData(data);
             selectProducts.setMessage("查询成功");
@@ -43,7 +41,6 @@ public class TProductController {
             selectProducts.setMessage("查询失败！");
         }
         return selectProducts;
-
     }
     //查询id  ok
     @RequestMapping("selById/{id}")
@@ -60,7 +57,6 @@ public class TProductController {
             selectProducts.setMessage("查询失败！");
         }
         return selectProducts;
-
     }
     //查询num ok
     @RequestMapping("selByNum/{num}")
@@ -78,12 +74,10 @@ public class TProductController {
             selectProducts.setMessage("查询失败！");
         }
         return selectProducts;
-
     }
     //添加产品 ok
     @RequestMapping("add")
     public Message addProduct(@RequestBody TProduct product, HttpSession session){
-
         Message message =new Message();
         int result =tProductService.addProduct(product);
         if(result==-1)
@@ -125,7 +119,6 @@ public class TProductController {
 //                product.setCreateUserid(tUser.getId());
 //            }
             int result = tProductService.updateProduct(product);
-
             message.setCode(200);
             if(result==-2)
             {
@@ -175,8 +168,6 @@ public class TProductController {
             message.setMessage("删除成功");
             message.setData("删除条数:"+result);
         }
-
         return message;
-
     }
 }
