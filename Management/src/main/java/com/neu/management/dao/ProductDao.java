@@ -3,15 +3,22 @@ package com.neu.management.dao;
 import com.neu.management.model.TProduct;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
+import static org.apache.ibatis.jdbc.SqlBuilder.*;
+import static org.apache.ibatis.jdbc.SqlBuilder.SQL;
+import static org.apache.ibatis.jdbc.SqlBuilder.WHERE;
+
 @Repository
+@Component
+@Mapper
 public interface ProductDao {
 
-    @SelectProvider(type=TProductSqlProvider.class, method="selectProducts")
+    @SelectProvider(type=Provider.class, method="selectProducts")
     @Results({
             @Result(column="id", property="id" ,id=true),
             @Result(column="flag", property="flag"),
@@ -77,8 +84,6 @@ public interface ProductDao {
     })
     TProduct selectByName(String name);
 
-
-
     @Insert({
             "insert into t_product ( flag, create_time," +
                     "create_userid, update_time, update_userid,product_num, product_name, product_img_url," +
@@ -105,9 +110,38 @@ public interface ProductDao {
     int updateProduct(TProduct record);
 
 
-    @DeleteProvider(type = TProductSqlProvider.class,method = "deleteProductByIds")
+    @DeleteProvider(type = Provider.class,method = "deleteProductByIds")
     int deleteProductsByIds(Map<String,List<Integer>> map);
 
     @Delete({"delete from t_product where id =#{id}"})
     int deleteById(Integer id);
+
+    class Provider {
+        public String selectProducts(TProduct product){
+            BEGIN();
+            SELECT("*");
+            FROM("t_product");
+            if(product!=null)
+            {
+                if(product.getProductNum()!=null)
+                    WHERE("product_num="+product.getProductNum());
+                if(product.getProductName()!=null)
+                    WHERE("product_name"+product.getProductName());
+            }
+            return  SQL();
+        }
+        public String deleteProductByIds(Map<String,List<Integer>> map)
+        {
+            List<Integer> ids =map.get("list");
+            StringBuilder sb = new StringBuilder();
+            sb.append("DELETE FROM t_product WHERE id IN (");
+            for(int i = 0; i < ids.size(); i++) {
+                sb.append("'").append(ids.get(i)).append("'");
+                if (i < ids.size() - 1)
+                    sb.append(",");
+            }
+            sb.append(")");
+            return  sb.toString();
+        }
+    }
 }

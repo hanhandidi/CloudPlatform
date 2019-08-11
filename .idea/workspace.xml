@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ab83baa9-c749-4ea8-adec-e33e013cd6a1" name="Default Changelist" comment="lcm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/TProductController.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentProductDao.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentProductDao.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductMapper.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TUserDao.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TestMapper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/TProductService.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductService.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/TProductServiceImpl.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/UserService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/UserServiceImpl.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java" />
+      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductSqlProvider.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java" afterPath="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -50,46 +44,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TProductOrder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProductOrder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1978">
-              <caret line="139" column="31" lean-forward="false" selection-start-line="139" selection-start-column="31" selection-end-line="139" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1019">
-              <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+            <state relative-caret-position="131">
+              <caret line="107" column="27" lean-forward="true" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductDao.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProductDao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="27" />
+            <state relative-caret-position="322">
+              <caret line="143" column="34" lean-forward="true" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FactoryDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/FactoryDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="537">
+              <caret line="88" column="6" lean-forward="false" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,28 +79,18 @@
       <file leaf-file-name="EquipmentProductDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentProductDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-667">
+            <state relative-caret-position="-582">
               <caret line="35" column="110" lean-forward="false" selection-start-line="35" selection-start-column="110" selection-end-line="35" selection-end-column="110" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TProductSqlProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductSqlProvider.java">
+      <file leaf-file-name="EquipmentDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TUserRole.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TUserRole.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="92">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -134,11 +106,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="EquipmentProductService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentProductService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EquipmentSelectVO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/modelVO/EquipmentSelectVO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ProductServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state relative-caret-position="-835">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="e#629#630#0" expanded="true" />
                 <element signature="e#673#674#0" expanded="true" />
@@ -199,7 +193,6 @@
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TEquipment.java" />
         <option value="$PROJECT_DIR$/Management/pom.xml" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/TProductService.java" />
-        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductSqlProvider.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductMapper.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/UserService.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/UserServiceImpl.java" />
@@ -219,11 +212,12 @@
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/model/TProductOrder.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/TProductController.java" />
-        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductService.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentProductDao.java" />
         <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductSqlProvider.java" />
+        <option value="$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java" />
       </list>
     </option>
   </component>
@@ -474,7 +468,7 @@
       <workItem from="1565415704144" duration="16935000" />
       <workItem from="1565500297896" duration="4918000" />
       <workItem from="1565506247772" duration="3249000" />
-      <workItem from="1565511383164" duration="609000" />
+      <workItem from="1565511383164" duration="814000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1565226974170</created>
@@ -616,11 +610,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565509399774</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="lcm">
+      <created>1565512041275</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1565512041275</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96925000" />
+    <option name="totallyTimeSpent" value="97130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -739,6 +740,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -861,25 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/modelVO/EquipmentSelectVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/FactoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="101" column="7" lean-forward="true" selection-start-line="100" selection-start-column="4" selection-end-line="115" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#549#550#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/FactoryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -892,24 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/FactoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1932">
-          <caret line="88" column="6" lean-forward="false" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -960,14 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="189" column="32" lean-forward="false" selection-start-line="189" selection-start-column="32" selection-end-line="189" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -1002,7 +959,7 @@
         <state relative-caret-position="1978">
           <caret line="139" column="31" lean-forward="false" selection-start-line="139" selection-start-column="31" selection-end-line="139" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1019,14 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductSqlProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1055,20 +1004,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentProductDao.java">
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/FactoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-667">
-          <caret line="35" column="110" lean-forward="false" selection-start-line="35" selection-start-column="110" selection-end-line="35" selection-end-column="110" />
+        <state relative-caret-position="92">
+          <caret line="101" column="7" lean-forward="true" selection-start-line="100" selection-start-column="4" selection-end-line="115" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java">
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="27" />
+        <state relative-caret-position="131">
+          <caret line="107" column="27" lean-forward="true" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-835">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1081,22 +1039,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/ProductServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/service/EquipmentProductService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="41" />
           <folding>
-            <element signature="e#629#630#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/controller/ProductController.java">
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/modelVO/EquipmentSelectVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1019">
-          <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+        <state relative-caret-position="253">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentProductDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-582">
+          <caret line="35" column="110" lean-forward="false" selection-start-line="35" selection-start-column="110" selection-end-line="35" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/FactoryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="88" column="6" lean-forward="false" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/EquipmentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/TProductSqlProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Management/src/main/java/com/neu/management/dao/ProductDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="143" column="34" lean-forward="true" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

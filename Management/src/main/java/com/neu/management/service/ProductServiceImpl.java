@@ -26,8 +26,7 @@ public class ProductServiceImpl implements ProductService {
     public PageInfo<TProduct> selectProducts(TProduct record, Integer currentPage) {
         if ( currentPage == 0 ) currentPage = 1;
         PageHelper.startPage(currentPage, Define.PAGE_SIZE);
-        PageInfo<TProduct> pageInfo = new PageInfo<>(productDao.selectProducts(record));
-        return pageInfo;
+        return new PageInfo<>(productDao.selectProducts(record));
     }
 
     @Override
@@ -43,7 +42,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public int updateProduct(TProduct tProduct) {
-//        tProduct.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         if ( tProduct == null || tProduct.getId() == 0 || tProduct.getProductName() == null ) return -1;
         TProduct tp = selectByName(tProduct.getProductName());
         if ( tp != null && tp.getId() != tProduct.getId() ) return -2;
