@@ -19,7 +19,6 @@ public class TProductOrder {
   private java.sql.Date endDate;
   private long orderStatus;
   private long factoryId;
-  private long factoryYield;
 
   public long getId() {
     return id;
@@ -125,14 +124,6 @@ public class TProductOrder {
     this.factoryId = factoryId;
   }
 
-  public long getFactoryYield() {
-    return factoryYield;
-  }
-
-  public void setFactoryYield(long factoryYield) {
-    this.factoryYield = factoryYield;
-  }
-
   public TProductOrder(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String orderSeq, long orderSource, long productId, long productCount, Date endDate, long orderStatus, long factoryId, long factoryYield) {
     this.id = id;
     this.flag = flag;
@@ -147,7 +138,6 @@ public class TProductOrder {
     this.endDate = endDate;
     this.orderStatus = orderStatus;
     this.factoryId = factoryId;
-    this.factoryYield = factoryYield;
   }
 
   public TProductOrder() {
