@@ -3,8 +3,12 @@ package com.neu.management.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neu.management.dao.EquipmentDao;
+import com.neu.management.dao.EquipmentProductDao;
 import com.neu.management.dao.EquipmentRepository;
 import com.neu.management.model.TEquipment;
+import com.neu.management.model.TEquipmentProduct;
+import com.neu.management.modelVO.EquipmentAddVO;
+import com.neu.management.modelVO.EquipmentProductVO;
 import com.neu.management.modelVO.EquipmentSelectVO;
 import com.neu.management.util.Define;
 import org.elasticsearch.action.search.SearchResponse;
@@ -31,22 +35,24 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 import java.lang.reflect.Method;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class EquipmentServiceImpl implements EquipmentService{
+
     private final EquipmentDao equipmentDao;
-
     private final EquipmentRepository equipmentRepository;
-
     private final ElasticsearchTemplate elasticsearchTemplate;
+    private final EquipmentProductDao equipmentProductDao;
 
     @Autowired
-    public EquipmentServiceImpl(EquipmentDao equipmentDao, EquipmentRepository equipmentRepository, ElasticsearchTemplate elasticsearchTemplate) {
+    public EquipmentServiceImpl(EquipmentDao equipmentDao, EquipmentRepository equipmentRepository, ElasticsearchTemplate elasticsearchTemplate,EquipmentProductDao equipmentProductDao) {
         this.equipmentDao = equipmentDao;
         this.elasticsearchTemplate = elasticsearchTemplate;
         this.equipmentRepository = equipmentRepository;
+        this.equipmentProductDao = equipmentProductDao;
     }
 
     // @Cacheable(value="user",key="#user.username",unless="#result==null") 添加缓存 配置在方法或类上，作用：本方法执行后，先去缓存看有没有数据，如果没有，从数据库中查找出来，给缓存中存一份，返回结果，下次本方法执行，在缓存未过期情况下，先在缓存中查找，有的话直接返回，没有的话从数据库查找
@@ -72,14 +78,58 @@ public class EquipmentServiceImpl implements EquipmentService{
     }
 
     @Override
+    public int addEquipment(EquipmentAddVO equipmentAddVO) {
+        TEquipment tEquipment = new TEquipment();
+        tEquipment.setFlag(equipmentAddVO.getFlag());
+        tEquipment.setCreateUserid(equipmentAddVO.getCreateUserid());
+        tEquipment.setCreateTime(new Timestamp(new Date().getTime()));
+        tEquipment.setUpdateUserid(equipmentAddVO.getCreateUserid());
+        tEquipment.setUpdateTime(new Timestamp(new Date().getTime()));
+        tEquipment.setEquipmentSeq(equipmentAddVO.getEquipmentSeq());
+        tEquipment.setEquipmentName(equipmentAddVO.getEquipmentName());
+        tEquipment.setEquipmentImgUrl(equipmentAddVO.getEquipmentImgUrl());
+        tEquipment.setEquipmentStatus(equipmentAddVO.getEquipmentStatus());
+        tEquipment.setFactoryId(equipmentAddVO.getFactoryId());
+        if (equipmentDao.selectBySeqAndFactoryId(tEquipment) != null){
+            return -1;
+        }else {
+            equipmentDao.insert(tEquipment);
+            List<Integer> ids = new ArrayList<>();
+            for (EquipmentProductVO equipmentProductVO:equipmentAddVO.getEquipmentProductVOS()){
+                TEquipmentProduct tEquipmentProduct = new TEquipmentProduct();
+                tEquipmentProduct.setEquipmentId(tEquipment.getId());
+                tEquipmentProduct.setProductId(equipmentProductVO.getProductId());
+                tEquipmentProduct.setYield(equipmentProductVO.getYield());
+                tEquipmentProduct.setUnit(equipmentProductVO.getUnit());
+                tEquipmentProduct.setFactoryId(tEquipment.getFactoryId());
+                // 一个设备生产一个产品的产能唯一
+                if(equipmentProductDao.selectByEquipmentIdAndProductId(tEquipmentProduct) != null){
+                    // 插入失败 删除刚加入的设备信息及产能信息
+                    equipmentDao.deleteById((int) tEquipment.getId(),(int) equipmentAddVO.getCreateUserid());
+                    for (Integer id : ids){
+                        equipmentProductDao.deleteById(id);
+                    }
+                    return 0;
+                }else {
+                    equipmentProductDao.insert(tEquipmentProduct);
+                    ids.add((int) tEquipmentProduct.getId());
+                }
+            }
+            // 保存文档
+            equipmentRepository.save(tEquipment);
+            return (int) tEquipment.getId();
+        }
+    }
+
+    @Override
     @CacheEvict(value="TEquipment",key="T(String).valueOf('TEquipment').concat('-').concat(#id)")
-    public int deleteEquipment(Integer id) {
+    public int deleteEquipment(Integer id,Integer userId) {
         // 删除设备记录，要求已关联启动工单的设备不可删除
         // 根据id在设备产品
         if ( equipmentDao.isInPlaned(id) == null ){
             // 删除文档
             equipmentRepository.deleteById(id);
-            equipmentDao.deleteById(id);
+            equipmentDao.deleteById(id,userId);
             return 1;
         }else {
             return 0;
@@ -113,6 +163,13 @@ public class EquipmentServiceImpl implements EquipmentService{
     }
 
     @Override
+    @CachePut(value="TEquipment",key="T(String).valueOf('TEquipment').concat('-').concat(#tEquipment.id)")
+    public TEquipment updateEquipmentState(TEquipment tEquipment) {
+        equipmentDao.updateStates(tEquipment);
+        return equipmentDao.selectById((int)tEquipment.getId());
+    }
+
+    @Override
     @Cacheable(value="TEquipment",key="T(String).valueOf('TEquipment').concat('-').concat(#id)",unless="#result == null")
     public TEquipment getEquipment(Integer id) {
         return equipmentDao.selectById(id);
@@ -129,13 +186,8 @@ public class EquipmentServiceImpl implements EquipmentService{
     }
 
     @Override
-    public PageInfo<TEquipment> listEquipment(Integer currPage, Integer id) {
-        if(currPage == null)
-            currPage = 1;
-        //设置从第几页查询N条
-        PageHelper.startPage(currPage, Define.PAGE_SIZE);
-        //分页查询
-        return new PageInfo<>(equipmentDao.selectByFactoryId(id));
+    public List<TEquipment> allEquipment(TEquipment tEquipment) {
+        return equipmentDao.selectAll(tEquipment);
     }
 
     @Override

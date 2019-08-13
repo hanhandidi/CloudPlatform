@@ -32,6 +32,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<TProduct> selectProducts(TProduct tProduct) {
+        return productDao.selectProducts(tProduct);
+    }
+
+    @Override
     public TProduct addProduct(TProduct tProduct) {
         // 同一工厂产品不可重名
         // 同一工厂产品序列号不可重复
@@ -68,10 +73,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @CacheEvict(value="TProduct",key="T(String).valueOf('TProduct').concat('-').concat(#id)")
-    public int deleteById(Integer id) {
+    public int deleteById(Integer id,Integer userId) {
         if ( id == null ) return -1;
         if ( productDao.isInGetOrder(id) == null ){
-            productDao.deleteById(id);
+            productDao.deleteById(id,userId);
             return 1;
         }
         return 0;

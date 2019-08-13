@@ -3,6 +3,7 @@ package com.neu.management.dao;
 import com.neu.management.model.TEquipment;
 import com.neu.management.modelVO.EquipmentSelectVO;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Component;
 
 import java.text.MessageFormat;
@@ -25,9 +26,9 @@ public interface EquipmentDao {
     @InsertProvider(type = Provider.class, method = "insertBatch")
     int insertBatch(List<TEquipment> tEquipments);
 
-    // 根据ID删除一条设备
-    @Delete({"delete from t_equipment where id = #{id}"})
-    void deleteById(Integer id);
+    // 根据ID删除一条设备 设置状态为无效
+    @Update({"update t_equipment set update_time=now(),update_userid=#{userId},flag= 1,equipment_status= 20 where id = #{id}"})
+    void deleteById(Integer id,Integer userId);
 
     // 批量删除
     @DeleteProvider(type = Provider.class, method = "deleteBatch")
@@ -45,7 +46,11 @@ public interface EquipmentDao {
                     "factory_id=#{factoryId}",
             "where id = #{id}"
     })
-    int update(TEquipment record);
+    int update(TEquipment tEquipment);
+
+    // 设置设备状态
+    @Update({"update t_equipment set update_time=#{updateTime},update_userid=#{updateUserid},equipment_status=#{equipmentStatus} where id = #{id}"})
+    int updateStates(TEquipment tEquipment);
 
     // 检查该设备ID是否有已启动的工单
     @Select({"select t_equipment.* from t_equipment INNER JOIN t_equipment_product on " +
@@ -64,10 +69,10 @@ public interface EquipmentDao {
             @Result(column="equipment_name", property="equipmentName"),
             @Result(column="equipment_img_url", property="equipmentImgUrl"),
             @Result(column="equipment_status", property="equipmentStatus"),
-            @Result(column="factory_id", property="factoryId")
+            @Result(column="factory_id", property="factoryId"),
+            @Result(column="id",property="tEquipmentProducts",many=@Many(select="com.neu.management.dao.EquipmentProductDao.selectByEquipmentId",fetchType= FetchType.EAGER))
     })
     TEquipment isInPlaned(Integer id);
-
 
     // 根据ID获取设备信息
     @Select({"select * from t_equipment where id = #{id}"})
@@ -82,14 +87,15 @@ public interface EquipmentDao {
             @Result(column="equipment_name", property="equipmentName"),
             @Result(column="equipment_img_url", property="equipmentImgUrl"),
             @Result(column="equipment_status", property="equipmentStatus"),
-            @Result(column="factory_id", property="factoryId")
+            @Result(column="factory_id", property="factoryId"),
+            @Result(column="id",property="tEquipmentProducts",many=@Many(select="com.neu.management.dao.EquipmentProductDao.selectByEquipmentId",fetchType= FetchType.EAGER))
     })
     TEquipment selectById(Integer id);
 
     // 获取所有设备信息 查询（设备状态、设备名称(模糊)）
     @Select("<script> select * from t_equipment <where>            "
             + "  <if test='equipmentStatus != null and equipmentStatus != &quot;&quot;'>     "
-            + "    and equipment_status = #{id}                    "
+            + "    and equipment_status = #{equipmentStatus}                    "
             + "  </if>                                             "
             + "  <if test='equipmentName != null and equipmentName != &quot;&quot;'> "
             + "    and equipment_name like CONCAT('%', #{equipmentName}, '%')        "
@@ -109,7 +115,8 @@ public interface EquipmentDao {
             @Result(column="equipment_name", property="equipmentName"),
             @Result(column="equipment_img_url", property="equipmentImgUrl"),
             @Result(column="equipment_status", property="equipmentStatus"),
-            @Result(column="factory_id", property="factoryId")
+            @Result(column="factory_id", property="factoryId"),
+            @Result(column="id",property="tEquipmentProducts",many=@Many(select="com.neu.management.dao.EquipmentProductDao.selectByEquipmentId",fetchType= FetchType.EAGER))
     })
     List<TEquipment> selectAll(TEquipment tEquipment);
 
@@ -129,7 +136,8 @@ public interface EquipmentDao {
             @Result(column="equipment_name", property="equipmentName"),
             @Result(column="equipment_img_url", property="equipmentImgUrl"),
             @Result(column="equipment_status", property="equipmentStatus"),
-            @Result(column="factory_id", property="factoryId")
+            @Result(column="factory_id", property="factoryId"),
+            @Result(column="id",property="tEquipmentProducts",many=@Many(select="com.neu.management.dao.EquipmentProductDao.selectByEquipmentId",fetchType= FetchType.EAGER))
     })
     List<TEquipment> getAll(EquipmentSelectVO equipmentSelectVO);
 
@@ -146,7 +154,8 @@ public interface EquipmentDao {
             @Result(column="equipment_name", property="equipmentName"),
             @Result(column="equipment_img_url", property="equipmentImgUrl"),
             @Result(column="equipment_status", property="equipmentStatus"),
-            @Result(column="factory_id", property="factoryId")
+            @Result(column="factory_id", property="factoryId"),
+            @Result(column="id",property="tEquipmentProducts",many=@Many(select="com.neu.management.dao.EquipmentProductDao.selectByEquipmentId",fetchType= FetchType.EAGER))
     })
     TEquipment selectBySeqAndFactoryId(TEquipment tEquipment);
 
@@ -163,7 +172,8 @@ public interface EquipmentDao {
             @Result(column="equipment_name", property="equipmentName"),
             @Result(column="equipment_img_url", property="equipmentImgUrl"),
             @Result(column="equipment_status", property="equipmentStatus"),
-            @Result(column="factory_id", property="factoryId")
+            @Result(column="factory_id", property="factoryId"),
+            @Result(column="id",property="tEquipmentProducts",many=@Many(select="com.neu.management.dao.EquipmentProductDao.selectByEquipmentId",fetchType= FetchType.EAGER))
     })
     List<TEquipment> selectByFactoryId(Integer id);
 

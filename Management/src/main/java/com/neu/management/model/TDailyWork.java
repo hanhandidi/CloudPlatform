@@ -20,6 +20,7 @@ public class TDailyWork {
   private long completeFlag;
   private long factoryId;
   private String bak;
+  private TProductSchedule tProductSchedule;
 
 
   public long getId() {
@@ -30,6 +31,13 @@ public class TDailyWork {
     this.id = id;
   }
 
+  public TProductSchedule gettProductSchedule() {
+    return tProductSchedule;
+  }
+
+  public void settProductSchedule(TProductSchedule tProductSchedule) {
+    this.tProductSchedule = tProductSchedule;
+  }
 
   public long getFlag() {
     return flag;

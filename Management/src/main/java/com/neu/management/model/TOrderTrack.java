@@ -15,10 +15,18 @@ public class TOrderTrack {
   private long workingCount;
   private long qualifiedCount;
   private long factoryId;
-
+  private TProductSchedule tProductSchedule;
 
   public long getId() {
     return id;
+  }
+
+  public TProductSchedule gettProductSchedule() {
+    return tProductSchedule;
+  }
+
+  public void settProductSchedule(TProductSchedule tProductSchedule) {
+    this.tProductSchedule = tProductSchedule;
   }
 
   public void setId(long id) {

@@ -19,6 +19,15 @@ public class TProductOrder {
   private java.sql.Date endDate;
   private long orderStatus;
   private long factoryId;
+  private TProduct tProduct;
+
+  public TProduct gettProduct() {
+    return tProduct;
+  }
+
+  public void settProduct(TProduct tProduct) {
+    this.tProduct = tProduct;
+  }
 
   public long getId() {
     return id;

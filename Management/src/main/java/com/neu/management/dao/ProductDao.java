@@ -30,7 +30,7 @@ public interface ProductDao {
             @Result(column = "product_name", property = "productName"),
             @Result(column = "product_img_url", property = "productImgUrl"),
             @Result(column = "factory_id", property = "factoryId")})
-    List<TProduct> selectProducts(TProduct record);
+    List<TProduct> selectProducts(TProduct tProduct);
 
     // 根据id获取产品信息
     @Select({"select * from t_product where id = #{id,jdbcType=INTEGER}"})
@@ -127,7 +127,7 @@ public interface ProductDao {
 
     // 是否可以删除检验
     @Select({"select t_product.* from t_product INNER JOIN t_product_order on t_product.id = t_product_order.product_id " +
-            "WHERE t_product.id = #{20} AND t_product_order.order_status >= 20"})
+            "WHERE t_product.id = #{id} AND t_product_order.order_status >= 20"})
     @Results({@Result(column = "id", property = "id", id = true),
             @Result(column = "flag", property = "flag"),
             @Result(column = "create_time", property = "createTime", jdbcType = JdbcType.TIMESTAMP),
@@ -143,8 +143,9 @@ public interface ProductDao {
     @DeleteProvider(type = Provider.class, method = "deleteProductByIds")
     int deleteProductsByIds(Map<String, List<Integer>> map);
 
-    @Delete({"delete from t_product where id =#{id}"})
-    int deleteById(Integer id);
+    // 设置状态为无效
+    @Update({"update t_product set update_time=now(),update_userid=#{userId},flag = 1 where id = #{id,jdbcType=INTEGER}"})
+    int deleteById(Integer id,Integer userId);
 
     class Provider {
         public String selectProducts(TProduct product) {

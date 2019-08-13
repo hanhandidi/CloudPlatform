@@ -21,8 +21,17 @@ public class TProductPlan {
   private java.sql.Date planEndDate;
   private long planStatus;
   private long factoryId;
+  private TProductOrder tProductOrder;
 
   public TProductPlan() {
+  }
+
+  public TProductOrder gettProductOrder() {
+    return tProductOrder;
+  }
+
+  public void settProductOrder(TProductOrder tProductOrder) {
+    this.tProductOrder = tProductOrder;
   }
 
   public TProductPlan(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String planSeq, long orderId, long productId, long planCount, Date deliveryDate, Date planStartDate, Date planEndDate, long planStatus, long factoryId) {

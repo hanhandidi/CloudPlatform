@@ -1,6 +1,5 @@
 package com.neu.management.model;
 
-
 public class TEquipmentProduct {
 
   private long id;

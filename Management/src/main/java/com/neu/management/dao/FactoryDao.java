@@ -18,9 +18,10 @@ public interface FactoryDao {
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn="id")
     void insert(TFactory tFactory);
 
-    // 根据ID删除一条工厂信息
-    @Delete({"delete from t_factory where id = #{id}"})
-    void deleteById(Integer id);
+    // 根据ID删除一条工厂信息 设置状态为无效
+    // @Delete({"delete from t_factory where id = #{id}"})
+    @Update({"update t_factory set update_time=now(),update_userid=#{userId},flag = 1,factory_status = 1 where id = #{id}"})
+    void deleteById(Integer id,Integer userId);
 
     // 更新设备信息
     @Update({
@@ -31,6 +32,15 @@ public interface FactoryDao {
             "where id = #{id}"
     })
     int update(TFactory tFactory);
+
+    // 设置工厂状态
+    // 更新设备信息
+    @Update({
+            "update t_factory",
+            "set update_time=#{updateTime},update_userid=#{updateUserid},factory_status=#{factoryStatus} ",
+            "where id = #{id}"
+    })
+    int updateState(TFactory tFactory);
 
     // 根据ID获取工厂信息
     @Select({"select * from t_factory where id = #{id}"})
@@ -90,7 +100,7 @@ public interface FactoryDao {
     List<TFactory> getAll();
 
     // 获取所有工厂信息 查询（工厂标识、工厂状态、工厂名称(模糊)、工厂地址(模糊)）
-    @Select("<script> select * from t_factory <where>            "
+    @Select("<script> select * from t_factory <where>              "
             + "  <if test='flag != null and flag != &quot;&quot;'>     "
             + "    and flag = #{flag}                              "
             + "  </if>                                             "

@@ -74,6 +74,11 @@ public class EquipmentProductServiceImpl implements EquipmentProductService{
     }
 
     @Override
+    public List<TEquipmentProduct> listByFactoryIdAndProductId(Integer factoryId, Integer productId) {
+        return equipmentProductDao.selectByFactoryIdAndProductId(factoryId,productId);
+    }
+
+    @Override
     public PageInfo<TEquipmentProduct> listEquipmentProductByEquipmentId(Integer currPage, Integer id) {
         if(currPage == null)
             currPage = 1;
