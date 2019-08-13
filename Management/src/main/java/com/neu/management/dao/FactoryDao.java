@@ -15,7 +15,7 @@ public interface FactoryDao {
             "bak,factory_name,factory_img_url,factory_addr,factory_url,factory_worker,factory_status) " +
             "values(#{flag},#{createTime},#{createUserid},#{updateTime},#{updateUserid}," +
             "#{bak},#{factoryName},#{factoryImgUrl},#{factoryAddr},#{factoryUrl},#{factoryWorker},#{factoryStatus})")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn="id")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void insert(TFactory tFactory);
 
     // 根据ID删除一条工厂信息 设置状态为无效
@@ -45,57 +45,59 @@ public interface FactoryDao {
     // 根据ID获取工厂信息
     @Select({"select * from t_factory where id = #{id}"})
     @Results({
-            @Result(column="id", property="id", id=true),
-            @Result(column="flag", property="flag"),
-            @Result(column="create_time", property="createTime"),
-            @Result(column="create_userid", property="createUserid"),
-            @Result(column="update_time", property="updateTime"),
-            @Result(column="update_userid", property="updateUserid"),
-            @Result(column="bak", property="bak"),
-            @Result(column="factory_name", property="factoryName"),
-            @Result(column="factory_img_url", property="factoryImgUrl"),
-            @Result(column="factory_addr", property="factoryAddr"),
-            @Result(column="factory_url", property="factoryUrl"),
-            @Result(column="factory_worker", property="factoryWorker"),
-            @Result(column="factory_status", property="factoryStatus")
+            @Result(column = "id", property = "id", id = true),
+            @Result(column = "flag", property = "flag"),
+            @Result(column = "create_time", property = "createTime"),
+            @Result(column = "create_userid", property = "createUserid"),
+            @Result(column = "update_time", property = "updateTime"),
+            @Result(column = "update_userid", property = "updateUserid"),
+            @Result(column = "bak", property = "bak"),
+            @Result(column = "factory_name", property = "factoryName"),
+            @Result(column = "factory_img_url", property = "factoryImgUrl"),
+            @Result(column = "factory_addr", property = "factoryAddr"),
+            @Result(column = "factory_url", property = "factoryUrl"),
+            @Result(column = "factory_worker", property = "factoryWorker"),
+            @Result(column = "factory_status", property = "factoryStatus")
     })
     TFactory selectById(Integer id);
+
+
 
     // 判断工厂名称和地址是否同时重复出现
     @Select({"select * from t_factory where factory_name = #{factoryName} and factory_addr= #{factoryAddr}"})
     @Results({
-            @Result(column="id", property="id", id=true),
-            @Result(column="flag", property="flag"),
-            @Result(column="create_time", property="createTime"),
-            @Result(column="create_userid", property="createUserid"),
-            @Result(column="update_time", property="updateTime"),
-            @Result(column="update_userid", property="updateUserid"),
-            @Result(column="bak", property="bak"),
-            @Result(column="factory_name", property="factoryName"),
-            @Result(column="factory_img_url", property="factoryImgUrl"),
-            @Result(column="factory_addr", property="factoryAddr"),
-            @Result(column="factory_url", property="factoryUrl"),
-            @Result(column="factory_worker", property="factoryWorker"),
-            @Result(column="factory_status", property="factoryStatus")
+            @Result(column = "id", property = "id", id = true),
+            @Result(column = "flag", property = "flag"),
+            @Result(column = "create_time", property = "createTime"),
+            @Result(column = "create_userid", property = "createUserid"),
+            @Result(column = "update_time", property = "updateTime"),
+            @Result(column = "update_userid", property = "updateUserid"),
+            @Result(column = "bak", property = "bak"),
+            @Result(column = "factory_name", property = "factoryName"),
+            @Result(column = "factory_img_url", property = "factoryImgUrl"),
+            @Result(column = "factory_addr", property = "factoryAddr"),
+            @Result(column = "factory_url", property = "factoryUrl"),
+            @Result(column = "factory_worker", property = "factoryWorker"),
+            @Result(column = "factory_status", property = "factoryStatus")
     })
     TFactory selectByNameAndAddr(TFactory tFactory);
 
     // 获得所有工厂信息
     @Select({"select * from t_factory"})
     @Results({
-            @Result(column="id", property="id", id=true),
-            @Result(column="flag", property="flag"),
-            @Result(column="create_time", property="createTime"),
-            @Result(column="create_userid", property="createUserid"),
-            @Result(column="update_time", property="updateTime"),
-            @Result(column="update_userid", property="updateUserid"),
-            @Result(column="bak", property="bak"),
-            @Result(column="factory_name", property="factoryName"),
-            @Result(column="factory_img_url", property="factoryImgUrl"),
-            @Result(column="factory_addr", property="factoryAddr"),
-            @Result(column="factory_url", property="factoryUrl"),
-            @Result(column="factory_worker", property="factoryWorker"),
-            @Result(column="factory_status", property="factoryStatus")
+            @Result(column = "id", property = "id", id = true),
+            @Result(column = "flag", property = "flag"),
+            @Result(column = "create_time", property = "createTime"),
+            @Result(column = "create_userid", property = "createUserid"),
+            @Result(column = "update_time", property = "updateTime"),
+            @Result(column = "update_userid", property = "updateUserid"),
+            @Result(column = "bak", property = "bak"),
+            @Result(column = "factory_name", property = "factoryName"),
+            @Result(column = "factory_img_url", property = "factoryImgUrl"),
+            @Result(column = "factory_addr", property = "factoryAddr"),
+            @Result(column = "factory_url", property = "factoryUrl"),
+            @Result(column = "factory_worker", property = "factoryWorker"),
+            @Result(column = "factory_status", property = "factoryStatus")
     })
     List<TFactory> getAll();
 
@@ -115,19 +117,19 @@ public interface FactoryDao {
             + "  </if>                                                           "
             + "</where> </script>")
     @Results({
-            @Result(column="id", property="id", id=true),
-            @Result(column="flag", property="flag"),
-            @Result(column="create_time", property="createTime"),
-            @Result(column="create_userid", property="createUserid"),
-            @Result(column="update_time", property="updateTime"),
-            @Result(column="update_userid", property="updateUserid"),
-            @Result(column="bak", property="bak"),
-            @Result(column="factory_name", property="factoryName"),
-            @Result(column="factory_img_url", property="factoryImgUrl"),
-            @Result(column="factory_addr", property="factoryAddr"),
-            @Result(column="factory_url", property="factoryUrl"),
-            @Result(column="factory_worker", property="factoryWorker"),
-            @Result(column="factory_status", property="factoryStatus")
+            @Result(column = "id", property = "id", id = true),
+            @Result(column = "flag", property = "flag"),
+            @Result(column = "create_time", property = "createTime"),
+            @Result(column = "create_userid", property = "createUserid"),
+            @Result(column = "update_time", property = "updateTime"),
+            @Result(column = "update_userid", property = "updateUserid"),
+            @Result(column = "bak", property = "bak"),
+            @Result(column = "factory_name", property = "factoryName"),
+            @Result(column = "factory_img_url", property = "factoryImgUrl"),
+            @Result(column = "factory_addr", property = "factoryAddr"),
+            @Result(column = "factory_url", property = "factoryUrl"),
+            @Result(column = "factory_worker", property = "factoryWorker"),
+            @Result(column = "factory_status", property = "factoryStatus")
     })
     List<TFactory> selectAll(TFactory tFactory);
 }
