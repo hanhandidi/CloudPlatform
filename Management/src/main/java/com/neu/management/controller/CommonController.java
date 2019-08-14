@@ -25,7 +25,7 @@ public class CommonController {
 
     @RequestMapping("upload")
     public Message upload(@RequestParam("file") MultipartFile file) {
-        //System.out.println(file.getOriginalFilename());
+        // System.out.println(file.getOriginalFilename());
         // 取原文件名
         String oldName = file.getOriginalFilename();
         // 取原文件扩展名
