@@ -9,9 +9,11 @@ public interface FactoryService {
     // 添加
     TFactory addFactory(TFactory tFactory);
     // 删除
-    void deleteFactory(Integer id);
+    void deleteFactory(Integer id,Integer userId);
     // 更新
     TFactory updateFactory(TFactory tFactory);
+    // 设置工厂状态
+    TFactory updateFactoryState(TFactory tFactory);
     // 根据ID获取
     TFactory getFactory(Integer id);
     // 获取所有

@@ -21,8 +21,26 @@ public class TProductSchedule {
   private java.sql.Date startDate;
   private java.sql.Date endDate;
   private long factoryId;
+  private TEquipment tEquipment;
+  private TProductPlan tProductPlan;
 
   public TProductSchedule() {
+  }
+
+  public TEquipment gettEquipment() {
+    return tEquipment;
+  }
+
+  public TProductPlan gettProductPlan() {
+    return tProductPlan;
+  }
+
+  public void settProductPlan(TProductPlan tProductPlan) {
+    this.tProductPlan = tProductPlan;
+  }
+
+  public void settEquipment(TEquipment tEquipment) {
+    this.tEquipment = tEquipment;
   }
 
   public TProductSchedule(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String scheduleSeq, long scheduleCount, long scheduleStatus, long planId, long productId, long equipmentId, Date startDate, Date endDate, long factoryId) {

@@ -27,7 +27,7 @@ public class ProductController {
      * currentPage,当前页面
      * ok
      */
-    @RequestMapping("list/{currentPage}")
+    @RequestMapping("listPage/{currentPage}")
     public Message selectProducts(@RequestBody TProduct product, @PathVariable Integer currentPage) {
         Message selectProducts = new Message();
         PageInfo<TProduct> data = productService.selectProducts(product, currentPage);
@@ -38,6 +38,22 @@ public class ProductController {
         } else {
             selectProducts.setCode(202);
             selectProducts.setMessage("查询失败！");
+        }
+        return selectProducts;
+    }
+
+    // 获取所有的产品 不分页
+    @RequestMapping("list")
+    public Message selectProducts(@RequestBody TProduct product) {
+        Message selectProducts = new Message();
+        List<TProduct> tProducts = productService.selectProducts(product);
+        if ( tProducts != null ) {
+            selectProducts.setCode(200);
+            selectProducts.setData(tProducts);
+            selectProducts.setMessage("获取信息成功！");
+        } else {
+            selectProducts.setCode(202);
+            selectProducts.setMessage("获取信息失败！");
         }
         return selectProducts;
     }
@@ -79,11 +95,11 @@ public class ProductController {
         product.setCreateTime(new Timestamp(new Date().getTime()));
         product.setUpdateTime(new Timestamp(new Date().getTime()));
         TProduct tProduct = productService.addProduct(product);
-        if (tProduct == null){
+        if ( tProduct == null ) {
             // 序列号重复
             addProductMessage.setCode(202);
             addProductMessage.setMessage("添加产品信息失败，同一工厂产品不可重名，同一工厂产品序列号不可重复，请重试！");
-        }else {
+        } else {
             // 借助get方法添加缓存
             productService.selectById((int) tProduct.getId());
             addProductMessage.setCode(200);
@@ -98,11 +114,11 @@ public class ProductController {
     public Message updateProduct(@RequestBody TProduct product, HttpSession session) {
         Message updateProductMessage = new Message();
         product.setUpdateTime(new Timestamp(new Date().getTime()));
-        if (productService.updateProduct(product) == null){
+        if ( productService.updateProduct(product) == null ) {
             // 序列号重复
             updateProductMessage.setCode(202);
             updateProductMessage.setMessage("更新产品信息失败，同一工厂产品不可重名，同一工厂产品序列号不可重复，请重试！");
-        }else {
+        } else {
             updateProductMessage.setCode(200);
             updateProductMessage.setMessage("更新产品信息成功！");
             updateProductMessage.setData(product);
@@ -112,14 +128,14 @@ public class ProductController {
 
     //id删除, ok
     @RequestMapping("del/{id}")
-    public Message deleteProduct(@PathVariable Integer id) {
+    public Message deleteProduct(@PathVariable Integer id,@RequestBody Integer userId) {
         Message message = new Message();
-        int result = productService.deleteById(id);
+        int result = productService.deleteById(id,userId);
         if ( result == -1 ) {
             // id为空
             message.setCode(202);
             message.setMessage("删除失败，Id不能为空！");
-        } else if ( result == 1 ){
+        } else if ( result == 1 ) {
             message.setCode(200);
             message.setMessage("删除成功！");
         } else {

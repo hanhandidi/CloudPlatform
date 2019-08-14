@@ -45,8 +45,8 @@ public class FactoryController {
 
     // 根据ID删除工厂信息 ok
     @RequestMapping("delete/{id}")
-    public Message deleteFactory(@PathVariable  Integer id){
-        factoryService.deleteFactory(id);
+    public Message deleteFactory(@PathVariable  Integer id,@RequestBody Integer userId){
+        factoryService.deleteFactory(id,userId);
         Message deleteFactoryMessage = new Message();
         deleteFactoryMessage.setCode(200);
         deleteFactoryMessage.setMessage("删除工厂信息成功！");
@@ -66,6 +66,40 @@ public class FactoryController {
             getFactoryMessage.setMessage("获取工厂信息失败！");
         }
         return getFactoryMessage;
+    }
+
+    // 更新工厂信息 ok
+    @RequestMapping("update")
+    public Message updateFactory(@RequestBody TFactory tFactory){
+        Message updateFactoryMessage = new Message();
+        tFactory.setUpdateTime(new Timestamp(new Date().getTime()));
+        if (factoryService.updateFactory(tFactory) == null){
+            // 序列号重复
+            updateFactoryMessage.setCode(202);
+            updateFactoryMessage.setMessage("更新工厂信息失败，请重试！");
+        }else {
+            updateFactoryMessage.setCode(200);
+            updateFactoryMessage.setMessage("更新工厂信息成功！");
+            updateFactoryMessage.setData(tFactory);
+        }
+        return updateFactoryMessage;
+    }
+
+    // 更新设备状态信息 ok
+    @RequestMapping("updateState")
+    public Message updateFactoryState(@RequestBody TFactory tFactory){
+        Message updateFactoryMessage = new Message();
+        tFactory.setUpdateTime(new Timestamp(new Date().getTime()));
+        TFactory tFactory1 = factoryService.updateFactoryState(tFactory);
+        if ( tFactory1 == null){
+            updateFactoryMessage.setCode(202);
+            updateFactoryMessage.setMessage("更新工厂状态失败");
+        }else {
+            updateFactoryMessage.setCode(200);
+            updateFactoryMessage.setMessage("更新工厂状态成功！");
+            updateFactoryMessage.setData(tFactory1);
+        }
+        return updateFactoryMessage;
     }
 
     // 获取所有工厂信息 ok
@@ -96,22 +130,5 @@ public class FactoryController {
             listFactoryMessage.setMessage("分页查询工厂信息失败！");
         }
         return listFactoryMessage;
-    }
-
-    // 更新工厂信息 ok
-    @RequestMapping("update")
-    public Message updateFactory(@RequestBody TFactory tFactory){
-        Message updateFactoryMessage = new Message();
-        tFactory.setUpdateTime(new Timestamp(new Date().getTime()));
-        if (factoryService.updateFactory(tFactory) == null){
-            // 序列号重复
-            updateFactoryMessage.setCode(202);
-            updateFactoryMessage.setMessage("更新工厂信息失败，请重试！");
-        }else {
-            updateFactoryMessage.setCode(200);
-            updateFactoryMessage.setMessage("更新工厂信息成功！");
-            updateFactoryMessage.setData(tFactory);
-        }
-        return updateFactoryMessage;
     }
 }

@@ -20,6 +20,8 @@ public interface EquipmentProductService {
     List<TEquipmentProduct> listByProductId(Integer id);
     // 简易列表(工厂ID)
     List<TEquipmentProduct> listByFactoryId(Integer id);
+    // 简易列表(工厂ID)
+    List<TEquipmentProduct> listByFactoryIdAndProductId(Integer factoryId,Integer productId);
     // 简易分页列表(设备ID)
     PageInfo<TEquipmentProduct> listEquipmentProductByEquipmentId(Integer currPage, Integer id);
     // 简易分页列表(产品ID)

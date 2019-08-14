@@ -6,6 +6,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Mapping;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Mapping(mappingPath = "/json/equipment_mapping.json")
 @Document(indexName = "equipment",type = "doc",shards = 1,replicas = 0)
@@ -22,7 +23,7 @@ public class TEquipment implements Serializable {
   private String equipmentImgUrl;
   private long equipmentStatus;
   private long factoryId;
-
+  private List<TEquipmentProduct> tEquipmentProducts;
 
   public long getId() {
     return id;
@@ -32,6 +33,13 @@ public class TEquipment implements Serializable {
     this.id = id;
   }
 
+  public List<TEquipmentProduct> gettEquipmentProducts() {
+    return tEquipmentProducts;
+  }
+
+  public void settEquipmentProducts(List<TEquipmentProduct> tEquipmentProducts) {
+    this.tEquipmentProducts = tEquipmentProducts;
+  }
 
   public long getFlag() {
     return flag;

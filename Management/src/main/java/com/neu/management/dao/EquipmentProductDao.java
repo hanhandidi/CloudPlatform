@@ -84,4 +84,16 @@ public interface EquipmentProductDao {
             @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.ProductDao.selectById",fetchType= FetchType.EAGER))
     })
     List<TEquipmentProduct> selectByFactoryId(Integer id);
+
+    @Select({"select * from t_equipment_product where factory_id = #{factoryId} and factory_id = #{productId}"})
+    @Results({
+            @Result(column="id", property="id", id=true),
+            @Result(column="equipment_id", property="equipmentId"),
+            @Result(column="product_id", property="productId"),
+            @Result(column="yield", property="yield"),
+            @Result(column="unit", property="unit"),
+            @Result(column="factory_id", property="factoryId"),
+            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.ProductDao.selectById",fetchType= FetchType.EAGER))
+    })
+    List<TEquipmentProduct> selectByFactoryIdAndProductId(Integer factoryId, Integer productId);
 }
