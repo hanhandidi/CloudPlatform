@@ -9,6 +9,7 @@ public class TDailyWork {
   private long createUserid;
   private java.sql.Timestamp updateTime;
   private long updateUserid;
+  private long orderTrackId;
   private long scheduleId;
   private long equipmentId;
   private String equipmentSeq;
@@ -22,6 +23,13 @@ public class TDailyWork {
   private String bak;
   private TProductSchedule tProductSchedule;
 
+  public long getOrderTrackId() {
+    return orderTrackId;
+  }
+
+  public void setOrderTrackId(long orderTrackId) {
+    this.orderTrackId = orderTrackId;
+  }
 
   public long getId() {
     return id;

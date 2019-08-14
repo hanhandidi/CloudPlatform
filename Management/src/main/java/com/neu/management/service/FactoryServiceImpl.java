@@ -36,8 +36,8 @@ public class FactoryServiceImpl implements FactoryService{
 
     @Override
     @CacheEvict(value="TFactory",key="T(String).valueOf('TFactory').concat('-').concat(#id)")
-    public void deleteFactory(Integer id,Integer userId) {
-        factoryDao.deleteById(id,userId);
+    public void deleteFactory(Integer id) {
+        factoryDao.deleteById(id);
     }
 
     @Override

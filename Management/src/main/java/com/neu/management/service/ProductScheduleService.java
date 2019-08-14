@@ -10,7 +10,7 @@ public interface ProductScheduleService {
     // 添加生产调度信息
     TProductSchedule addProductSchedule(TProductSchedule tProductSchedule);
 
-    int deleteById(Integer id,Integer userId);
+    int deleteById(Integer id);
 
     // 为工单指定生产设备
     TProductSchedule setEquipmentProductSchedule(ProductScheduleVO productScheduleVO);

@@ -114,8 +114,6 @@ public interface ProductDao {
 
     @Update({"update t_product " +
             "set flag = #{flag,jdbcType=INTEGER}," +
-            "create_time = #{createTime,jdbcType=TIMESTAMP}," +
-            "create_userid = #{createUserid,jdbcType=INTEGER}," +
             "update_time = #{updateTime,jdbcType=TIMESTAMP}," +
             "update_userid = #{updateUserid,jdbcType=INTEGER}," +
             "product_num = #{productNum,jdbcType=VARCHAR}," +
@@ -144,8 +142,9 @@ public interface ProductDao {
     int deleteProductsByIds(Map<String, List<Integer>> map);
 
     // 设置状态为无效
-    @Update({"update t_product set update_time=now(),update_userid=#{userId},flag = 1 where id = #{id,jdbcType=INTEGER}"})
-    int deleteById(Integer id,Integer userId);
+    // @Update({"update t_product set update_time=now(),update_userid=#{userId},flag = 1 where id = #{id,jdbcType=INTEGER}"})
+    @Delete({"delete from t_product where id = #{id}"})
+    int deleteById(Integer id);
 
     class Provider {
         public String selectProducts(TProduct product) {

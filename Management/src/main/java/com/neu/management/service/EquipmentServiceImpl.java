@@ -43,15 +43,15 @@ import java.util.Map;
 public class EquipmentServiceImpl implements EquipmentService{
 
     private final EquipmentDao equipmentDao;
-    private final EquipmentRepository equipmentRepository;
+    private final EquipmentRepository repository;
     private final ElasticsearchTemplate elasticsearchTemplate;
     private final EquipmentProductDao equipmentProductDao;
 
     @Autowired
-    public EquipmentServiceImpl(EquipmentDao equipmentDao, EquipmentRepository equipmentRepository, ElasticsearchTemplate elasticsearchTemplate,EquipmentProductDao equipmentProductDao) {
+    public EquipmentServiceImpl(EquipmentDao equipmentDao, EquipmentRepository repository, ElasticsearchTemplate elasticsearchTemplate,EquipmentProductDao equipmentProductDao) {
         this.equipmentDao = equipmentDao;
         this.elasticsearchTemplate = elasticsearchTemplate;
-        this.equipmentRepository = equipmentRepository;
+        this.repository = repository;
         this.equipmentProductDao = equipmentProductDao;
     }
 
@@ -71,7 +71,7 @@ public class EquipmentServiceImpl implements EquipmentService{
             equipmentDao.insert(tEquipment);
             // System.out.println(tEquipment.getId()); // 插入成功之后获得主键
             // 保存文档
-            equipmentRepository.save(tEquipment);
+            repository.save(tEquipment);
             // getEquipment((int) tEquipment.getId());
             return tEquipment;
         }
@@ -102,10 +102,11 @@ public class EquipmentServiceImpl implements EquipmentService{
                 tEquipmentProduct.setYield(equipmentProductVO.getYield());
                 tEquipmentProduct.setUnit(equipmentProductVO.getUnit());
                 tEquipmentProduct.setFactoryId(tEquipment.getFactoryId());
+                // System.out.println(tEquipmentProduct);
                 // 一个设备生产一个产品的产能唯一
                 if(equipmentProductDao.selectByEquipmentIdAndProductId(tEquipmentProduct) != null){
                     // 插入失败 删除刚加入的设备信息及产能信息
-                    equipmentDao.deleteById((int) tEquipment.getId(),(int) equipmentAddVO.getCreateUserid());
+                    equipmentDao.deleteById((int) tEquipment.getId());
                     for (Integer id : ids){
                         equipmentProductDao.deleteById(id);
                     }
@@ -116,20 +117,20 @@ public class EquipmentServiceImpl implements EquipmentService{
                 }
             }
             // 保存文档
-            equipmentRepository.save(tEquipment);
+            repository.save(tEquipment);
             return (int) tEquipment.getId();
         }
     }
 
     @Override
     @CacheEvict(value="TEquipment",key="T(String).valueOf('TEquipment').concat('-').concat(#id)")
-    public int deleteEquipment(Integer id,Integer userId) {
+    public int deleteEquipment(Integer id) {
         // 删除设备记录，要求已关联启动工单的设备不可删除
         // 根据id在设备产品
         if ( equipmentDao.isInPlaned(id) == null ){
             // 删除文档
-            equipmentRepository.deleteById(id);
-            equipmentDao.deleteById(id,userId);
+            repository.deleteById(id);
+            equipmentDao.deleteById(id);
             return 1;
         }else {
             return 0;
@@ -143,7 +144,7 @@ public class EquipmentServiceImpl implements EquipmentService{
         // 批量删除文档
         // equipmentRepository.deleteAll();
         for (Integer id: ids){
-            equipmentRepository.deleteById(id);
+            repository.deleteById(id);
         }
         equipmentDao.deleteBatch(ids);
     }
@@ -156,7 +157,7 @@ public class EquipmentServiceImpl implements EquipmentService{
             return null;
         }else {
             // 修改文档
-            equipmentRepository.save(tEquipment);
+            repository.save(tEquipment);
             equipmentDao.update(tEquipment);
             return tEquipment;
         }
@@ -173,6 +174,11 @@ public class EquipmentServiceImpl implements EquipmentService{
     @Cacheable(value="TEquipment",key="T(String).valueOf('TEquipment').concat('-').concat(#id)",unless="#result == null")
     public TEquipment getEquipment(Integer id) {
         return equipmentDao.selectById(id);
+    }
+
+    @Override
+    public TEquipment getEquipment(String seq) {
+        return equipmentDao.selectByEquipmentSeq(seq);
     }
 
     @Override
@@ -209,7 +215,7 @@ public class EquipmentServiceImpl implements EquipmentService{
         //分页(ES从第0页开始查)
         queryBuilder.withPageable(PageRequest.of(currPage-1,Define.PAGE_SIZE));
         //搜索
-        return equipmentRepository.search(queryBuilder.build());
+        return repository.search(queryBuilder.build());
     }
 
     @Override

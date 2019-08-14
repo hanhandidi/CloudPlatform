@@ -38,13 +38,17 @@ public class EquipmentProductController {
         return addEquipmentProductMessage;
     }
 
-    // 根据ID删除产能信息 ok
+    // 根据ID删除产能信息 ok 已关联启动工单的产能信息不可删除
     @RequestMapping("delete/{id}")
     public Message deleteEquipmentProduct(@PathVariable Integer id){
-        equipmentProductService.deleteEquipmentProduct(id);
         Message deleteEquipmentProductMessage = new Message();
-        deleteEquipmentProductMessage.setCode(200);
-        deleteEquipmentProductMessage.setMessage("删除产能信息成功！");
+        if ( equipmentProductService.deleteEquipmentProduct(id) == 1){
+            deleteEquipmentProductMessage.setCode(200);
+            deleteEquipmentProductMessage.setMessage("删除产能信息成功！");
+        }else {
+            deleteEquipmentProductMessage.setCode(202);
+            deleteEquipmentProductMessage.setMessage("删除产能信息失败，已关联启动工单的产能信息不可删除！");
+        }
         return deleteEquipmentProductMessage;
     }
 

@@ -27,8 +27,9 @@ public interface EquipmentDao {
     int insertBatch(List<TEquipment> tEquipments);
 
     // 根据ID删除一条设备 设置状态为无效
-    @Update({"update t_equipment set update_time=now(),update_userid=#{userId},flag= 1,equipment_status= 20 where id = #{id}"})
-    void deleteById(Integer id,Integer userId);
+    // @Update({"update t_equipment set update_time=now(),update_userid=#{userId},flag= 1,equipment_status= 20 where id = #{id}"})
+    @Delete({"delete from t_equipment where id = #{id}"})
+    void deleteById(Integer id);
 
     // 批量删除
     @DeleteProvider(type = Provider.class, method = "deleteBatch")
@@ -92,10 +93,27 @@ public interface EquipmentDao {
     })
     TEquipment selectById(Integer id);
 
+    @Select({"select * from t_equipment where equipment_seq = #{seq}"})
+    @Results({
+            @Result(column="id", property="id", id=true),
+            @Result(column="flag", property="flag"),
+            @Result(column="create_time", property="createTime"),
+            @Result(column="create_userid", property="createUserid"),
+            @Result(column="update_time", property="updateTime"),
+            @Result(column="update_userid", property="updateUserid"),
+            @Result(column="equipment_seq", property="equipmentSeq"),
+            @Result(column="equipment_name", property="equipmentName"),
+            @Result(column="equipment_img_url", property="equipmentImgUrl"),
+            @Result(column="equipment_status", property="equipmentStatus"),
+            @Result(column="factory_id", property="factoryId"),
+            @Result(column="id",property="tEquipmentProducts",many=@Many(select="com.neu.management.dao.EquipmentProductDao.selectByEquipmentId",fetchType= FetchType.EAGER))
+    })
+    TEquipment selectByEquipmentSeq(String seq);
+
     // 获取所有设备信息 查询（设备状态、设备名称(模糊)）
     @Select("<script> select * from t_equipment <where>            "
             + "  <if test='equipmentStatus != null and equipmentStatus != &quot;&quot;'>     "
-            + "    and equipment_status = #{equipmentStatus}                    "
+            + "    and equipment_status = #{equipmentStatus}       "
             + "  </if>                                             "
             + "  <if test='equipmentName != null and equipmentName != &quot;&quot;'> "
             + "    and equipment_name like CONCAT('%', #{equipmentName}, '%')        "
@@ -124,7 +142,7 @@ public interface EquipmentDao {
             "on t_equipment.id = t_equipment_product.equipment_id " +
             "INNER JOIN t_product on t_equipment_product.product_id = t_product.id " +
             "INNER JOIN t_factory on t_product.factory_id = t_factory.id " +
-            "where t_equipment.equipment_name = #{equipmentName} AND t_product.product_name = #{productName} AND t_factory.id = #{factoryId}"})
+            "where t_equipment.equipment_name like CONCAT('%', #{equipmentName}, '%') AND t_product.product_name like CONCAT('%', #{productName}, '%') AND t_factory.id = #{factoryId}"})
     @Results({
             @Result(column="id", property="id", id=true),
             @Result(column="flag", property="flag"),

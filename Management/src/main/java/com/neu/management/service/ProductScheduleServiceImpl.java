@@ -58,10 +58,10 @@ public class ProductScheduleServiceImpl implements ProductScheduleService{
 
     @Override
     @CacheEvict(value="TProductSchedule",key="T(String).valueOf('TProductSchedule').concat('-').concat(#id)")
-    public int deleteById(Integer id,Integer userId) {
+    public int deleteById(Integer id) {
         // 未开始调度可以删除
         if ( productScheduleDao.selectById(id).getScheduleStatus() == 10 ){
-            productPlanDao.deleteById(id, userId);
+            productPlanDao.deleteById(id);
             return 1;
         }
         return 0;
@@ -108,7 +108,7 @@ public class ProductScheduleServiceImpl implements ProductScheduleService{
     }
 
     @Override
-    @CachePut(value="TProductSchedule",key="T(String).valueOf('TProductSchedule').concat('-').concat(#tProductSchedule.id)")
+    @CachePut(value="TProductSchedule",key="T(String).valueOf('TProductSchedule').concat('-').concat(#tProductSchedule.id)",unless="#result == null")
     public void startProductSchedule(TProductSchedule tProductSchedule) {
         tProductSchedule.setUpdateTime(new Timestamp(new Date().getTime()));
         productScheduleDao.updateState(tProductSchedule);

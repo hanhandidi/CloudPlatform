@@ -11,7 +11,7 @@ public interface OrderTrackService {
     // 添加生产跟踪信息
     TOrderTrack addOrderTrack(TOrderTrack tOrderTrack);
 
-    int deleteById(Integer id,Integer userId);
+    int deleteById(Integer id);
 
     TOrderTrack updateOrderTrack(OrderTrackVO orderTrackVO);
 

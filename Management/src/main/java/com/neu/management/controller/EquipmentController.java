@@ -34,6 +34,7 @@ public class EquipmentController {
             // 序列号重复
             addEquipmentMessage.setCode(202);
             addEquipmentMessage.setMessage("添加设备失败，设备序列号已存在，请重试！");
+            addEquipmentMessage.setData(equipmentService.getEquipment(tEquipment.getEquipmentSeq()));
         }else {
             // 借助get方法添加缓存
             System.out.println(tEquipment1.getId());
@@ -70,9 +71,9 @@ public class EquipmentController {
 
     // 根据设备id删除设备信息 ok 要求已关联启动工单的设备不可删除
     @RequestMapping("delete/{id}")
-    public Message deleteEquipment(@PathVariable  Integer id,@RequestBody Integer userId){
+    public Message deleteEquipment(@PathVariable Integer id){
         Message deleteEquipmentMessage = new Message();
-        if(equipmentService.deleteEquipment(id,userId) == 1){
+        if(equipmentService.deleteEquipment(id) == 1){
             deleteEquipmentMessage.setCode(200);
             deleteEquipmentMessage.setMessage("删除设备成功！");
         }else {
@@ -141,11 +142,14 @@ public class EquipmentController {
         return getEquipmentMessage;
     }
 
-    // 获取 List 不分页
-    @GetMapping("getAll")
+    // 获取 List 不分页 ok
+    @RequestMapping("getAll")
     public Message getAllEquipment(@RequestBody TEquipment tEquipment){
-        equipmentService.allEquipment(tEquipment);
-        return null;
+        Message allEquipmentMessage = new Message();
+        allEquipmentMessage.setCode(200);
+        allEquipmentMessage.setMessage("获取数据成功");
+        allEquipmentMessage.setData(equipmentService.allEquipment(tEquipment));
+        return allEquipmentMessage;
     }
 
     // 获取全部数据、分页、简易查找 ok
@@ -163,7 +167,7 @@ public class EquipmentController {
         return listEquipmentMessage;
     }
 
-    // 查询：根据产品名称、设备名称查询当前工厂所有相关设备内容列表
+    // 查询：根据产品名称、设备名称查询当前工厂所有相关设备内容列表 ok
     @RequestMapping("select/{currPage}")
     public Message selectEquipment(@PathVariable Integer currPage, @RequestBody EquipmentSelectVO equipmentSelectVO){
         Message selectEquipmentMessage = new Message();

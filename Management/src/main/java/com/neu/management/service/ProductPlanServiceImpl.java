@@ -47,10 +47,10 @@ public class ProductPlanServiceImpl implements ProductPlanService {
 
     @Override
     @CacheEvict(value="TProductPlan",key="T(String).valueOf('TProductPlan').concat('-').concat(#id)")
-    public int deleteById(Integer id,Integer userId) {
+    public int deleteById(Integer id) {
         // 未接单的订单才能删除
         if ( productPlanDao.selectById(id).getPlanStatus() == 10 ){
-            productPlanDao.deleteById(id,userId);
+            productPlanDao.deleteById(id);
             return 1;
         }
         return 0;
@@ -62,7 +62,7 @@ public class ProductPlanServiceImpl implements ProductPlanService {
         TProductOrder tProductOrder = productOrderDao.selectById((int)tProductPlan.getOrderId());
         if ( tProductOrder.getOrderStatus() == 20 ){
             productPlanDao.update(tProductPlan);
-            return tProductPlan;
+            return productPlanDao.selectById((int) tProductPlan.getId());
         }
         return null;
     }
@@ -80,7 +80,7 @@ public class ProductPlanServiceImpl implements ProductPlanService {
             tProductSchedule.setCreateUserid(tProductPlan.getUpdateUserid());
             tProductSchedule.setUpdateTime(new Timestamp(new Date().getTime()));
             tProductSchedule.setUpdateUserid(tProductPlan.getUpdateUserid());
-            tProductSchedule.setScheduleSeq("S" + new Timestamp(new Date().getTime()));
+            tProductSchedule.setScheduleSeq("S" + new Timestamp(new Date().getTime()).getTime());
             tProductSchedule.setScheduleStatus(10);
             tProductSchedule.setPlanId(tProductPlan.getId());
             tProductSchedule.setProductId(tProductPlan.getProductId());

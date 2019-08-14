@@ -9,7 +9,7 @@ public interface EquipmentProductService {
     // 添加产能
     TEquipmentProduct addEquipmentProduct(TEquipmentProduct tEquipmentProduct);
     // 删除产能
-    void deleteEquipmentProduct(Integer id);
+    int deleteEquipmentProduct(Integer id);
     // 更新产能
     TEquipmentProduct updateEquipmentProduct(TEquipmentProduct tEquipmentProduct);
     // 根据ID获取产能

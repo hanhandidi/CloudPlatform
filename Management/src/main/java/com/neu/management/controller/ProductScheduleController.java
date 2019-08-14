@@ -21,13 +21,14 @@ public class ProductScheduleController {
         this.productScheduleService = productScheduleService;
     }
 
-    // 添加工单信息
+    // 添加工单信息 ok
     @ResponseBody
     @PostMapping("add")
     public Message addProductSchedule(@RequestBody TProductSchedule tProductSchedule) {
         Message addProductScheduleMessage = new Message();
         tProductSchedule.setCreateTime(new Timestamp(new Date().getTime()));
         tProductSchedule.setUpdateTime(new Timestamp(new Date().getTime()));
+        tProductSchedule.setScheduleSeq("S" + new Timestamp(new Date().getTime()).getTime());
         tProductSchedule.setScheduleStatus(10);
         TProductSchedule tProductSchedule1 = productScheduleService.addProductSchedule(tProductSchedule);
         if (tProductSchedule1 == null){
@@ -42,11 +43,11 @@ public class ProductScheduleController {
         return addProductScheduleMessage;
     }
 
-    // 根据id删除工单信息
+    // 根据id删除工单信息 ok
     @RequestMapping("delete/{id}")
-    public Message deleteProductSchedule(@PathVariable Integer id,@RequestBody Integer userId){
+    public Message deleteProductSchedule(@PathVariable Integer id){
         Message deleteProductPlanMessage = new Message();
-        if(productScheduleService.deleteById(id,userId) == 1){
+        if(productScheduleService.deleteById(id) == 1){
             deleteProductPlanMessage.setCode(200);
             deleteProductPlanMessage.setMessage("删除工单信息成功！");
         }else {
@@ -87,7 +88,7 @@ public class ProductScheduleController {
         return getProductPlanMessage;
     }
 
-    // 获取全部工单信息
+    // 获取全部工单信息 ok
     @RequestMapping("getAll")
     public Message listProductSchedule(@RequestBody TProductSchedule tProductSchedule){
         Message listProductScheduleMessage = new Message();
@@ -102,7 +103,7 @@ public class ProductScheduleController {
         return listProductScheduleMessage;
     }
 
-    // 获取全部工单信息
+    // 获取全部工单信息 ok
     @RequestMapping("listPage/{currPage}")
     public Message listPageProductSchedule(@PathVariable Integer currPage, @RequestBody TProductSchedule tProductSchedule){
         Message listPageProductScheduleMessage = new Message();

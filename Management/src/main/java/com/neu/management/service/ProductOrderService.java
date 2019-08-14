@@ -11,7 +11,7 @@ public interface ProductOrderService {
     // 添加订单
     TProductOrder addProductOrder(TProductOrder tProductOrder);
 
-    int deleteById(Integer id,Integer userId);
+    int deleteById(Integer id);
 
     TProductOrder updateProductOrder(TProductOrder tProductOrder);
 

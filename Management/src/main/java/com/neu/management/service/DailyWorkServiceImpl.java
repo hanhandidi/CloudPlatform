@@ -31,8 +31,8 @@ public class DailyWorkServiceImpl implements DailyWorkService {
 
     @Override
     @CacheEvict(value="TDailyWork",key="T(String).valueOf('TDailyWork').concat('-').concat(#id)")
-    public int deleteById(Integer id,Integer userId) {
-        dailyWorkDao.deleteById(id,userId);
+    public int deleteById(Integer id) {
+        dailyWorkDao.deleteById(id);
         return 1;
     }
 

@@ -45,8 +45,8 @@ public class OrderTrackServiceImpl implements OrderTrackService {
 
     @Override
     @CacheEvict(value="TOrderTrack",key="T(String).valueOf('TOrderTrack').concat('-').concat(#id)")
-    public int deleteById(Integer id,Integer userId) {
-        orderTrackDao.deleteById(id,userId);
+    public int deleteById(Integer id) {
+        orderTrackDao.deleteById(id);
         return 1;
     }
 
@@ -66,10 +66,6 @@ public class OrderTrackServiceImpl implements OrderTrackService {
         if ( dailyWorkVO.getStartTime().getTime() < dailyWorkVO.getEndTime().getTime() && dailyWorkVO.getQualifiedCount() <= dailyWorkVO.getWorkingCount() ){
             // 根据id获取订单跟踪信息
             TOrderTrack tOrderTrack = orderTrackDao.selectById(id);
-            // 根据调度id获取调度信息
-            TProductSchedule tProductSchedule = tOrderTrack.gettProductSchedule();
-            // 根据设备id获取设备信息
-            TEquipment tEquipment = tProductSchedule.gettEquipment();
             // 生成报工信息
             TDailyWork tDailyWork = new TDailyWork();
             tDailyWork.setFlag(0);
@@ -77,16 +73,17 @@ public class OrderTrackServiceImpl implements OrderTrackService {
             tDailyWork.setCreateUserid(dailyWorkVO.getCreateUserid());
             tDailyWork.setUpdateTime(new Timestamp(new Date().getTime()));
             tDailyWork.setUpdateUserid(dailyWorkVO.getCreateUserid());
+            tDailyWork.setOrderTrackId(id);
             tDailyWork.setScheduleId(tOrderTrack.getScheduleId());
-            tDailyWork.setEquipmentId(tEquipment.getId());
-            tDailyWork.setEquipmentSeq(tEquipment.getEquipmentSeq());
+            tDailyWork.setEquipmentId(tOrderTrack.gettProductSchedule().gettEquipment().getId());
+            tDailyWork.setEquipmentSeq(tOrderTrack.gettProductSchedule().gettEquipment().getEquipmentSeq());
             tDailyWork.setStartTime(dailyWorkVO.getStartTime());
             tDailyWork.setEndTime(dailyWorkVO.getEndTime());
             tDailyWork.setWorkingCount(dailyWorkVO.getWorkingCount());
             tDailyWork.setQualifiedCount(dailyWorkVO.getQualifiedCount());
             tDailyWork.setUnqualifiedCout(dailyWorkVO.getWorkingCount() - dailyWorkVO.getQualifiedCount());
             tDailyWork.setCompleteFlag(1);
-            tDailyWork.setFactoryId(tDailyWork.getFactoryId());
+            tDailyWork.setFactoryId(tOrderTrack.getFactoryId());
             tDailyWork.setBak(dailyWorkVO.getBak());
             // 添加报工信息
             dailyWorkDao.insert(tDailyWork);
@@ -105,7 +102,7 @@ public class OrderTrackServiceImpl implements OrderTrackService {
     @Override
     public void finishJobBook(Integer orderTrackId,Integer userId) {
         // 报工表结束报工标识 -》0
-        TDailyWork tDailyWork = new TDailyWork();
+        TDailyWork tDailyWork = dailyWorkDao.selectByOrderTrackId(orderTrackId);
         tDailyWork.setUpdateTime(new Timestamp(new Date().getTime()));
         tDailyWork.setUpdateUserid(userId);
         tDailyWork.setCompleteFlag(0);

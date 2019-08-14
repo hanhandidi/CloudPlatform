@@ -39,7 +39,10 @@ public class ProductOrderServiceImpl implements ProductOrderService {
     public TProductOrder addProductOrder(TProductOrder tProductOrder) {
         // 只有当前工厂有产品才有订单处理能力、有这个产品才能创建订单
         // 检查该工厂是否能够生产该产品
-        if ( productOrderDao.haveThisProductInFactory(tProductOrder) !=null ){
+        if ( tProductOrder.getEndDate() == null){
+            return null;
+        }
+        if ( productOrderDao.haveThisProductInFactory(tProductOrder) != null ){
             productOrderDao.insert(tProductOrder);
             return tProductOrder;
         }
@@ -48,10 +51,10 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 
     @Override
     @CacheEvict(value="TProductOrder",key="T(String).valueOf('TProductOrder').concat('-').concat(#id)")
-    public int deleteById(Integer id,Integer userId) {
+    public int deleteById(Integer id) {
         // 20：已接单  40：生产中  状态下不能删除
         if ( productOrderDao.isCanDelete(id) == null ){
-            productOrderDao.deleteById(id,userId);
+            productOrderDao.deleteById(id);
             return 1;
         }else {
             return 0;
@@ -63,9 +66,12 @@ public class ProductOrderServiceImpl implements ProductOrderService {
     public TProductOrder updateProductOrder(TProductOrder tProductOrder) {
         // 只有当前工厂有产品才有订单处理能力、有这个产品才能创建订单
         // 检查该工厂是否能够生产该产品
-        if ( productOrderDao.haveThisProductInFactory(tProductOrder) !=null ){
+        if ( tProductOrder.getEndDate() == null){
+            return null;
+        }
+        if ( productOrderDao.haveThisProductInFactory(tProductOrder) != null ){
             productOrderDao.update(tProductOrder);
-            return tProductOrder;
+            return productOrderDao.selectById((int) tProductOrder.getId());
         }
         return null;
     }
@@ -84,9 +90,11 @@ public class ProductOrderServiceImpl implements ProductOrderService {
         TProductOrder tProductOrder = productOrderDao.selectById(id);
         // 计算从当前日期到截止时间的天数
         long daysBetween = (tProductOrder.getEndDate().getTime() - new Date().getTime() + 1000000)/(60*60*24*1000);
+        // System.out.println(daysBetween);
         List<TEquipmentProduct> tEquipmentProducts = equipmentProductDao.selectByFactoryIdAndProductId((int)tProductOrder.getFactoryId(),(int)tProductOrder.getProductId());
         int totalCapacity = 0;
         for (TEquipmentProduct tEquipmentProduct : tEquipmentProducts){
+            // System.out.println(tEquipmentProduct);
             switch ((int) tEquipmentProduct.getUnit()){
                 case 10:
                     totalCapacity += daysBetween * tEquipmentProduct.getYield();
@@ -104,6 +112,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
                     break;
             }
         }
+        // System.out.println(totalCapacity);
         // 计算该工厂对该产品的产能是否大于订单数量
         if ( totalCapacity >= (int)tProductOrder.getProductCount()){
             // 可接单 状态更新为已接单状态
@@ -138,7 +147,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             tProductPlan.setCreateUserid(productPlanVO.getUserId());
             tProductPlan.setUpdateTime(new Timestamp(new Date().getTime()));
             tProductPlan.setUpdateUserid(productPlanVO.getUserId());
-            tProductPlan.setPlanSeq("P" + new Timestamp(new Date().getTime()));
+            tProductPlan.setPlanSeq("P" + new Timestamp(new Date().getTime()).getTime());
             tProductPlan.setOrderId(tProductOrder.getId());
             tProductPlan.setProductId(tProductOrder.getProductId());
             tProductPlan.setPlanCount(tProductOrder.getProductCount());

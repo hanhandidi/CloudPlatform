@@ -20,15 +20,15 @@ public interface ProductPlanDao {
     void insert(TProductPlan tProductPlan);
 
     // 根据ID删除生产计划信息 设置状态为无效
-    @Update({"update t_product_plan set update_time=now(),update_userid=#{userId},flag=1 where id = #{id}"})
-    void deleteById(Integer id,Integer userId);
+    // @Update({"update t_product_plan set update_time=now(),update_userid=#{userId},flag=1 where id = #{id}"})
+    @Delete({"delete from t_product_plan where id = #{id}"})
+    void deleteById(Integer id);
 
     // 更新生产计划信息
     @Update({
             "update t_product_plan",
-            "set flag=#{flag},update_time=#{updateTime},update_userid=#{updateUserid},plan_seq=#{planSeq}," +
-            "order_id=#{orderId},product_id=#{productId},plan_count=#{planCount},delivery_date=#{deliveryDate}," +
-            "plan_start_date=#{planStartDate},plan_end_date=#{planEndDate},plan_status=#{planStatus},factory_id=#{factoryId} ",
+            "set flag=#{flag},update_time=#{updateTime},update_userid=#{updateUserid}," +
+            "plan_count=#{planCount},plan_start_date=#{planStartDate},plan_end_date=#{planEndDate},plan_status=#{planStatus} ",
             "where id = #{id}"
     })
     int update(TProductPlan tProductPlan);

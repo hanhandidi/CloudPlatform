@@ -7,20 +7,24 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Account" />
-        <module name="Authority" />
+        <module name="account" />
+        <module name="authority" />
         <module name="management" />
         <module name="platform" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="account" target="1.8" />
+      <module name="authority" target="1.8" />
       <module name="CloudPlatform" target="1.5" />
+      <module name="management" target="1.8" />
       <module name="Management" target="1.8" />
+      <module name="platform" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Account" options="-parameters" />
-      <module name="Authority" options="-parameters" />
       <module name="Management" options="-parameters" />
       <module name="management" options="-parameters" />
     </option>

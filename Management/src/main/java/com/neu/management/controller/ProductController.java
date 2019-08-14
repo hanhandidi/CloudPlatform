@@ -42,7 +42,7 @@ public class ProductController {
         return selectProducts;
     }
 
-    // 获取所有的产品 不分页
+    // 获取所有的产品 不分页 ok
     @RequestMapping("list")
     public Message selectProducts(@RequestBody TProduct product) {
         Message selectProducts = new Message();
@@ -128,9 +128,9 @@ public class ProductController {
 
     //id删除, ok
     @RequestMapping("del/{id}")
-    public Message deleteProduct(@PathVariable Integer id,@RequestBody Integer userId) {
+    public Message deleteProduct(@PathVariable Integer id) {
         Message message = new Message();
-        int result = productService.deleteById(id,userId);
+        int result = productService.deleteById(id);
         if ( result == -1 ) {
             // id为空
             message.setCode(202);

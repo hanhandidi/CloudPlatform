@@ -18,7 +18,7 @@ public interface ProductService {
     // 批量删除
     int deleteProductByIds(List<Integer> ids);
 
-    int deleteById(Integer id,Integer userId);
+    int deleteById(Integer id);
     // 根据ID获取
     TProduct selectById(Integer id);
     // 根据产品序列号获取

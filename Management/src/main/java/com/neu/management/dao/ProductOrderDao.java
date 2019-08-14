@@ -20,13 +20,14 @@ public interface ProductOrderDao {
     void insert(TProductOrder tProductOrder);
 
     // 根据ID删除订单信息 设置状态为无效
-    @Update({"update t_product_order set update_time=now(),update_userid=#{userId},flag = 1 where id = #{id}"})
-    void deleteById(Integer id,Integer userId);
+    // @Update({"update t_product_order set update_time=now(),update_userid=#{userId},flag = 1 where id = #{id}"})
+    @Delete({"delete from t_product_order where id = #{id}"})
+    void deleteById(Integer id);
 
     // 更新订单信息
     @Update({
             "update t_product_order",
-            "set flag=#{flag},update_time=#{updateTime},update_userid=#{updateUserid},order_seq=#{orderSeq}," +
+            "set flag=#{flag},update_time=#{updateTime},update_userid=#{updateUserid}," +
                     "order_source=#{orderSource},product_id=#{productId},product_count=#{productCount}," +
                     "end_date=#{endDate},order_status=#{orderStatus},factory_id=#{factoryId} ",
             "where id = #{id}"
@@ -61,7 +62,7 @@ public interface ProductOrderDao {
     TProductOrder selectById(Integer id);
 
     // 已接单, 生产中、状态下不能删除
-    @Select({"select * from t_product_order where id = #{id} and order_status = 20 or order_status = 40"})
+    @Select({"select * from t_product_order where id = #{id} and order_status in (20,40)"})
     @Results({
             @Result(column="id", property="id", id=true),
             @Result(column="flag", property="flag"),
@@ -100,7 +101,7 @@ public interface ProductOrderDao {
             @Result(column="factory_id", property="factoryId"),
             @Result(column="product_id", property="tProduct",one=@One(select="com.neu.management.dao.ProductDao.selectById",fetchType= FetchType.EAGER))
     })
-    TProductOrder haveThisProductInFactory(TProductOrder tProductOrder);
+    List<TProductOrder> haveThisProductInFactory(TProductOrder tProductOrder);
 
     @Select({"select * from t_product_order where factory_id = #{id} order by order_status ASC"})
     @Results({

@@ -36,14 +36,21 @@ public class EquipmentProductServiceImpl implements EquipmentProductService{
 
     @Override
     @CacheEvict(value="TEquipmentProduct",key="T(String).valueOf('TEquipmentProduct').concat('-').concat(#id)")
-    public void deleteEquipmentProduct(Integer id) {
-        equipmentProductDao.deleteById(id);
+    public int deleteEquipmentProduct(Integer id) {
+        // 删除产能信息记录，要求已关联启动工单的产能信息不可删除
+        if ( equipmentProductDao.isInPlaned(id) == null ){
+            equipmentProductDao.deleteById(id);
+            return 1;
+        }else {
+            return 0;
+        }
     }
 
     @Override
-    @CachePut(value="TEquipmentProduct",key="T(String).valueOf('TEquipmentProduct').concat('-').concat(#tEquipmentProduct.id)")
+    @CachePut(value="TEquipmentProduct",key="T(String).valueOf('TEquipmentProduct').concat('-').concat(#tEquipmentProduct.id)",unless="#result == null")
     public TEquipmentProduct updateEquipmentProduct(TEquipmentProduct tEquipmentProduct) {
         // 一个设备生产一个产品的产能唯一
+        // id 是否有效检验
         if(equipmentProductDao.selectByEquipmentIdAndProductId(tEquipmentProduct) != null){
             return null;
         }else {

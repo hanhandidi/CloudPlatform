@@ -20,14 +20,14 @@ public class ProductPlanController {
         this.productPlanService = productPlanService;
     }
 
-    // 添加生产计划
+    // 添加生产计划 ok
     @ResponseBody
     @PostMapping("add")
     public Message addProductPlan(@RequestBody TProductPlan tProductPlan) {
         Message addProductPlanMessage = new Message();
         tProductPlan.setCreateTime(new Timestamp(new Date().getTime()));
         tProductPlan.setUpdateTime(new Timestamp(new Date().getTime()));
-        tProductPlan.setPlanSeq("P" + new Timestamp(new Date().getTime()));
+        tProductPlan.setPlanSeq("P" + new Timestamp(new Date().getTime()).getTime());
         tProductPlan.setPlanStatus(10);
         TProductPlan tProductPlan1 = productPlanService.addProductPlan(tProductPlan);
         if (tProductPlan1 == null){
@@ -44,9 +44,9 @@ public class ProductPlanController {
 
     // 根据id删除计划信息 未接单的订单才能删除
     @RequestMapping("delete/{id}")
-    public Message deleteProductPlan(@PathVariable Integer id,@RequestBody Integer userId){
+    public Message deleteProductPlan(@PathVariable Integer id){
         Message deleteProductPlanMessage = new Message();
-        if(productPlanService.deleteById(id,userId) == 1){
+        if(productPlanService.deleteById(id) == 1){
             deleteProductPlanMessage.setCode(200);
             deleteProductPlanMessage.setMessage("删除计划成功！");
         }else {
@@ -61,14 +61,14 @@ public class ProductPlanController {
     public Message updateProductPlan(@RequestBody TProductPlan tProductPlan){
         Message updateProductOrderMessage = new Message();
         tProductPlan.setUpdateTime(new Timestamp(new Date().getTime()));
-        if (productPlanService.updateProductPlan(tProductPlan) == null){
-            // 序列号重复
+        TProductPlan tProductPlan1 = productPlanService.updateProductPlan(tProductPlan);
+        if ( tProductPlan1 == null){
             updateProductOrderMessage.setCode(202);
             updateProductOrderMessage.setMessage("更新计划失败，请重试！");
         }else {
             updateProductOrderMessage.setCode(200);
             updateProductOrderMessage.setMessage("更新计划成功！");
-            updateProductOrderMessage.setData(tProductPlan);
+            updateProductOrderMessage.setData(tProductPlan1);
         }
         return updateProductOrderMessage;
     }
@@ -88,7 +88,7 @@ public class ProductPlanController {
         return getProductPlanMessage;
     }
 
-    // 获取全部计划数据 工厂id、计划状态
+    // 获取全部计划数据 工厂id、计划状态 ok
     @RequestMapping("getAll")
     public Message listProductPlan(@RequestBody TProductPlan tProductPlan){
         Message listProductPlanMessage = new Message();
@@ -103,7 +103,7 @@ public class ProductPlanController {
         return listProductPlanMessage;
     }
 
-    // 获取全部计划数据、工厂id、计划状态
+    // 获取全部计划数据、工厂id、计划状态 ok
     @RequestMapping("listPage/{currPage}")
     public Message listPageProductPlan(@PathVariable Integer currPage, @RequestBody TProductPlan tProductPlan){
         Message listProductPlanMessage = new Message();
@@ -118,7 +118,7 @@ public class ProductPlanController {
         return listProductPlanMessage;
     }
 
-    // 开始生成计划
+    // 开始生成计划 ok
     @RequestMapping("start/{id}")
     public Message startProductPlan(@PathVariable Integer id){
         Message startProductPlanMessage = new Message();
@@ -132,7 +132,7 @@ public class ProductPlanController {
         return startProductPlanMessage;
     }
 
-    // 完成计划
+    // 完成计划 ok
     @RequestMapping("finish/{id}")
     public Message finishProductPlan(@PathVariable Integer id){
         Message finishProductPlanMessage = new Message();

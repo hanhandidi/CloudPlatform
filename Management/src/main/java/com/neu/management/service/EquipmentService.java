@@ -13,7 +13,7 @@ public interface EquipmentService {
     // 带产能添加
     int addEquipment(EquipmentAddVO equipmentAddVO);
     // 根据ID删除
-    int deleteEquipment(Integer id,Integer userId);
+    int deleteEquipment(Integer id);
     // 批量删从
     void deleteEquipmentList(List<Integer> ids);
     // 更新
@@ -22,6 +22,8 @@ public interface EquipmentService {
     TEquipment updateEquipmentState(TEquipment tEquipment);
     // 根据ID获取
     TEquipment getEquipment(Integer id);
+    // 根据序号获取
+    TEquipment getEquipment(String seq);
     // 简易列表、查询(所有数据)
     PageInfo<TEquipment> listEquipment(Integer currPage,TEquipment tEquipment);
 

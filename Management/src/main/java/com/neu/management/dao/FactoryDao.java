@@ -19,9 +19,9 @@ public interface FactoryDao {
     void insert(TFactory tFactory);
 
     // 根据ID删除一条工厂信息 设置状态为无效
-    // @Delete({"delete from t_factory where id = #{id}"})
-    @Update({"update t_factory set update_time=now(),update_userid=#{userId},flag = 1,factory_status = 1 where id = #{id}"})
-    void deleteById(Integer id,Integer userId);
+    @Delete({"delete from t_factory where id = #{id}"})
+    //@Update({"update t_factory set update_time=now(),update_userid=#{userId},flag = 1,factory_status = 1 where id = #{id}"})
+    void deleteById(Integer id);
 
     // 更新设备信息
     @Update({

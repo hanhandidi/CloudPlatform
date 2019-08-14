@@ -73,10 +73,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @CacheEvict(value="TProduct",key="T(String).valueOf('TProduct').concat('-').concat(#id)")
-    public int deleteById(Integer id,Integer userId) {
+    public int deleteById(Integer id) {
         if ( id == null ) return -1;
         if ( productDao.isInGetOrder(id) == null ){
-            productDao.deleteById(id,userId);
+            productDao.deleteById(id);
             return 1;
         }
         return 0;

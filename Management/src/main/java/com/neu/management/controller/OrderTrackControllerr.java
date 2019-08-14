@@ -24,7 +24,7 @@ public class OrderTrackControllerr {
         this.orderTrackService = orderTrackService;
     }
 
-    // 添加生产跟踪信息
+    // 添加生产跟踪信息 ok
     @ResponseBody
     @PostMapping("add")
     public Message addOrderTrack(@RequestBody TOrderTrack tOrderTrack) {
@@ -46,9 +46,9 @@ public class OrderTrackControllerr {
 
     // 根据id删除生产跟踪信息
     @RequestMapping("delete/{id}")
-    public Message deleteOrderTrack(@PathVariable Integer id,@RequestBody Integer userId){
+    public Message deleteOrderTrack(@PathVariable Integer id){
         Message deleteOrderTrackMessage = new Message();
-        if(orderTrackService.deleteById(id,userId) == 1){
+        if(orderTrackService.deleteById(id) == 1){
             deleteOrderTrackMessage.setCode(200);
             deleteOrderTrackMessage.setMessage("删除生产跟踪信息成功！");
         }else {
@@ -89,7 +89,7 @@ public class OrderTrackControllerr {
         return getOrderTrackMessage;
     }
 
-    // 获取全部生产跟踪信息
+    // 获取全部生产跟踪信息 ok
     @RequestMapping("getAll")
     public Message listOrderTrack(@RequestBody TOrderTrack tOrderTrack){
         Message listOrderTrackMessage = new Message();
@@ -122,12 +122,12 @@ public class OrderTrackControllerr {
     }
 
     // 报工
-    @GetMapping("jobBook/{id}")
+    @RequestMapping("jobBook/{id}")
     public Message jobBook(@PathVariable Integer id, @RequestBody DailyWorkVO dailyWorkVO){
         Message jobBookMessage = new Message();
         if(orderTrackService.jobBook(id,dailyWorkVO) == 1){
             jobBookMessage.setCode(200);
-            jobBookMessage.setMessage("报工操作失败！");
+            jobBookMessage.setMessage("报工操作成功！");
             jobBookMessage.setData(orderTrackService.selectById(id));
         }
         jobBookMessage.setCode(202);
@@ -136,7 +136,7 @@ public class OrderTrackControllerr {
     }
 
     // 报工完成
-    @GetMapping("finishJobBook/{orderTrackId}")
+    @RequestMapping("finishJobBook/{orderTrackId}")
     public Message finishJobBook(@PathVariable Integer orderTrackId,@RequestBody Integer userId){
         Message finishJobBookMessage = new Message();
         orderTrackService.finishJobBook(orderTrackId,userId);

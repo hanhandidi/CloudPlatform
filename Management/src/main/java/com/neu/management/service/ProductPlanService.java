@@ -9,7 +9,7 @@ public interface ProductPlanService {
     // 添加生产计划
     TProductPlan addProductPlan(TProductPlan tProductPlan);
 
-    int deleteById(Integer id,Integer userId);
+    int deleteById(Integer id);
 
     TProductPlan updateProductPlan(TProductPlan tProductPlan);
 

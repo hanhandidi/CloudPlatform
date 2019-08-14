@@ -25,9 +25,9 @@ public class DailyWorkController {
 
     // 根据id删除报工信息
     @RequestMapping("delete/{id}")
-    public Message deleteDailyWork(@PathVariable Integer id,@RequestBody Integer userId){
+    public Message deleteDailyWork(@PathVariable Integer id){
         Message deleteDailyWorkMessage = new Message();
-        dailyWorkService.deleteById(id,userId);
+        dailyWorkService.deleteById(id);
         deleteDailyWorkMessage.setCode(200);
         deleteDailyWorkMessage.setMessage("删除生产跟踪信息成功！");
         return deleteDailyWorkMessage;

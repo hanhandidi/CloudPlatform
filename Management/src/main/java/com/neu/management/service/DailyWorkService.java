@@ -9,7 +9,7 @@ public interface DailyWorkService {
     // 添加报工信息
     TDailyWork addDailyWork(TDailyWork tDailyWork);
 
-    int deleteById(Integer id,Integer userId);
+    int deleteById(Integer id);
 
     TDailyWork updateDailyWork(TDailyWork tDailyWork);
 

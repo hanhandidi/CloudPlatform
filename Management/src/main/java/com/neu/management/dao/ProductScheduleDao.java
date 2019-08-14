@@ -21,8 +21,9 @@ public interface ProductScheduleDao {
     void insert(TProductSchedule tProductSchedule);
 
     // 根据ID删除生产调度信息 设置状态为无效
-    @Update({"update t_product_schedul set update_time=now(),update_userid=#{userId},flag=1 where id = #{id}"})
-    void deleteById(Integer id,Integer userId);
+    // @Update({"update t_product_schedul set update_time=now(),update_userid=#{userId},flag=1 where id = #{id}"})
+    @Delete({"delete from t_product_schedul where id = #{id}"})
+    void deleteById(Integer id);
 
     // 更新生产调度信息
     @Update({
@@ -33,7 +34,7 @@ public interface ProductScheduleDao {
     })
     int update(ProductScheduleVO productScheduleVO);
 
-    @Update({"update t_product_schedule set update_time=#{updateTime},update_userid=#{updateUserid},schedule_status = #{state} where id = #{id}"})
+    @Update({"update t_product_schedule set update_time=#{updateTime},update_userid=#{updateUserid},schedule_status = #{scheduleStatus} where id = #{id}"})
     int updateState(TProductSchedule tProductSchedule);
 
     // 根据ID获取生产调度信息

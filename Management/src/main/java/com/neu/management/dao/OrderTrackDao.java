@@ -21,8 +21,9 @@ public interface OrderTrackDao {
     void insert(TOrderTrack tOrderTrack);
 
     // 根据ID删除订单跟踪信息 设置状态为无效
-    @Update({"update t_order_track set update_time=now(),update_userid=#{userId},flag=1 where id = #{id}"})
-    void deleteById(Integer id,Integer userId);
+    // @Update({"update t_order_track set update_time=now(),update_userid=#{userId},flag=1 where id = #{id}"})
+    @Delete({"delete from t_order_track where id = #{id}"})
+    void deleteById(Integer id);
 
     // 更新订单跟踪信息
     @Update({

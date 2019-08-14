@@ -29,7 +29,6 @@ public class FactoryController {
         tFactory.setUpdateTime(new Timestamp(new Date().getTime()));
         TFactory tFactory1 = factoryService.addFactory(tFactory);
         if (tFactory1 == null){
-            // 序列号重复
             addFactoryMessage.setCode(202);
             addFactoryMessage.setMessage("添加工厂信息失败，请重试！");
         }else {
@@ -45,8 +44,8 @@ public class FactoryController {
 
     // 根据ID删除工厂信息 ok
     @RequestMapping("delete/{id}")
-    public Message deleteFactory(@PathVariable  Integer id,@RequestBody Integer userId){
-        factoryService.deleteFactory(id,userId);
+    public Message deleteFactory(@PathVariable  Integer id){
+        factoryService.deleteFactory(id);
         Message deleteFactoryMessage = new Message();
         deleteFactoryMessage.setCode(200);
         deleteFactoryMessage.setMessage("删除工厂信息成功！");
