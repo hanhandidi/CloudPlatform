@@ -16,7 +16,24 @@ public class TFactory {
   private String factoryUrl;
   private long factoryWorker;
   private long factoryStatus;
+  private TUser createUser;
+  private TUser updateUser;
 
+  public TUser getCreateUser() {
+    return createUser;
+  }
+
+  public void setCreateUser(TUser createUser) {
+    this.createUser = createUser;
+  }
+
+  public TUser getUpdateUser() {
+    return updateUser;
+  }
+
+  public void setUpdateUser(TUser updateUser) {
+    this.updateUser = updateUser;
+  }
 
   public long getId() {
     return id;

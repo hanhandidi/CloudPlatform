@@ -20,6 +20,24 @@ public class TProductOrder {
   private long orderStatus;
   private long factoryId;
   private TProduct tProduct;
+  private TUser createUser;
+  private TUser updateUser;
+
+  public TUser getCreateUser() {
+    return createUser;
+  }
+
+  public void setCreateUser(TUser createUser) {
+    this.createUser = createUser;
+  }
+
+  public TUser getUpdateUser() {
+    return updateUser;
+  }
+
+  public void setUpdateUser(TUser updateUser) {
+    this.updateUser = updateUser;
+  }
 
   public TProduct gettProduct() {
     return tProduct;

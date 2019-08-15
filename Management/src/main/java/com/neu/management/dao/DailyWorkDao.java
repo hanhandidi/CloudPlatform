@@ -108,9 +108,12 @@ public interface DailyWorkDao {
     })
     List<TDailyWork> selectByFactoryId(Integer id);
 
-    @Select("<script> select * from t_equipment <where>            "
+    @Select("<script> select * from t_daily_work <where>           "
             + "  <if test='equipmentId != null and equipmentId != &quot;&quot;'>     "
             + "    and equipment_id = #{equipmentId}               "
+            + "  </if>                                             "
+            + "  <if test='orderTrackId != null and orderTrackId != &quot;&quot;'>     "
+            + "    and order_track_id = #{orderTrackId}               "
             + "  </if>                                             "
             + "  <if test='completeFlag != null and completeFlag != &quot;&quot;'> "
             + "    and complete_flag = #{completeFlag}             "

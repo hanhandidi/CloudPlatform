@@ -24,9 +24,27 @@ public class TEquipment implements Serializable {
   private long equipmentStatus;
   private long factoryId;
   private List<TEquipmentProduct> tEquipmentProducts;
+  private TUser createUser;
+  private TUser updateUser;
 
   public long getId() {
     return id;
+  }
+
+  public TUser getCreateUser() {
+    return createUser;
+  }
+
+  public TUser getUpdateUser() {
+    return updateUser;
+  }
+
+  public void setUpdateUser(TUser updateUser) {
+    this.updateUser = updateUser;
+  }
+
+  public void setCreateUser(TUser createUser) {
+    this.createUser = createUser;
   }
 
   public void setId(long id) {

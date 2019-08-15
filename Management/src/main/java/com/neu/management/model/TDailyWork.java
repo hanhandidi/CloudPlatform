@@ -1,6 +1,8 @@
 package com.neu.management.model;
 
 
+import com.neu.management.model.TUser;
+
 public class TDailyWork {
 
   private long id;
@@ -22,13 +24,31 @@ public class TDailyWork {
   private long factoryId;
   private String bak;
   private TProductSchedule tProductSchedule;
+  private TUser createUser;
+  private TUser updateUser;
 
-  public long getOrderTrackId() {
-    return orderTrackId;
+  public TProductSchedule gettProductSchedule() {
+    return tProductSchedule;
   }
 
-  public void setOrderTrackId(long orderTrackId) {
-    this.orderTrackId = orderTrackId;
+  public void settProductSchedule(TProductSchedule tProductSchedule) {
+    this.tProductSchedule = tProductSchedule;
+  }
+
+  public TUser getCreateUser() {
+    return createUser;
+  }
+
+  public void setCreateUser(TUser createUser) {
+    this.createUser = createUser;
+  }
+
+  public TUser getUpdateUser() {
+    return updateUser;
+  }
+
+  public void setUpdateUser(TUser updateUser) {
+    this.updateUser = updateUser;
   }
 
   public long getId() {
@@ -39,13 +59,6 @@ public class TDailyWork {
     this.id = id;
   }
 
-  public TProductSchedule gettProductSchedule() {
-    return tProductSchedule;
-  }
-
-  public void settProductSchedule(TProductSchedule tProductSchedule) {
-    this.tProductSchedule = tProductSchedule;
-  }
 
   public long getFlag() {
     return flag;
@@ -89,6 +102,15 @@ public class TDailyWork {
 
   public void setUpdateUserid(long updateUserid) {
     this.updateUserid = updateUserid;
+  }
+
+
+  public long getOrderTrackId() {
+    return orderTrackId;
+  }
+
+  public void setOrderTrackId(long orderTrackId) {
+    this.orderTrackId = orderTrackId;
   }
 
 

@@ -14,6 +14,24 @@ public class TProduct {
     private String productName;
     private String productImgUrl;
     private long factoryId;
+    private TUser createUser;
+    private TUser updateUser;
+
+    public TUser getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(TUser createUser) {
+        this.createUser = createUser;
+    }
+
+    public TUser getUpdateUser() {
+        return updateUser;
+    }
+
+    public void setUpdateUser(TUser updateUser) {
+        this.updateUser = updateUser;
+    }
 
     public TProduct() {
     }

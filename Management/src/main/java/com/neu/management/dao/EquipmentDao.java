@@ -136,11 +136,20 @@ public interface EquipmentDao {
     })
     List<TEquipment> selectAll(TEquipment tEquipment);
 
-    @Select({"select t_equipment.* FROM t_equipment INNER JOIN t_equipment_product " +
-            "on t_equipment.id = t_equipment_product.equipment_id " +
-            "INNER JOIN t_product on t_equipment_product.product_id = t_product.id " +
-            "INNER JOIN t_factory on t_product.factory_id = t_factory.id " +
-            "where t_equipment.equipment_name like CONCAT('%', #{equipmentName}, '%') AND t_product.product_name like CONCAT('%', #{productName}, '%') AND t_factory.id = #{factoryId}"})
+    @Select("<script> select DISTINCT t_equipment.* FROM t_equipment INNER JOIN t_equipment_product " +
+            "on t_equipment.id = t_equipment_product.equipment_id INNER JOIN t_product " +
+            "on t_equipment_product.product_id = t_product.id INNER JOIN t_factory " +
+            "on t_product.factory_id = t_factory.id <where>        "
+            + "  <if test='equipmentName != null and equipmentName != &quot;&quot;'>       "
+            + "    or t_equipment.equipment_name like CONCAT('%', #{equipmentName}, '%')  "
+            + "  </if>                                             "
+            + "  <if test='productName != null and productName != &quot;&quot;'>           "
+            + "    or t_product.product_name like CONCAT('%', #{productName}, '%')        "
+            + "  </if>                                             "
+            + "  <if test='factoryId != null and factoryId != &quot;&quot;'>               "
+            + "    and t_equipment.factory_id = #{factoryId}                   "
+            + "  </if>                                             "
+            + "</where> </script>")
     @Results({
             @Result(column="id", property="id", id=true),
             @Result(column="flag", property="flag"),
