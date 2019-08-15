@@ -42,7 +42,7 @@ public class ProductController {
         return selectProducts;
     }
 
-    // 获取所有的产品 不分页 ok
+    // 获取所有的产品 不分页   ok
     @RequestMapping("list")
     public Message selectProducts(@RequestBody(required=false) TProduct product) {
         Message selectProducts = new Message();
