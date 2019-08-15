@@ -48,7 +48,7 @@ public class ProductPlanServiceImpl implements ProductPlanService {
     @Override
     @CacheEvict(value="TProductPlan",key="T(String).valueOf('TProductPlan').concat('-').concat(#id)")
     public int deleteById(Integer id) {
-        // 未接单的订单才能删除
+        // 未启动的计划才能删除
         if ( productPlanDao.selectById(id).getPlanStatus() == 10 ){
             productPlanDao.deleteById(id);
             return 1;

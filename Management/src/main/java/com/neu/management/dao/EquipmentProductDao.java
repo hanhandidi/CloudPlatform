@@ -50,22 +50,6 @@ public interface EquipmentProductDao {
     })
     TEquipmentProduct selectByEquipmentIdAndProductId(TEquipmentProduct tEquipmentProduct);
 
-    // 检查该设备ID是否有已启动的工单
-    @Select({"select t_equipment_product.* from t_equipment_product INNER JOIN t_product_plan on " +
-            "t_equipment_product.product_id = t_product_plan.product_id WHERE t_equipment_product.id = #{id} " +
-            "and t_product_plan.plan_status = 20 AND t_equipment_product.factory_id = t_product_plan.factory_id "
-            })
-    @Results({
-            @Result(column="id", property="id", id=true),
-            @Result(column="equipment_id", property="equipmentId"),
-            @Result(column="product_id", property="productId"),
-            @Result(column="yield", property="yield"),
-            @Result(column="unit", property="unit"),
-            @Result(column="factory_id", property="factoryId"),
-            @Result(column="product_id",property="tProduct",one=@One(select="com.neu.management.dao.ProductDao.selectById",fetchType= FetchType.EAGER))
-    })
-    TEquipmentProduct isInPlaned(Integer id);
-
     @Select({"select * from t_equipment_product where equipment_id = #{id}"})
     @Results({
             @Result(column="id", property="id", id=true),

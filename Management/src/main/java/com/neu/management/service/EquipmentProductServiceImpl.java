@@ -37,13 +37,8 @@ public class EquipmentProductServiceImpl implements EquipmentProductService{
     @Override
     @CacheEvict(value="TEquipmentProduct",key="T(String).valueOf('TEquipmentProduct').concat('-').concat(#id)")
     public int deleteEquipmentProduct(Integer id) {
-        // 删除产能信息记录，要求已关联启动工单的产能信息不可删除
-        if ( equipmentProductDao.isInPlaned(id) == null ){
-            equipmentProductDao.deleteById(id);
-            return 1;
-        }else {
-            return 0;
-        }
+       equipmentProductDao.deleteById(id);
+       return 1;
     }
 
     @Override

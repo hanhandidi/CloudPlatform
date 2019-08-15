@@ -54,11 +54,9 @@ public interface EquipmentDao {
     int updateStates(TEquipment tEquipment);
 
     // 检查该设备ID是否有已启动的工单
-    @Select({"select t_equipment.* from t_equipment INNER JOIN t_equipment_product on " +
-            "t_equipment.id = t_equipment_product.equipment_id INNER JOIN t_product_plan on " +
-            "t_equipment_product.product_id = t_product_plan.product_id WHERE t_equipment.id = #{id} " +
-            "and t_product_plan.plan_status = 20 AND t_equipment.factory_id = t_equipment_product.factory_id " +
-            "AND t_equipment.factory_id = t_product_plan.factory_id"})
+    @Select({"select t_equipment.* from t_equipment INNER JOIN t_product_schedule on " +
+            "t_equipment.id = t_product_schedule.equipment_id WHERE t_equipment.id = #{id} " +
+            "AND t_equipment.factory_id = t_product_schedule.factory_id"})
     @Results({
             @Result(column="id", property="id", id=true),
             @Result(column="flag", property="flag"),
@@ -73,7 +71,7 @@ public interface EquipmentDao {
             @Result(column="factory_id", property="factoryId"),
             @Result(column="id",property="tEquipmentProducts",many=@Many(select="com.neu.management.dao.EquipmentProductDao.selectByEquipmentId",fetchType= FetchType.EAGER))
     })
-    TEquipment isInPlaned(Integer id);
+    List<TEquipment> isInPlaned(Integer id);
 
     // 根据ID获取设备信息
     @Select({"select * from t_equipment where id = #{id}"})

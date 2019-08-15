@@ -61,8 +61,6 @@ public interface FactoryDao {
     })
     TFactory selectById(Integer id);
 
-
-
     // 判断工厂名称和地址是否同时重复出现
     @Select({"select * from t_factory where factory_name = #{factoryName} and factory_addr= #{factoryAddr} and id not in (#{id})"})
     @Results({

@@ -127,10 +127,14 @@ public class EquipmentServiceImpl implements EquipmentService{
     public int deleteEquipment(Integer id) {
         // 删除设备记录，要求已关联启动工单的设备不可删除
         // 根据id在设备产品
-        if ( equipmentDao.isInPlaned(id) == null ){
+        if (equipmentDao.isInPlaned(id) == null || equipmentDao.isInPlaned(id).size() == 0 ){
             // 删除文档
             repository.deleteById(id);
             equipmentDao.deleteById(id);
+            List<TEquipmentProduct> tEquipmentProducts = equipmentProductDao.selectByEquipmentId(id);
+            for (TEquipmentProduct tEquipmentProduct : tEquipmentProducts){
+                equipmentProductDao.deleteById((int) tEquipmentProduct.getId());
+            }
             return 1;
         }else {
             return 0;

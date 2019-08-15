@@ -87,7 +87,7 @@ public class EquipmentController {
             deleteEquipmentMessage.setMessage("删除设备成功！");
         }else {
             deleteEquipmentMessage.setCode(202);
-            deleteEquipmentMessage.setMessage("删除设备失败，改设备正在生产产品！");
+            deleteEquipmentMessage.setMessage("删除设备失败，该设备已关联生产计划！");
         }
         return deleteEquipmentMessage;
     }

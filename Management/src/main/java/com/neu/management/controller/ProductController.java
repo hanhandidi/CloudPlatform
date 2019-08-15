@@ -107,6 +107,7 @@ public class ProductController {
         Message addProductMessage = new Message();
         product.setCreateTime(new Timestamp(new Date().getTime()));
         product.setUpdateTime(new Timestamp(new Date().getTime()));
+        product.setProductNum("P"+new Timestamp(new Date().getTime()).getTime());
         TProduct tProduct = productService.addProduct(product);
         if ( tProduct == null ) {
             // 序列号重复
