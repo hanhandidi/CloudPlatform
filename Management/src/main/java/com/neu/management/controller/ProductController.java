@@ -51,7 +51,7 @@ public class ProductController {
     @ApiOperation("根据product.flag或product.num或product.name获取所有的产品 不分页")
     @ApiImplicitParam(name="product",value="产品实体类",dataType="TProduct")
     @PostMapping("list")
-    public Message selectProducts(@RequestBody TProduct product) {
+    public Message selectProducts(@RequestBody(required = false) TProduct product) {
         Message selectProducts = new Message();
         List<TProduct> tProducts = productService.selectProducts(product);
         if ( tProducts != null ) {
