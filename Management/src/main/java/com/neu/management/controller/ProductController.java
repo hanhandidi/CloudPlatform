@@ -28,7 +28,7 @@ public class ProductController {
      * ok
      */
     @RequestMapping("listPage/{currentPage}")
-    public Message selectProducts(@RequestBody TProduct product, @PathVariable Integer currentPage) {
+    public Message selectProducts(@RequestBody(required=false) TProduct product, @PathVariable Integer currentPage) {
         Message selectProducts = new Message();
         PageInfo<TProduct> data = productService.selectProducts(product, currentPage);
         if ( data != null ) {
@@ -44,8 +44,9 @@ public class ProductController {
 
     // 获取所有的产品 不分页 ok
     @RequestMapping("list")
-    public Message selectProducts(@RequestBody TProduct product) {
+    public Message selectProducts(@RequestBody(required=false) TProduct product) {
         Message selectProducts = new Message();
+        System.out.println(product==null);
         List<TProduct> tProducts = productService.selectProducts(product);
         if ( tProducts != null ) {
             selectProducts.setCode(200);
