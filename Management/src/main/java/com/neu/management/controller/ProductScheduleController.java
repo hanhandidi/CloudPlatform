@@ -4,6 +4,9 @@ import com.neu.management.model.Message;
 import com.neu.management.model.TProductSchedule;
 import com.neu.management.modelVO.ProductScheduleVO;
 import com.neu.management.service.ProductScheduleService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +25,8 @@ public class ProductScheduleController {
     }
 
     // 添加工单信息 ok
-    @ResponseBody
+    @ApiOperation("添加工单信息")
+    @ApiImplicitParam(name="tProductSchedule",value="工单实体类",dataType="TProductSchedule")
     @PostMapping("add")
     public Message addProductSchedule(@RequestBody TProductSchedule tProductSchedule) {
         Message addProductScheduleMessage = new Message();
@@ -43,8 +47,10 @@ public class ProductScheduleController {
         return addProductScheduleMessage;
     }
 
-    // 根据id删除工单信息 ok
-    @RequestMapping("delete/{id}")
+    // 根据id删除工单信息
+    @ApiOperation("根据id删除工单信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @DeleteMapping("delete/{id}")
     public Message deleteProductSchedule(@PathVariable Integer id){
         Message deleteProductPlanMessage = new Message();
         if(productScheduleService.deleteById(id) == 1){
@@ -58,7 +64,9 @@ public class ProductScheduleController {
     }
 
     // 更新工单信息 ok
-    @RequestMapping("update")
+    @ApiOperation("更新工单信息")
+    @ApiImplicitParam(name="productScheduleVO",value="工单数据接收类",dataType="ProductScheduleVO")
+    @PutMapping("update")
     public Message updateProductSchedule(@RequestBody ProductScheduleVO productScheduleVO){
         Message updateProductOrderMessage = new Message();
         productScheduleVO.setUpdateTime(new Timestamp(new Date().getTime()));
@@ -74,6 +82,8 @@ public class ProductScheduleController {
     }
 
     // 根据id获取工单信息 ok
+    @ApiOperation("根据id获取工单信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
     @GetMapping("get/{id}")
     public Message getProductSchedule(@PathVariable Integer id){
         Message getProductPlanMessage = new Message();
@@ -88,8 +98,10 @@ public class ProductScheduleController {
         return getProductPlanMessage;
     }
 
-    // 获取全部工单信息 ok
-    @RequestMapping("getAll")
+    // 获取全部工单信息
+    @ApiOperation("根据id获取工单信息")
+    @ApiImplicitParam(name="tProductSchedule",value="工单实体类",dataType="TProductSchedule")
+    @PostMapping("getAll")
     public Message listProductSchedule(@RequestBody TProductSchedule tProductSchedule){
         Message listProductScheduleMessage = new Message();
         if (productScheduleService.allProductSchedule(tProductSchedule) != null){
@@ -103,8 +115,13 @@ public class ProductScheduleController {
         return listProductScheduleMessage;
     }
 
-    // 获取全部工单信息 ok
-    @RequestMapping("listPage/{currPage}")
+    // 获取全部工单信息
+    @ApiOperation("分页 获取全部工单信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="currPage",value="当前页",dataType="Integer"),
+            @ApiImplicitParam(name="tProductSchedule",value="工单实体类",dataType="TProductSchedule")
+    })
+    @PostMapping("listPage/{currPage}")
     public Message listPageProductSchedule(@PathVariable Integer currPage, @RequestBody TProductSchedule tProductSchedule){
         Message listPageProductScheduleMessage = new Message();
         if (productScheduleService.listProductSchedules(currPage,tProductSchedule) != null){
@@ -119,7 +136,9 @@ public class ProductScheduleController {
     }
 
     // 启动工单
-    @RequestMapping("start/{id}")
+    @ApiOperation("启动工单")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @PostMapping("start/{id}")
     public Message startProductSchedule(@PathVariable Integer id){
         TProductSchedule tProductSchedule = productScheduleService.selectById(id);
         tProductSchedule.setScheduleStatus(20);

@@ -119,7 +119,7 @@ public interface EquipmentDao {
             + "    and equipment_name like CONCAT('%', #{equipmentName}, '%')        "
             + "  </if>                                             "
             + "  <if test='factoryId != null and factoryId != &quot;&quot;'> "
-            + "    and factory_id = #{factoryId})                  "
+            + "    and factory_id = #{factoryId}                   "
             + "  </if>                                             "
             + "</where> </script>")
     @Results({
@@ -160,7 +160,7 @@ public interface EquipmentDao {
     List<TEquipment> getAll(EquipmentSelectVO equipmentSelectVO);
 
     // 根据序列号以及工厂ID获取设备信息  同一工厂序列号不能重复
-    @Select({"select * from t_equipment where equipment_seq = #{equipmentSeq} and factory_id = #{factoryId}"})
+    @Select({"select * from t_equipment where equipment_seq = #{equipmentSeq} and factory_id = #{factoryId} and id not in (#{id})"})
     @Results({
             @Result(column="id", property="id", id=true),
             @Result(column="flag", property="flag"),

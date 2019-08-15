@@ -102,7 +102,7 @@ public interface ProductPlanDao {
             + "    and plan_status = #{planStatus}                 "
             + "  </if>                                             "
             + "  <if test='factoryId != null and factoryId != &quot;&quot;'> "
-            + "    and factory_id = #{factoryId})                  "
+            + "    and factory_id = #{factoryId}                   "
             + "  </if>                                             "
             + "</where> </script>")
     @Results({

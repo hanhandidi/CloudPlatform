@@ -64,7 +64,7 @@ public interface FactoryDao {
 
 
     // 判断工厂名称和地址是否同时重复出现
-    @Select({"select * from t_factory where factory_name = #{factoryName} and factory_addr= #{factoryAddr}"})
+    @Select({"select * from t_factory where factory_name = #{factoryName} and factory_addr= #{factoryAddr} and id not in (#{id})"})
     @Results({
             @Result(column = "id", property = "id", id = true),
             @Result(column = "flag", property = "flag"),

@@ -6,6 +6,9 @@ import com.neu.management.model.TProductPlan;
 import com.neu.management.modelVO.ProductPlanVO;
 import com.neu.management.service.ProductOrderService;
 import com.neu.management.service.ProductPlanService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,7 +51,9 @@ public class ProductOrderController {
     }
 
     // 根据id删除订单信息 ok 要求已关联启动工单的设备不可删除
-    @RequestMapping("delete/{id}")
+    @ApiOperation("根据id删除订单信息 要求已关联启动工单的设备不可删除")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @DeleteMapping("delete/{id}")
     public Message deleteProductOrder(@PathVariable Integer id){
         Message deleteProductOrderMessage = new Message();
         if(productOrderService.deleteById(id) == 1){
@@ -62,7 +67,9 @@ public class ProductOrderController {
     }
 
     // 更新订单信息 ok
-    @RequestMapping("update")
+    @ApiOperation("更新订单信息")
+    @ApiImplicitParam(name="tProductOrder",value="订单实体类",dataType="TProductOrder")
+    @PutMapping("update")
     public Message updateProductOrder(@RequestBody TProductOrder tProductOrder){
         Message updateProductOrderMessage = new Message();
         tProductOrder.setUpdateTime(new Timestamp(new Date().getTime()));
@@ -80,7 +87,9 @@ public class ProductOrderController {
     }
 
     // 更新订单状态信息 ok
-    @RequestMapping("updateState")
+    @ApiOperation("更新订单状态信息")
+    @ApiImplicitParam(name="tProductOrder",value="订单实体类",dataType="TProductOrder")
+    @PutMapping("updateState")
     public Message updateProductOrderState(@RequestBody TProductOrder tProductOrder){
         Message updateProductOrderStateMessage = new Message();
         tProductOrder.setUpdateTime(new Timestamp(new Date().getTime()));
@@ -97,6 +106,8 @@ public class ProductOrderController {
     }
 
     // 根据id获取订单信息 ok
+    @ApiOperation("根据id获取订单信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
     @GetMapping("get/{id}")
     public Message getProductOrder(@PathVariable Integer id){
         Message getProductOrderMessage = new Message();
@@ -112,7 +123,9 @@ public class ProductOrderController {
     }
 
     // 获取全部订单数据 状态 工厂id ok
-    @RequestMapping("getAll")
+    @ApiOperation("获取全部订单数据 状态 工厂id ")
+    @ApiImplicitParam(name="tProductOrder",value="订单实体类",dataType="TProductOrder")
+    @PostMapping("getAll")
     public Message listPageTProductOrder(@RequestBody TProductOrder tProductOrder){
         Message listTProductOrderMessage = new Message();
         if (productOrderService.listProductOrder(tProductOrder) != null){
@@ -127,7 +140,12 @@ public class ProductOrderController {
     }
 
     // 获取全部订单数据、分页、简易查找 ok
-    @RequestMapping("listPage/{currPage}")
+    @ApiOperation("获取全部订单数据、分页、简易查找")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="currPage",value="当前页",dataType="Integer"),
+            @ApiImplicitParam(name="tProductOrder",value="订单实体类",dataType="TProductOrder")
+    })
+    @PostMapping("listPage/{currPage}")
     public Message listPageTProductOrder(@PathVariable Integer currPage, @RequestBody TProductOrder tProductOrder){
         Message listTProductOrderMessage = new Message();
         if (productOrderService.listProductOrders(currPage,tProductOrder) != null){
@@ -142,7 +160,9 @@ public class ProductOrderController {
     }
 
     // 接单 ok
-    @RequestMapping("accept/{id}")
+    @ApiOperation("接单")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @PostMapping("accept/{id}")
     public Message acceptProductOrder(@PathVariable Integer id){
         Message acceptProductOrderMessage = new Message();
         if ( productOrderService.acceptProductOrder(id) == 1 ){
@@ -156,7 +176,12 @@ public class ProductOrderController {
     }
 
     // 拒单 ok
-    @RequestMapping("refuse/{id}")
+    @ApiOperation("拒单")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="id",value="id",dataType="Integer"),
+            @ApiImplicitParam(name="bak",value="备注",dataType="String")
+    })
+    @PostMapping("refuse/{id}")
     public Message refuseProductOrder(@PathVariable Integer id,@RequestBody String bak){
         Message refuseProductOrderMessage = new Message();
         if ( productOrderService.refuseProductOrder(id,bak) == 1 ){
@@ -170,7 +195,12 @@ public class ProductOrderController {
     }
 
     // 转成生产计划 ok
-    @RequestMapping("plan/{id}")
+    @ApiOperation("转成生产计划")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="id",value="id",dataType="Integer"),
+            @ApiImplicitParam(name="productPlanVO",value="生成计划数据接收类",dataType="ProductPlanVO")
+    })
+    @PostMapping("plan/{id}")
     public Message planProductOrder(@PathVariable Integer id, @RequestBody ProductPlanVO productPlanVO){
         Message planProductOrderMessage = new Message();
         TProductPlan tProductPlan = productOrderService.planProductOrder(id,productPlanVO);
@@ -186,7 +216,9 @@ public class ProductOrderController {
     }
 
     // 订单完成 ok
-    @RequestMapping("finish/{id}")
+    @ApiOperation("订单完成")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @PostMapping("finish/{id}")
     public Message finishProductOrder(@PathVariable Integer id){
         Message finishProductOrderMessage = new Message();
         if ( productOrderService.finishProductOrder(id) == 1 ){

@@ -127,7 +127,7 @@ public interface ProductOrderDao {
             + "    and order_status = #{orderStatus}               "
             + "  </if>                                             "
             + "  <if test='factoryId != null and factoryId != &quot;&quot;'> "
-            + "    and factory_id = #{factoryId})                  "
+            + "    and factory_id = #{factoryId}                   "
             + "  </if>                                             "
             + "</where> </script>")
     @Results({

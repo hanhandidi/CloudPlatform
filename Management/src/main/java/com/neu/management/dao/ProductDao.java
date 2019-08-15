@@ -75,7 +75,7 @@ public interface ProductDao {
     TProduct selectByName(String name);
 
     // 检验该产品的名称在该工厂是否已存在
-    @Select({"select * from t_product where product_name = #{productName} and factory_id = #{factoryId}"})
+    @Select({"select * from t_product where product_name = #{productName} and factory_id = #{factoryId} and id not in (#{id})"})
     @Results({@Result(column = "id", property = "id", id = true),
             @Result(column = "flag", property = "flag"),
             @Result(column = "create_time", property = "createTime", jdbcType = JdbcType.TIMESTAMP),
@@ -89,7 +89,7 @@ public interface ProductDao {
     TProduct selectByNumAndFactoryId(TProduct tProduct);
 
     // 检验该产品的序列号在该工厂是否已存在
-    @Select({"select * from t_product where product_num = #{productNum} and factory_id = #{factoryId}"})
+    @Select({"select * from t_product where product_num = #{productNum} and factory_id = #{factoryId} and id not in (#{id})"})
     @Results({@Result(column = "id", property = "id", id = true),
             @Result(column = "flag", property = "flag"),
             @Result(column = "create_time", property = "createTime", jdbcType = JdbcType.TIMESTAMP),
@@ -153,8 +153,8 @@ public interface ProductDao {
             FROM("t_product");
             if ( product != null ) {
                 if ( product.getProductNum() != null ) WHERE("product_num=" + product.getProductNum());
-                if ( product.getProductName() != null ) WHERE("product_name" + product.getProductName());
-                if ( product.getFactoryId() != 0 ) WHERE("factory_id" + product.getFactoryId());
+                if ( product.getProductName() != null ) WHERE("product_name=" + product.getProductName());
+                if ( product.getFactoryId() != 0 ) WHERE("factory_id=" + product.getFactoryId());
             }
             return SQL();
         }

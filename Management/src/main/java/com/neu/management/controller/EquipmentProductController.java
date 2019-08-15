@@ -3,6 +3,8 @@ package com.neu.management.controller;
 import com.neu.management.model.Message;
 import com.neu.management.model.TEquipmentProduct;
 import com.neu.management.service.EquipmentProductService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +21,8 @@ public class EquipmentProductController {
     }
 
     // 添加产能信息 ok 对同一产品只能添加一条产能信息
-    @ResponseBody
+    @ApiOperation("添加产能信息 对同一产品只能添加一条产能信息")
+    @ApiImplicitParam(name="tEquipmentProduct",value="产能实体类",dataType="TEquipmentProduct")
     @PostMapping("add")
     public Message addEquipmentProduct(@RequestBody TEquipmentProduct tEquipmentProduct) {
         Message addEquipmentProductMessage = new Message();
@@ -39,7 +42,9 @@ public class EquipmentProductController {
     }
 
     // 根据ID删除产能信息 ok 已关联启动工单的产能信息不可删除
-    @RequestMapping("delete/{id}")
+    @ApiOperation("根据ID删除产能信息 已关联启动工单的产能信息不可删除")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @DeleteMapping("delete/{id}")
     public Message deleteEquipmentProduct(@PathVariable Integer id){
         Message deleteEquipmentProductMessage = new Message();
         if ( equipmentProductService.deleteEquipmentProduct(id) == 1){
@@ -52,7 +57,9 @@ public class EquipmentProductController {
         return deleteEquipmentProductMessage;
     }
 
-    // 根据ID添加产能信息 ok
+    // 根据ID获取产能信息 ok
+    @ApiOperation("根据ID获取产能信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
     @GetMapping("get/{id}")
     public Message getEquipmentProduct(@PathVariable Integer id){
         Message getEquipmentProductMessage = new Message();
@@ -68,7 +75,9 @@ public class EquipmentProductController {
     }
 
     // 更新产能信息 ok
-    @RequestMapping("update")
+    @ApiOperation("更新产能信息")
+    @ApiImplicitParam(name="tEquipmentProduct",value="id",dataType="TEquipmentProduct")
+    @PutMapping("update")
     public Message updateEquipmentProduct(@RequestBody TEquipmentProduct tEquipmentProduct){
         Message updateEquipmentProductMessage = new Message();
         if (equipmentProductService.updateEquipmentProduct(tEquipmentProduct) == null){
@@ -84,7 +93,9 @@ public class EquipmentProductController {
     }
 
     // 根据设备ID获取该设备所关联的所有产品的产能信息 ok
-    @RequestMapping("getAllByEquipmentId")
+    @ApiOperation("根据设备ID获取该设备所关联的所有产品的产能信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @PostMapping("getAllByEquipmentId")
     public Message getAllEquipmentProductByEquipmentId(@RequestBody Integer id){
         Message getAllEquipmentProductMessage = new Message();
         if (equipmentProductService.listByEquipmentId(id) != null){
@@ -99,7 +110,9 @@ public class EquipmentProductController {
     }
 
     // 根据工厂ID获取该工厂所有设备所关联的所有产品的产能信息 ok
-    @RequestMapping("getAllByFactoryId")
+    @ApiOperation("根据工厂ID获取该工厂所有设备所关联的所有产品的产能信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @PostMapping("getAllByFactoryId")
     public Message getAllEquipmentProductByFactoryId(@RequestBody Integer id){
         Message getAllEquipmentProductMessage = new Message();
         if (equipmentProductService.listByFactoryId(id) != null){

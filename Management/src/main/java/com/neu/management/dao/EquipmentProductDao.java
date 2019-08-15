@@ -38,7 +38,7 @@ public interface EquipmentProductDao {
     })
     TEquipmentProduct selectById(Integer id);
 
-    @Select({"select * from t_equipment_product where equipment_id = #{equipmentId} and product_id = #{productId}"})
+    @Select({"select * from t_equipment_product where equipment_id = #{equipmentId} and product_id = #{productId} and id not in (#{id})"})
     @Results({
             @Result(column="id", property="id", id=true),
             @Result(column="equipment_id", property="equipmentId"),

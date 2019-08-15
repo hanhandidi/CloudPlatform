@@ -4,14 +4,16 @@ import com.github.pagehelper.PageInfo;
 import com.neu.management.model.Message;
 import com.neu.management.model.TDailyWork;
 import com.neu.management.service.DailyWorkService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api("报工信息管理")
 @RestController
 @RequestMapping(value = "/dailyWork")
 public class DailyWorkController {
@@ -24,7 +26,9 @@ public class DailyWorkController {
     }
 
     // 根据id删除报工信息
-    @RequestMapping("delete/{id}")
+    @ApiOperation("根据id删除报工信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @DeleteMapping("delete/{id}")
     public Message deleteDailyWork(@PathVariable Integer id){
         Message deleteDailyWorkMessage = new Message();
         dailyWorkService.deleteById(id);
@@ -34,7 +38,12 @@ public class DailyWorkController {
     }
 
     // 获取报工信息并分页
-    @RequestMapping("listPage/{currPage}")
+    @ApiOperation("获取报工信息并分页")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="currPage",value="当前页",dataType="Integer"),
+            @ApiImplicitParam(name="tDailyWork",value="报工实体类",dataType="TDailyWork")
+    })
+    @PostMapping("listPage/{currPage}")
     public Message listDailyWork(@PathVariable Integer currPage, @RequestBody TDailyWork tDailyWork){
         Message listDailyWorkMessage = new Message();
         PageInfo<TDailyWork> pageInfo = dailyWorkService.listDailyWork(currPage,tDailyWork);
@@ -50,7 +59,9 @@ public class DailyWorkController {
     }
 
     // 获取报工信息 不分页
-    @RequestMapping("list")
+    @ApiOperation("获取报工信息 不分页")
+    @ApiImplicitParam(name="tDailyWork",value="报工实体类",dataType="TDailyWork")
+    @PostMapping("list")
     public Message listDailyWork(@RequestBody TDailyWork tDailyWork){
         Message listDailyWorkMessage = new Message();
         List<TDailyWork> tDailyWorks = dailyWorkService.allDailyWork(tDailyWork);

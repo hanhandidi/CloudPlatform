@@ -4,10 +4,10 @@ import com.github.pagehelper.PageInfo;
 import com.neu.management.model.Message;
 import com.neu.management.model.TProduct;
 import com.neu.management.service.ProductServiceImpl;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -27,8 +27,13 @@ public class ProductController {
      * currentPage,当前页面
      * ok
      */
-    @RequestMapping("listPage/{currentPage}")
-    public Message selectProducts(@RequestBody(required=false) TProduct product, @PathVariable Integer currentPage) {
+    @ApiOperation("根据product.flag或product.num或product.name来查询")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="product",value="产品实体类",dataType="TProduct"),
+            @ApiImplicitParam(name="currentPage",value="当前页",dataType="Integer")
+    })
+    @PostMapping("listPage/{currentPage}")
+    public Message selectProducts(@RequestBody TProduct product, @PathVariable Integer currentPage) {
         Message selectProducts = new Message();
         PageInfo<TProduct> data = productService.selectProducts(product, currentPage);
         if ( data != null ) {
@@ -42,11 +47,12 @@ public class ProductController {
         return selectProducts;
     }
 
-    // 获取所有的产品 不分页   ok
-    @RequestMapping("list")
-    public Message selectProducts(@RequestBody(required=false) TProduct product) {
+    // 获取所有的产品 不分页 ok
+    @ApiOperation("根据product.flag或product.num或product.name获取所有的产品 不分页")
+    @ApiImplicitParam(name="product",value="产品实体类",dataType="TProduct")
+    @PostMapping("list")
+    public Message selectProducts(@RequestBody TProduct product) {
         Message selectProducts = new Message();
-        System.out.println(product==null);
         List<TProduct> tProducts = productService.selectProducts(product);
         if ( tProducts != null ) {
             selectProducts.setCode(200);
@@ -60,7 +66,9 @@ public class ProductController {
     }
 
     //查询id  ok
-    @RequestMapping("selById/{id}")
+    @GetMapping("selById/{id}")
+    @ApiOperation("查询id")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
     public Message selectProductById(@PathVariable Integer id) {
         Message selectProductById = new Message();
         if ( productService.selectById(id) != null ) {
@@ -75,7 +83,9 @@ public class ProductController {
     }
 
     //查询num ok
-    @RequestMapping("selByNum/{num}")
+    @ApiOperation("查询num")
+    @ApiImplicitParam(name="num",value="产品序列号",dataType="String")
+    @GetMapping("selByNum/{num}")
     public Message selectProductByNum(@PathVariable String num) {
         Message selectProductByNum = new Message();
         if ( productService.selectByNum(num) != null ) {
@@ -90,8 +100,10 @@ public class ProductController {
     }
 
     //添加产品 ok
-    @RequestMapping("add")
-    public Message addProduct(@RequestBody TProduct product, HttpSession session) {
+    @ApiOperation("添加产品")
+    @ApiImplicitParam(name="product",value="产品实体类",dataType="TProduct")
+    @PostMapping("add")
+    public Message addProduct(@RequestBody TProduct product) {
         Message addProductMessage = new Message();
         product.setCreateTime(new Timestamp(new Date().getTime()));
         product.setUpdateTime(new Timestamp(new Date().getTime()));
@@ -111,8 +123,10 @@ public class ProductController {
     }
 
     //更新产品 ok
-    @RequestMapping("update")
-    public Message updateProduct(@RequestBody TProduct product, HttpSession session) {
+    @ApiOperation("更新产品")
+    @ApiImplicitParam(name="product",value="产品实体类",dataType="TProduct")
+    @PutMapping("update")
+    public Message updateProduct(@RequestBody TProduct product) {
         Message updateProductMessage = new Message();
         product.setUpdateTime(new Timestamp(new Date().getTime()));
         if ( productService.updateProduct(product) == null ) {
@@ -128,7 +142,9 @@ public class ProductController {
     }
 
     //id删除, ok
-    @RequestMapping("del/{id}")
+    @ApiOperation("id删除")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @DeleteMapping("del/{id}")
     public Message deleteProduct(@PathVariable Integer id) {
         Message message = new Message();
         int result = productService.deleteById(id);
@@ -147,7 +163,9 @@ public class ProductController {
     }
 
     //批量删除 ok
-    @RequestMapping("deleteList")
+    @ApiOperation("批量删除")
+    @ApiImplicitParam(name="ids",value="id数组",dataType="List<Integer>")
+    @PostMapping("deleteList")
     public Message deleteProducts(@RequestBody List<Integer> ids) {
         Message message = new Message();
         int result = productService.deleteProductByIds(ids);

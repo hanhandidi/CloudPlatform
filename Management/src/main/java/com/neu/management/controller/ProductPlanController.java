@@ -3,6 +3,9 @@ package com.neu.management.controller;
 import com.neu.management.model.Message;
 import com.neu.management.model.TProductPlan;
 import com.neu.management.service.ProductPlanService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +24,8 @@ public class ProductPlanController {
     }
 
     // 添加生产计划 ok
-    @ResponseBody
+    @ApiOperation("添加生产计划")
+    @ApiImplicitParam(name="tProductPlan",value="生产计划实体类",dataType="TProductPlan")
     @PostMapping("add")
     public Message addProductPlan(@RequestBody TProductPlan tProductPlan) {
         Message addProductPlanMessage = new Message();
@@ -43,7 +47,9 @@ public class ProductPlanController {
     }
 
     // 根据id删除计划信息 未接单的订单才能删除
-    @RequestMapping("delete/{id}")
+    @ApiOperation("根据id删除计划信息 未接单的订单才能删除")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @DeleteMapping("delete/{id}")
     public Message deleteProductPlan(@PathVariable Integer id){
         Message deleteProductPlanMessage = new Message();
         if(productPlanService.deleteById(id) == 1){
@@ -57,7 +63,9 @@ public class ProductPlanController {
     }
 
     // 更新计划信息 ok
-    @RequestMapping("update")
+    @ApiOperation("更新计划信息")
+    @ApiImplicitParam(name="tProductPlan",value="生产计划实体类",dataType="TProductPlan")
+    @PutMapping("update")
     public Message updateProductPlan(@RequestBody TProductPlan tProductPlan){
         Message updateProductOrderMessage = new Message();
         tProductPlan.setUpdateTime(new Timestamp(new Date().getTime()));
@@ -74,6 +82,8 @@ public class ProductPlanController {
     }
 
     // 根据id获取计划信息 ok
+    @ApiOperation("根据id获取计划信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
     @GetMapping("get/{id}")
     public Message getProductPlan(@PathVariable Integer id){
         Message getProductPlanMessage = new Message();
@@ -89,7 +99,9 @@ public class ProductPlanController {
     }
 
     // 获取全部计划数据 工厂id、计划状态 ok
-    @RequestMapping("getAll")
+    @ApiOperation("获取全部计划数据 工厂id、计划状态")
+    @ApiImplicitParam(name="tProductPlan",value="生产计划实体类",dataType="TProductPlan")
+    @PostMapping("getAll")
     public Message listProductPlan(@RequestBody TProductPlan tProductPlan){
         Message listProductPlanMessage = new Message();
         if (productPlanService.allProductSchedule(tProductPlan) != null){
@@ -104,7 +116,12 @@ public class ProductPlanController {
     }
 
     // 获取全部计划数据、工厂id、计划状态 ok
-    @RequestMapping("listPage/{currPage}")
+    @ApiOperation("分页 获取全部计划数据、工厂id、计划状态")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="currPage",value="当前页",dataType="Integer"),
+            @ApiImplicitParam(name="TProductPlan",value="生产计划实体类",dataType="TProductPlan")
+    })
+    @PostMapping("listPage/{currPage}")
     public Message listPageProductPlan(@PathVariable Integer currPage, @RequestBody TProductPlan tProductPlan){
         Message listProductPlanMessage = new Message();
         if (productPlanService.listProductPlans(currPage,tProductPlan) != null){
@@ -118,8 +135,10 @@ public class ProductPlanController {
         return listProductPlanMessage;
     }
 
-    // 开始生成计划 ok
-    @RequestMapping("start/{id}")
+    // 开始生产计划 ok
+    @ApiOperation("开始生产计划")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @PostMapping("start/{id}")
     public Message startProductPlan(@PathVariable Integer id){
         Message startProductPlanMessage = new Message();
         if (productPlanService.startProductPlan(id) == 1){
@@ -133,7 +152,9 @@ public class ProductPlanController {
     }
 
     // 完成计划 ok
-    @RequestMapping("finish/{id}")
+    @ApiOperation("完成计划")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @PostMapping("finish/{id}")
     public Message finishProductPlan(@PathVariable Integer id){
         Message finishProductPlanMessage = new Message();
         if (productPlanService.isFinished(id) == 1){

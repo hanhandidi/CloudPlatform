@@ -78,7 +78,7 @@ public interface OrderTrackDao {
             + "    and product_id = #{productId}                         "
             + "  </if>                                             "
             + "  <if test='factoryId != null and factoryId != &quot;&quot;'> "
-            + "    and factory_id = #{factoryId})                  "
+            + "    and factory_id = #{factoryId}                   "
             + "  </if>                                             "
             + "</where> </script>")
     @Results({

@@ -116,7 +116,7 @@ public interface DailyWorkDao {
             + "    and complete_flag = #{completeFlag}             "
             + "  </if>                                             "
             + "  <if test='factoryId != null and factoryId != &quot;&quot;'> "
-            + "    and factory_id = #{factoryId})                  "
+            + "    and factory_id = #{factoryId}                   "
             + "  </if>                                             "
             + "</where> </script>")
     @Results({

@@ -3,6 +3,9 @@ package com.neu.management.controller;
 import com.neu.management.model.Message;
 import com.neu.management.model.TFactory;
 import com.neu.management.service.FactoryService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +24,9 @@ public class FactoryController {
     }
 
     // 添加工厂信息 ok
-    @ResponseBody
     @PostMapping("add")
+    @ApiOperation("添加工厂信息")
+    @ApiImplicitParam(name="tFactory",value="工厂实体类",dataType="TFactory")
     public Message addFactory(@RequestBody TFactory tFactory) {
         Message addFactoryMessage = new Message();
         tFactory.setCreateTime(new Timestamp(new Date().getTime()));
@@ -43,7 +47,9 @@ public class FactoryController {
     }
 
     // 根据ID删除工厂信息 ok
-    @RequestMapping("delete/{id}")
+    @ApiOperation("根据ID删除工厂信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @DeleteMapping("delete/{id}")
     public Message deleteFactory(@PathVariable  Integer id){
         factoryService.deleteFactory(id);
         Message deleteFactoryMessage = new Message();
@@ -52,8 +58,10 @@ public class FactoryController {
         return deleteFactoryMessage;
     }
 
-    // 根据ID添加工厂信息 ok
+    // 根据ID获取工厂信息 ok
     @GetMapping("get/{id}")
+    @ApiOperation("根据ID获取工厂信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
     public Message getFactory(@PathVariable Integer id){
         Message getFactoryMessage = new Message();
         if (factoryService.getFactory(id) != null){
@@ -68,7 +76,9 @@ public class FactoryController {
     }
 
     // 更新工厂信息 ok
-    @RequestMapping("update")
+    @PutMapping("update")
+    @ApiOperation("更新工厂信息")
+    @ApiImplicitParam(name="tFactory",value="工厂实体类",dataType="TFactory")
     public Message updateFactory(@RequestBody TFactory tFactory){
         Message updateFactoryMessage = new Message();
         tFactory.setUpdateTime(new Timestamp(new Date().getTime()));
@@ -84,8 +94,10 @@ public class FactoryController {
         return updateFactoryMessage;
     }
 
-    // 更新设备状态信息 ok
-    @RequestMapping("updateState")
+    // 更新工厂状态信息 ok
+    @PutMapping("updateState")
+    @ApiOperation("更新工厂状态信息")
+    @ApiImplicitParam(name="tFactory",value="工厂实体类",dataType="TFactory")
     public Message updateFactoryState(@RequestBody TFactory tFactory){
         Message updateFactoryMessage = new Message();
         tFactory.setUpdateTime(new Timestamp(new Date().getTime()));
@@ -103,6 +115,7 @@ public class FactoryController {
 
     // 获取所有工厂信息 ok
     @GetMapping("getAll")
+    @ApiOperation("获取所有工厂信息")
     public Message getAllFactory(){
         Message getAllFactoryMessage = new Message();
         if (factoryService.getAllFactory() != null){
@@ -117,7 +130,12 @@ public class FactoryController {
     }
 
     // 分页搜索 ok
-    @RequestMapping("list/{currPage}")
+    @ApiOperation("分页 获取所有工厂信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="currPage",value="当前页",dataType="Integer"),
+            @ApiImplicitParam(name="tFactory",value="工厂实体类",dataType="TFactory")
+    })
+    @PostMapping("list/{currPage}")
     public Message listFactory(@PathVariable Integer currPage, @RequestBody TFactory tFactory){
         Message listFactoryMessage = new Message();
         if (factoryService.listFactory(currPage,tFactory) != null){

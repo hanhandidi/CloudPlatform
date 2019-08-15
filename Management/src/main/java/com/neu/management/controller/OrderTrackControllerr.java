@@ -6,6 +6,9 @@ import com.neu.management.model.TOrderTrack;
 import com.neu.management.modelVO.DailyWorkVO;
 import com.neu.management.modelVO.OrderTrackVO;
 import com.neu.management.service.OrderTrackService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +28,8 @@ public class OrderTrackControllerr {
     }
 
     // 添加生产跟踪信息 ok
-    @ResponseBody
+    @ApiOperation("添加生产跟踪信息")
+    @ApiImplicitParam(name="tOrderTrack",value="生产跟踪实体类",dataType="TOrderTrack")
     @PostMapping("add")
     public Message addOrderTrack(@RequestBody TOrderTrack tOrderTrack) {
         Message addOrderTrackMessage = new Message();
@@ -45,7 +49,9 @@ public class OrderTrackControllerr {
     }
 
     // 根据id删除生产跟踪信息
-    @RequestMapping("delete/{id}")
+    @ApiOperation("根据id删除生产跟踪信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @DeleteMapping("delete/{id}")
     public Message deleteOrderTrack(@PathVariable Integer id){
         Message deleteOrderTrackMessage = new Message();
         if(orderTrackService.deleteById(id) == 1){
@@ -59,7 +65,9 @@ public class OrderTrackControllerr {
     }
 
     // 更新生产跟踪信息 ok
-    @RequestMapping("update")
+    @ApiOperation("更新生产跟踪信息")
+    @ApiImplicitParam(name="orderTrackVO",value="生产跟踪信息接收类",dataType="OrderTrackVO")
+    @PutMapping("update")
     public Message updateOrderTrack(@RequestBody OrderTrackVO orderTrackVO){
         Message updateOrderTrackMessage = new Message();
         orderTrackVO.setUpdateTime(new Timestamp(new Date().getTime()));
@@ -75,6 +83,8 @@ public class OrderTrackControllerr {
     }
 
     // 根据id获取生产跟踪信息 ok
+    @ApiOperation("根据id获取生产跟踪信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
     @GetMapping("get/{id}")
     public Message getOrderTrack(@PathVariable Integer id){
         Message getOrderTrackMessage = new Message();
@@ -90,7 +100,9 @@ public class OrderTrackControllerr {
     }
 
     // 获取全部生产跟踪信息 ok
-    @RequestMapping("getAll")
+    @ApiOperation("获取全部生产跟踪信息")
+    @ApiImplicitParam(name="tOrderTrack",value="生产跟踪实体类",dataType="TOrderTrack")
+    @PostMapping("getAll")
     public Message listOrderTrack(@RequestBody TOrderTrack tOrderTrack){
         Message listOrderTrackMessage = new Message();
         List<TOrderTrack> tOrderTracks = orderTrackService.allOrderTracks(tOrderTrack);
@@ -106,7 +118,12 @@ public class OrderTrackControllerr {
     }
 
     // 获取全部生产跟踪信息
-    @RequestMapping("listPage/{currPage}")
+    @ApiOperation("获取全部生产跟踪信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="currPage",value="当前页",dataType="Integer"),
+            @ApiImplicitParam(name="tOrderTrack",value="生产跟踪实体类",dataType="TOrderTrack")
+    })
+    @PostMapping("listPage/{currPage}")
     public Message listPageOrderTrack(@PathVariable Integer currPage, @RequestBody TOrderTrack tOrderTrack){
         Message listPageProductScheduleMessage = new Message();
         PageInfo<TOrderTrack> pageInfo = orderTrackService.listOrderTracks(currPage,tOrderTrack);
@@ -122,7 +139,12 @@ public class OrderTrackControllerr {
     }
 
     // 报工
-    @RequestMapping("jobBook/{id}")
+    @ApiOperation("报工")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="id",value="id",dataType="Integer"),
+            @ApiImplicitParam(name="dailyWorkVO",value="报工数据接收类",dataType="DailyWorkVO")
+    })
+    @PostMapping("jobBook/{id}")
     public Message jobBook(@PathVariable Integer id, @RequestBody DailyWorkVO dailyWorkVO){
         Message jobBookMessage = new Message();
         if(orderTrackService.jobBook(id,dailyWorkVO) == 1){
@@ -136,7 +158,12 @@ public class OrderTrackControllerr {
     }
 
     // 报工完成
-    @RequestMapping("finishJobBook/{orderTrackId}")
+    @ApiOperation("报工完成")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="orderTrackId",value="生产跟踪ID",dataType="Integer"),
+            @ApiImplicitParam(name="userId",value="用户ID",dataType="Integer")
+    })
+    @PostMapping("finishJobBook/{orderTrackId}")
     public Message finishJobBook(@PathVariable Integer orderTrackId,@RequestBody Integer userId){
         Message finishJobBookMessage = new Message();
         orderTrackService.finishJobBook(orderTrackId,userId);
