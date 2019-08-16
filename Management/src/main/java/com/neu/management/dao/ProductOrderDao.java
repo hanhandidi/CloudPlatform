@@ -106,6 +106,26 @@ public interface ProductOrderDao {
     })
     List<TProductOrder> haveThisProductInFactory(TProductOrder tProductOrder);
 
+    @Select({"select * from t_product_order where factory_id = #{id} and order_status in (20,40)"})
+    @Results({
+            @Result(column="id", property="id", id=true),
+            @Result(column="flag", property="flag"),
+            @Result(column="create_time", property="createTime"),
+            @Result(column="create_userid", property="createUserid"),
+            @Result(column="update_time", property="updateTime"),
+            @Result(column="update_userid", property="updateUserid"),
+            @Result(column="order_seq", property="orderSeq"),
+            @Result(column="order_source", property="orderSource"),
+            @Result(column="product_id", property="productId"),
+            @Result(column="product_count", property="productCount"),
+            @Result(column="end_date", property="endDate"),
+            @Result(column="order_status", property="orderStatus"),
+            @Result(column="factory_id", property="factoryId"),
+            @Result(column="bak", property="bak"),
+            @Result(column="product_id", property="tProduct",one=@One(select="com.neu.management.dao.ProductDao.selectById",fetchType= FetchType.EAGER))
+    })
+    List<TProductOrder> selectStates(Integer id);
+
     @Select({"select * from t_product_order where factory_id = #{id} order by order_status ASC"})
     @Results({
             @Result(column="id", property="id", id=true),

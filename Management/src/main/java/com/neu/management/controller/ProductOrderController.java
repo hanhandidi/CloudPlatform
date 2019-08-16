@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/productOrder")
@@ -121,6 +122,24 @@ public class ProductOrderController {
             getProductOrderMessage.setMessage("获取订单信息失败！");
         }
         return getProductOrderMessage;
+    }
+
+    // 获取全部已接单或者生产中的订单信息 ok
+    @ApiOperation("获取全部已接单或者生产中的订单信息")
+    @ApiImplicitParam(name="factoryId",value="工厂ID",dataType="Integer")
+    @PostMapping("getAll/{factoryId}")
+    public Message listPageTProductOrder(@PathVariable Integer factoryId){
+        Message listTProductOrderMessage = new Message();
+        List<TProductOrder> tProductOrders = productOrderService.listProductOrder(factoryId);
+        if ( tProductOrders != null){
+            listTProductOrderMessage.setCode(200);
+            listTProductOrderMessage.setMessage("查询订单信息成功！");
+            listTProductOrderMessage.setData(tProductOrders);
+        }else {
+            listTProductOrderMessage.setCode(202);
+            listTProductOrderMessage.setMessage("查询订单信息失败！");
+        }
+        return listTProductOrderMessage;
     }
 
     // 获取全部订单数据 状态 工厂id ok

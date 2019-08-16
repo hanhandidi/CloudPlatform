@@ -33,6 +33,8 @@ public interface ProductOrderService {
     // 简易查询
     List<TProductOrder> listProductOrder(TProductOrder tProductOrder);
 
+    List<TProductOrder> listProductOrder(Integer id);
+
     // 根据ID获取
     TProductOrder selectById(Integer id);
 

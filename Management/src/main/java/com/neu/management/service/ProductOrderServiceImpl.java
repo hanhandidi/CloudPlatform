@@ -187,6 +187,11 @@ public class ProductOrderServiceImpl implements ProductOrderService {
     }
 
     @Override
+    public List<TProductOrder> listProductOrder(Integer id) {
+        return productOrderDao.selectStates(id);
+    }
+
+    @Override
     @Cacheable(value="TProductOrder",key="T(String).valueOf('TProductOrder').concat('-').concat(#id)",unless="#result == null")
     public TProductOrder selectById(Integer id) {
         return productOrderDao.selectById(id);
