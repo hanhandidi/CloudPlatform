@@ -19,9 +19,18 @@ public class TProductOrder {
   private java.sql.Timestamp endDate;
   private long orderStatus;
   private long factoryId;
+  private String bak;
   private TProduct tProduct;
   private TUser createUser;
   private TUser updateUser;
+
+  public String getBak() {
+    return bak;
+  }
+
+  public void setBak(String bak) {
+    this.bak = bak;
+  }
 
   public TUser getCreateUser() {
     return createUser;

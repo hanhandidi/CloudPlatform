@@ -124,7 +124,7 @@ public interface ProductDao {
     int updateProduct(TProduct record);
 
     // 是否可以删除检验
-    @Select({"select t_product.* from t_product INNER JOIN t_product_order on t_product.id = t_product_order.product_id " +
+    @Select({"select DISTINCT t_product.* from t_product INNER JOIN t_product_order on t_product.id = t_product_order.product_id " +
             "WHERE t_product.id = #{id} AND t_product_order.order_status >= 20"})
     @Results({@Result(column = "id", property = "id", id = true),
             @Result(column = "flag", property = "flag"),

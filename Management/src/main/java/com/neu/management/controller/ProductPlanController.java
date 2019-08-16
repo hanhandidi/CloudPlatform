@@ -29,6 +29,7 @@ public class ProductPlanController {
     @PostMapping("add")
     public Message addProductPlan(@RequestBody TProductPlan tProductPlan) {
         Message addProductPlanMessage = new Message();
+        tProductPlan.setUpdateUserid(tProductPlan.getCreateUserid());
         tProductPlan.setCreateTime(new Timestamp(new Date().getTime()));
         tProductPlan.setUpdateTime(new Timestamp(new Date().getTime()));
         tProductPlan.setPlanSeq("P" + new Timestamp(new Date().getTime()).getTime());

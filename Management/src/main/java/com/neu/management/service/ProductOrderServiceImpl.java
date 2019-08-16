@@ -129,6 +129,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
         if ( bak != null && !bak.equals("") ){
             TProductOrder tProductOrder = productOrderDao.selectById(id);
             tProductOrder.setOrderStatus(30);
+            tProductOrder.setBak(bak);
             productOrderDao.updateState(tProductOrder);
             return 1;
         }

@@ -34,6 +34,7 @@ public class DailyWorkController {
     @PostMapping("add")
     public Message addDailyWork(@RequestBody TDailyWork tDailyWork) {
         Message addDailyWorkMessage = new Message();
+        tDailyWork.setUpdateUserid(tDailyWork.getCreateUserid());
         tDailyWork.setCreateTime(new Timestamp(new Date().getTime()));
         tDailyWork.setUpdateTime(new Timestamp(new Date().getTime()));
         TDailyWork tDailyWork1 = dailyWorkService.addDailyWork(tDailyWork);
@@ -57,7 +58,7 @@ public class DailyWorkController {
         Message deleteDailyWorkMessage = new Message();
         dailyWorkService.deleteById(id);
         deleteDailyWorkMessage.setCode(200);
-        deleteDailyWorkMessage.setMessage("删除生产跟踪信息成功！");
+        deleteDailyWorkMessage.setMessage("删除报工信息成功！");
         return deleteDailyWorkMessage;
     }
 

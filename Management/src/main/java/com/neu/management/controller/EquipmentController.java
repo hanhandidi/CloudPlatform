@@ -34,6 +34,7 @@ EquipmentController {
     @PostMapping("add")
     public Message addEquipment(@RequestBody TEquipment tEquipment) {
         Message addEquipmentMessage = new Message();
+        tEquipment.setUpdateUserid(tEquipment.getCreateUserid());
         tEquipment.setCreateTime(new Timestamp(new Date().getTime()));
         tEquipment.setUpdateTime(new Timestamp(new Date().getTime()));
         TEquipment tEquipment1 = equipmentService.addEquipment(tEquipment);

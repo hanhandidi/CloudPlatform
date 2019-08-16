@@ -105,6 +105,7 @@ public class ProductController {
     @PostMapping("add")
     public Message addProduct(@RequestBody TProduct product) {
         Message addProductMessage = new Message();
+        product.setUpdateUserid(product.getCreateUserid());
         product.setCreateTime(new Timestamp(new Date().getTime()));
         product.setUpdateTime(new Timestamp(new Date().getTime()));
         product.setProductNum("P"+new Timestamp(new Date().getTime()).getTime());

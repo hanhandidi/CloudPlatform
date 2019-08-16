@@ -34,6 +34,7 @@ public class ProductScheduleController {
         tProductSchedule.setUpdateTime(new Timestamp(new Date().getTime()));
         tProductSchedule.setScheduleSeq("S" + new Timestamp(new Date().getTime()).getTime());
         tProductSchedule.setScheduleStatus(10);
+        tProductSchedule.setUpdateUserid(tProductSchedule.getCreateUserid());
         TProductSchedule tProductSchedule1 = productScheduleService.addProductSchedule(tProductSchedule);
         if (tProductSchedule1 == null){
             addProductScheduleMessage.setCode(202);

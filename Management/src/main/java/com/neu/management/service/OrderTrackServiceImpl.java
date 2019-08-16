@@ -53,7 +53,6 @@ public class OrderTrackServiceImpl implements OrderTrackService {
     @Override
     @CachePut(value="TOrderTrack",key="T(String).valueOf('TOrderTrack').concat('-').concat(#orderTrackVO.id)")
     public TOrderTrack updateOrderTrack(OrderTrackVO orderTrackVO) {
-        orderTrackVO.setUpdateTime(new Timestamp(new Date().getTime()));
         if ( orderTrackVO.getWorkingCount() >= orderTrackVO.getQualifiedCount() ){
             orderTrackDao.update(orderTrackVO);
             return orderTrackDao.selectById((int)orderTrackVO.getId());

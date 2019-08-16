@@ -30,7 +30,7 @@ public interface DailyWorkDao {
     @Update({
             "update t_daily_work",
             "set update_time=#{updateTime},update_userid=#{updateUserid},start_time=#{startTime},end_time=#{endTime}," +
-                    "order_track_id=#{order_track_id},schedule_id=#{schedule_id},equipment_id=#{equipment_id}," +
+                    "order_track_id=#{orderTrackId},schedule_id=#{scheduleId},equipment_id=#{equipmentId}," +
                     "working_count=#{workingCount},qualified_count=#{qualifiedCount},unqualified_cout=#{unqualifiedCout}," +
                     "complete_flag=#{completeFlag},bak=#{bak} ",
             "where id = #{id}"

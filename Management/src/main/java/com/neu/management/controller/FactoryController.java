@@ -29,6 +29,7 @@ public class FactoryController {
     @ApiImplicitParam(name="tFactory",value="工厂实体类",dataType="TFactory")
     public Message addFactory(@RequestBody TFactory tFactory) {
         Message addFactoryMessage = new Message();
+        tFactory.setUpdateUserid(tFactory.getCreateUserid());
         tFactory.setCreateTime(new Timestamp(new Date().getTime()));
         tFactory.setUpdateTime(new Timestamp(new Date().getTime()));
         TFactory tFactory1 = factoryService.addFactory(tFactory);

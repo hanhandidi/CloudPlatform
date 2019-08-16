@@ -3,7 +3,9 @@ package com.neu.management.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neu.management.dao.ProductDao;
+import com.neu.management.dao.ProductOrderDao;
 import com.neu.management.model.TProduct;
+import com.neu.management.model.TProductOrder;
 import com.neu.management.util.Define;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -18,10 +20,12 @@ import java.util.Map;
 @Service
 public class ProductServiceImpl implements ProductService {
     private final ProductDao productDao;
+    private final ProductOrderDao productOrderDao;
 
     @Autowired
-    public ProductServiceImpl(ProductDao productDao) {
+    public ProductServiceImpl(ProductDao productDao,ProductOrderDao productOrderDao) {
         this.productDao = productDao;
+        this.productOrderDao = productOrderDao;
     }
 
     @Override
@@ -76,7 +80,15 @@ public class ProductServiceImpl implements ProductService {
     public int deleteById(Integer id) {
         if ( id == null ) return -1;
         if ( productDao.isInGetOrder(id) == null ){
+            TProduct tProduct = productDao.selectById(id);
+            TProductOrder tProductOrder = new TProductOrder();
+            tProductOrder.setProductId(tProduct.getId());
+            tProductOrder.setFactoryId(tProduct.getFactoryId());
+            List<TProductOrder> tProductOrders = productOrderDao.getAll(tProductOrder);
             productDao.deleteById(id);
+            for (TProductOrder tProductOrder1: tProductOrders){
+                productOrderDao.deleteById((int) tProductOrder1.getId());
+            }
             return 1;
         }
         return 0;

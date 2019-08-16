@@ -33,7 +33,7 @@ public class DailyWorkServiceImpl implements DailyWorkService {
         tDailyWork.setScheduleId(tOrderTrack.getScheduleId());
         tDailyWork.setEquipmentId(tOrderTrack.gettProductSchedule().getEquipmentId());
         tDailyWork.setEquipmentSeq(tOrderTrack.gettProductSchedule().gettEquipment().getEquipmentSeq());
-        if ( tDailyWork.getEndTime().getTime() > tDailyWork.getStartTime().getTime() && tDailyWork.getWorkingCount() > tDailyWork.getQualifiedCount()){
+        if ( tDailyWork.getEndTime().getTime() > tDailyWork.getStartTime().getTime() && tDailyWork.getWorkingCount() >= tDailyWork.getQualifiedCount()){
             tDailyWork.setUnqualifiedCout(tDailyWork.getWorkingCount() - tDailyWork.getQualifiedCount());
             dailyWorkDao.insert(tDailyWork);
             return tDailyWork;
@@ -49,13 +49,13 @@ public class DailyWorkServiceImpl implements DailyWorkService {
     }
 
     @Override
-    @CachePut(value="TDailyWork",key="T(String).valueOf('TDailyWork').concat('-').concat(#tDailyWork.id)")
+    @CachePut(value="TDailyWork",key="T(String).valueOf('TDailyWork').concat('-').concat(#tDailyWork.id)",unless="#result == null")
     public TDailyWork updateDailyWork(TDailyWork tDailyWork) {
-        TOrderTrack tOrderTrack = orderTrackDao.selectById((int)tDailyWork.getOrderTrackId());
+        TOrderTrack tOrderTrack = orderTrackDao.selectById((int) tDailyWork.getOrderTrackId());
         tDailyWork.setScheduleId(tOrderTrack.getScheduleId());
         tDailyWork.setEquipmentId(tOrderTrack.gettProductSchedule().getEquipmentId());
         tDailyWork.setEquipmentSeq(tOrderTrack.gettProductSchedule().gettEquipment().getEquipmentSeq());
-        if ( tDailyWork.getEndTime().getTime() > tDailyWork.getStartTime().getTime() && tDailyWork.getWorkingCount() > tDailyWork.getQualifiedCount()){
+        if ( tDailyWork.getEndTime().getTime() > tDailyWork.getStartTime().getTime() && tDailyWork.getWorkingCount() >= tDailyWork.getQualifiedCount()){
             tDailyWork.setUnqualifiedCout(tDailyWork.getWorkingCount() - tDailyWork.getQualifiedCount());
             dailyWorkDao.update(tDailyWork);
             return dailyWorkDao.selectById((int)tDailyWork.getId());

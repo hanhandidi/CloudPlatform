@@ -183,9 +183,10 @@ public class ProductOrderController {
             @ApiImplicitParam(name="bak",value="备注",dataType="String")
     })
     @PostMapping("refuse/{id}")
-    public Message refuseProductOrder(@PathVariable Integer id,@RequestBody String bak){
+    public Message refuseProductOrder(@PathVariable Integer id,@RequestBody TProductOrder tProductOrder){
+        System.out.println(tProductOrder.getBak());
         Message refuseProductOrderMessage = new Message();
-        if ( productOrderService.refuseProductOrder(id,bak) == 1 ){
+        if ( productOrderService.refuseProductOrder(id,tProductOrder.getBak()) == 1 ){
             refuseProductOrderMessage.setCode(200);
             refuseProductOrderMessage.setMessage("拒单成功！");
         }else {

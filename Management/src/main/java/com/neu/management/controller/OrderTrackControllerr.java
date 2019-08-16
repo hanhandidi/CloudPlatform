@@ -33,6 +33,7 @@ public class OrderTrackControllerr {
     @PostMapping("add")
     public Message addOrderTrack(@RequestBody TOrderTrack tOrderTrack) {
         Message addOrderTrackMessage = new Message();
+        tOrderTrack.setUpdateUserid(tOrderTrack.getCreateUserid());
         tOrderTrack.setCreateTime(new Timestamp(new Date().getTime()));
         tOrderTrack.setUpdateTime(new Timestamp(new Date().getTime()));
         TOrderTrack tOrderTrack1 = orderTrackService.addOrderTrack(tOrderTrack);
