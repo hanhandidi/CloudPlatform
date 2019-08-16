@@ -3,14 +3,15 @@ package com.neu.management.modelVO;
 import lombok.Data;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 // 填写计划起始日期可生成对应的生产计划
 @Data
 public class ProductPlanVO {
 
     private long planCount;
-    private java.sql.Date planStartDate;
-    private java.sql.Date planEndDate;
+    private java.sql.Timestamp planStartDate;
+    private java.sql.Timestamp planEndDate;
     private long userId;
 
     public long getPlanCount() {
@@ -21,19 +22,19 @@ public class ProductPlanVO {
         this.planCount = planCount;
     }
 
-    public Date getPlanStartDate() {
+    public Timestamp getPlanStartDate() {
         return planStartDate;
     }
 
-    public void setPlanStartDate(Date planStartDate) {
+    public void setPlanStartDate(Timestamp planStartDate) {
         this.planStartDate = planStartDate;
     }
 
-    public Date getPlanEndDate() {
+    public Timestamp getPlanEndDate() {
         return planEndDate;
     }
 
-    public void setPlanEndDate(Date planEndDate) {
+    public void setPlanEndDate(Timestamp planEndDate) {
         this.planEndDate = planEndDate;
     }
 

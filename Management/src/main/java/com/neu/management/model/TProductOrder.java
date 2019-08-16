@@ -16,7 +16,7 @@ public class TProductOrder {
   private long orderSource;
   private long productId;
   private long productCount;
-  private java.sql.Date endDate;
+  private java.sql.Timestamp endDate;
   private long orderStatus;
   private long factoryId;
   private TProduct tProduct;
@@ -127,11 +127,11 @@ public class TProductOrder {
     this.productCount = productCount;
   }
 
-  public Date getEndDate() {
+  public Timestamp getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(Date endDate) {
+  public void setEndDate(Timestamp endDate) {
     this.endDate = endDate;
   }
 
@@ -151,7 +151,7 @@ public class TProductOrder {
     this.factoryId = factoryId;
   }
 
-  public TProductOrder(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String orderSeq, long orderSource, long productId, long productCount, Date endDate, long orderStatus, long factoryId, long factoryYield) {
+  public TProductOrder(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String orderSeq, long orderSource, long productId, long productCount, Timestamp endDate, long orderStatus, long factoryId, long factoryYield) {
     this.id = id;
     this.flag = flag;
     this.createTime = createTime;

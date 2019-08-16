@@ -14,8 +14,8 @@ public class ProductScheduleVO {
     private long updateUserid;
     private long scheduleCount;
     private long equipmentId;
-    private java.sql.Date startDate;
-    private java.sql.Date endDate;
+    private java.sql.Timestamp startDate;
+    private java.sql.Timestamp endDate;
 
     public long getId() {
         return id;
@@ -57,19 +57,19 @@ public class ProductScheduleVO {
         this.equipmentId = equipmentId;
     }
 
-    public Date getStartDate() {
+    public Timestamp getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(Timestamp startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public Timestamp getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(Timestamp endDate) {
         this.endDate = endDate;
     }
 }

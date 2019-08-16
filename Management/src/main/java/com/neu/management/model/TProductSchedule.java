@@ -18,8 +18,8 @@ public class TProductSchedule {
   private long planId;
   private long productId;
   private long equipmentId;
-  private java.sql.Date startDate;
-  private java.sql.Date endDate;
+  private java.sql.Timestamp startDate;
+  private java.sql.Timestamp endDate;
   private long factoryId;
   private TEquipment tEquipment;
   private TProductPlan tProductPlan;
@@ -61,7 +61,7 @@ public class TProductSchedule {
     this.tEquipment = tEquipment;
   }
 
-  public TProductSchedule(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String scheduleSeq, long scheduleCount, long scheduleStatus, long planId, long productId, long equipmentId, Date startDate, Date endDate, long factoryId) {
+  public TProductSchedule(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String scheduleSeq, long scheduleCount, long scheduleStatus, long planId, long productId, long equipmentId, Timestamp startDate, Timestamp endDate, long factoryId) {
     this.id = id;
     this.flag = flag;
     this.createTime = createTime;
@@ -175,19 +175,19 @@ public class TProductSchedule {
     this.equipmentId = equipmentId;
   }
 
-  public Date getStartDate() {
+  public Timestamp getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(Date startDate) {
+  public void setStartDate(Timestamp startDate) {
     this.startDate = startDate;
   }
 
-  public Date getEndDate() {
+  public Timestamp getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(Date endDate) {
+  public void setEndDate(Timestamp endDate) {
     this.endDate = endDate;
   }
 

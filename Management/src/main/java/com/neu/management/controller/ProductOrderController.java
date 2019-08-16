@@ -30,11 +30,12 @@ public class ProductOrderController {
     @ResponseBody
     @PostMapping("add")
     public Message addProductOrder(@RequestBody TProductOrder tProductOrder) {
+        System.out.println(tProductOrder.getEndDate());
         Message addProductOrderMessage = new Message();
         tProductOrder.setCreateTime(new Timestamp(new Date().getTime()));
         tProductOrder.setUpdateTime(new Timestamp(new Date().getTime()));
         tProductOrder.setUpdateUserid(tProductOrder.getCreateUserid());
-        tProductOrder.setFlag(0);
+        tProductOrder.setOrderStatus(10);
         tProductOrder.setOrderSeq("O" + new Timestamp(new Date().getTime()).getTime());
         tProductOrder.setOrderSource(0);
         TProductOrder tProductOrder1 = productOrderService.addProductOrder(tProductOrder);

@@ -16,9 +16,9 @@ public class TProductPlan {
   private long orderId;
   private long productId;
   private long planCount;
-  private java.sql.Date deliveryDate;
-  private java.sql.Date planStartDate;
-  private java.sql.Date planEndDate;
+  private java.sql.Timestamp deliveryDate;
+  private java.sql.Timestamp planStartDate;
+  private java.sql.Timestamp planEndDate;
   private long planStatus;
   private long factoryId;
   private TProductOrder tProductOrder;
@@ -52,7 +52,7 @@ public class TProductPlan {
     this.tProductOrder = tProductOrder;
   }
 
-  public TProductPlan(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String planSeq, long orderId, long productId, long planCount, Date deliveryDate, Date planStartDate, Date planEndDate, long planStatus, long factoryId) {
+  public TProductPlan(long id, long flag, Timestamp createTime, long createUserid, Timestamp updateTime, long updateUserid, String planSeq, long orderId, long productId, long planCount, Timestamp deliveryDate, Timestamp planStartDate, Timestamp planEndDate, long planStatus, long factoryId) {
     this.id = id;
     this.flag = flag;
     this.createTime = createTime;
@@ -150,27 +150,27 @@ public class TProductPlan {
     this.planCount = planCount;
   }
 
-  public Date getDeliveryDate() {
+  public Timestamp getDeliveryDate() {
     return deliveryDate;
   }
 
-  public void setDeliveryDate(Date deliveryDate) {
+  public void setDeliveryDate(Timestamp deliveryDate) {
     this.deliveryDate = deliveryDate;
   }
 
-  public Date getPlanStartDate() {
+  public Timestamp getPlanStartDate() {
     return planStartDate;
   }
 
-  public void setPlanStartDate(Date planStartDate) {
+  public void setPlanStartDate(Timestamp planStartDate) {
     this.planStartDate = planStartDate;
   }
 
-  public Date getPlanEndDate() {
+  public Timestamp getPlanEndDate() {
     return planEndDate;
   }
 
-  public void setPlanEndDate(Date planEndDate) {
+  public void setPlanEndDate(Timestamp planEndDate) {
     this.planEndDate = planEndDate;
   }
 

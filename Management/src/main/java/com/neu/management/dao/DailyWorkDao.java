@@ -29,7 +29,10 @@ public interface DailyWorkDao {
     // 更新生产调度信息
     @Update({
             "update t_daily_work",
-            "set update_time=#{updateTime},update_userid=#{updateUserid},complete_flag=#{completeFlag} ",
+            "set update_time=#{updateTime},update_userid=#{updateUserid},start_time=#{startTime},end_time=#{endTime}," +
+                    "order_track_id=#{order_track_id},schedule_id=#{schedule_id},equipment_id=#{equipment_id}," +
+                    "working_count=#{workingCount},qualified_count=#{qualifiedCount},unqualified_cout=#{unqualifiedCout}," +
+                    "complete_flag=#{completeFlag},bak=#{bak} ",
             "where id = #{id}"
     })
     int update(TDailyWork tDailyWork);

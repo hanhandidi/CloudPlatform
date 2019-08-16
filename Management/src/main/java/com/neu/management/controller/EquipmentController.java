@@ -18,7 +18,8 @@ import java.util.List;
 @Api("设备管理")
 @RestController
 @RequestMapping(value = "/equipment")
-public class EquipmentController {
+public class
+EquipmentController {
 
     private final EquipmentService equipmentService;
 

@@ -151,9 +151,10 @@ public class OrderTrackControllerr {
             jobBookMessage.setCode(200);
             jobBookMessage.setMessage("报工操作成功！");
             jobBookMessage.setData(orderTrackService.selectById(id));
+        }else {
+            jobBookMessage.setCode(202);
+            jobBookMessage.setMessage("报工操作失败！");
         }
-        jobBookMessage.setCode(202);
-        jobBookMessage.setMessage("报工操作失败！");
         return jobBookMessage;
     }
 
