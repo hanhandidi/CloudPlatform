@@ -95,8 +95,8 @@ public class EquipmentProductController {
     // 根据设备ID获取该设备所关联的所有产品的产能信息 ok
     @ApiOperation("根据设备ID获取该设备所关联的所有产品的产能信息")
     @ApiImplicitParam(name="id",value="id",dataType="Integer")
-    @PostMapping("getAllByEquipmentId")
-    public Message getAllEquipmentProductByEquipmentId(@RequestBody Integer id){
+    @PostMapping("getAllByEquipmentId/{id}")
+    public Message getAllEquipmentProductByEquipmentId(@PathVariable Integer id){
         Message getAllEquipmentProductMessage = new Message();
         if (equipmentProductService.listByEquipmentId(id) != null){
             getAllEquipmentProductMessage.setCode(200);
@@ -112,8 +112,8 @@ public class EquipmentProductController {
     // 根据工厂ID获取该工厂所有设备所关联的所有产品的产能信息 ok
     @ApiOperation("根据工厂ID获取该工厂所有设备所关联的所有产品的产能信息")
     @ApiImplicitParam(name="id",value="id",dataType="Integer")
-    @PostMapping("getAllByFactoryId")
-    public Message getAllEquipmentProductByFactoryId(@RequestBody Integer id){
+    @PostMapping("getAllByFactoryId/{id}")
+    public Message getAllEquipmentProductByFactoryId(@PathVariable Integer id){
         Message getAllEquipmentProductMessage = new Message();
         if (equipmentProductService.listByFactoryId(id) != null){
             getAllEquipmentProductMessage.setCode(200);
@@ -122,6 +122,23 @@ public class EquipmentProductController {
         }else {
             getAllEquipmentProductMessage.setCode(202);
             getAllEquipmentProductMessage.setMessage("获取工厂所有设备产能信息失败！");
+        }
+        return getAllEquipmentProductMessage;
+    }
+
+    // 根据工厂ID获取该工厂所有设备所关联的所有产品的产能信息 ok
+    @ApiOperation("根据产品ID获取该工厂所有设备所关联的所有产品的产能信息")
+    @ApiImplicitParam(name="id",value="id",dataType="Integer")
+    @PostMapping("getAllByProductId/{id}")
+    public Message getAllEquipmentProductProductId(@PathVariable Integer id){
+        Message getAllEquipmentProductMessage = new Message();
+        if (equipmentProductService.listByFactoryId(id) != null){
+            getAllEquipmentProductMessage.setCode(200);
+            getAllEquipmentProductMessage.setMessage("获取产品所能设备产能信息成功！");
+            getAllEquipmentProductMessage.setData(equipmentProductService.listByProductId(id));
+        }else {
+            getAllEquipmentProductMessage.setCode(202);
+            getAllEquipmentProductMessage.setMessage("获取产品所能设备产能信息失败！");
         }
         return getAllEquipmentProductMessage;
     }
