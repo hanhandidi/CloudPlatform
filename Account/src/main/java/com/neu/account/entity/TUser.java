@@ -7,8 +7,10 @@ public class TUser {
   private long flag;
   private java.sql.Timestamp createTime;
   private long createUserid;
+  private TUser createUser;
   private java.sql.Timestamp updateTime;
   private long updateUserid;
+  private TUser updateUser;
   private long userStatus;
   private String userName;
   private String userRealName;
@@ -17,6 +19,7 @@ public class TUser {
   private String userPhoneNum;
   private String userEmail;
   private long roleId;
+
   private long factoryId;
 
 

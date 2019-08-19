@@ -6,6 +6,7 @@ import com.neu.account.entity.TUser;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -13,33 +14,55 @@ public class UserServiceImpl implements UserService {
     @Resource
     UserDao userDao;
 
-    public Message checkPassword(String userId, String userPassword) {
-        TUser user = userDao.getUserById(userId);
-        if (null == user)
+    @Override
+    public Message checkPassword(TUser user) {
+        TUser userInDB = userDao.selectUserById(user);
+        System.out.println("========"+user.getId());
+        if (null == userInDB)
             return new Message(201, "登录失败", new TUser());
-        if (!userPassword.equals(user.getUserPasswd()))
+        if (!userInDB.getUserPasswd().equals(user.getUserPasswd()))
             return new Message(202, "登录失败", new TUser());
-        return new Message(200, "登录成功", user);
-    }
-
-    public Message getUserInfo(String userId) {
-        TUser user = userDao.getUserById(userId);
-        if (null == user)
-            return new Message(201, "获取用户信息失败", new TUser());
-        return new Message(200, "获取用户信息成功", user);
+        return new Message(200, "登录成功", userInDB);
     }
 
     @Override
-    public Message setUserInfo(TUser user) {
-
-        return null;
+    public Message selectUser(TUser user) {
+        TUser userInDB;
+        userInDB = userDao.selectUserById(user);
+        if (userInDB != null)
+            return new Message(200, "通过用户ID获取用户成功", userInDB);
+        userInDB = userDao.selectUserByName(user);
+        if (userInDB != null)
+            return new Message(200, "通过用户名获取用户成功", userInDB);
+        return new Message(201, "获取用户信息失败", userInDB);
     }
 
     @Override
-    public Message updateUserInfo(TUser user) {
-        if (userDao.getUserByName(user.getUserName()) != null)
+    public Message insertUser(TUser user) {
+        if (userDao.selectUserByName(user) != null)
             return new Message(201, "用户名已存在", null);
-        userDao.updateUserInfo(user);
-        return new Message(200, "修改用户成功", user);
+        userDao.insertUser(user);
+        return new Message(200, "增加用户成功", user);
+    }
+
+    @Override
+    public Message updateUser(TUser user) {
+        if (userDao.selectUserByName(user) != null)
+            return new Message(201, "用户名已存在", null);
+        if (userDao.updateUser(user) == 1)
+            return new Message(200, "修改用户成功", user);
+        return new Message(202, "修改用户失败", user);
+    }
+
+    @Override
+    public Message deleteUser(TUser user) {
+        if (userDao.deleteUser(user) == 1)
+            return new Message(200, "删除用户成功", null);
+        return new Message(201, "删除用户失败", null);
+    }
+
+    @Override
+    public List<TUser> selectUsersInFactory(TUser user) {
+        return userDao.selectUsersInFactory(user);
     }
 }

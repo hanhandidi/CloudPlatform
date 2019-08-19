@@ -2,8 +2,6 @@ package com.neu.account.controller;
 
 import com.neu.account.entity.Message;
 import com.neu.account.entity.TFactory;
-import com.neu.account.entity.TUser;
-import com.neu.account.service.FactoryService;
 import com.neu.account.service.FactoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

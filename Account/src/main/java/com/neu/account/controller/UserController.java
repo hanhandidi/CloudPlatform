@@ -1,14 +1,12 @@
 package com.neu.account.controller;
 
+
 import com.neu.account.entity.Message;
 import com.neu.account.entity.TUser;
 import com.neu.account.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -17,32 +15,46 @@ public class UserController {
     @Autowired
     UserServiceImpl userService;
 
-    // 登录，成功返回用户信息
+
+    // 验证用户密码
     @RequestMapping(value = "login")
     @ResponseBody
-    public Message loginById(String userId, String userPassword) {
-        System.out.println(userId+"  "+userPassword);
-        return userService.checkPassword(userId, userPassword);
-    }
-
-    // 注册用户信息
-    @RequestMapping(value = "register")
-    @ResponseBody
-    public Message setUserInfo(TUser user) {
-        return userService.setUserInfo(user);
+    Message checkPassword(TUser user) {
+        return userService.checkPassword(user);
     }
 
     // 获取用户信息
-    @RequestMapping(value = "get")
+    @GetMapping(value = "")
     @ResponseBody
-    public Message getUserInfo(String userId) {
-        return userService.getUserInfo(userId);
+    Message selectUser(TUser user) {
+        return userService.selectUser(user);
+    }
+
+    // 注册用户信息
+    @PostMapping(value = "")
+    @ResponseBody
+    Message insertUser(TUser user) {
+        return userService.insertUser(user);
     }
 
     // 修改用户信息
-    @RequestMapping(value = "update")
+    @PutMapping(value = "")
     @ResponseBody
-    public Message updateUserInfo(@RequestBody TUser user) {
-        return userService.updateUserInfo(user);
+    Message updateUser(TUser user) {
+        return userService.updateUser(user);
+    }
+
+    // 删除用户信息
+    @DeleteMapping(value = "")
+    @ResponseBody
+    Message deleteUser(TUser user) {
+        return userService.deleteUser(user);
+    }
+
+    // 获取用户列表（工厂ID）：factoryId
+    @RequestMapping(value = "list")
+    @ResponseBody
+    Message selectUsersInFactory(TUser user) {
+        return new Message(200, "获取工厂用户列表成功", userService.selectUsersInFactory(user));
     }
 }

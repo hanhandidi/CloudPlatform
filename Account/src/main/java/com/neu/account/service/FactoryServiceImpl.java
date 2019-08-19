@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
-import java.util.UUID;
 
 @Service
 public class FactoryServiceImpl implements FactoryService {
@@ -24,12 +23,9 @@ public class FactoryServiceImpl implements FactoryService {
         if (factoryDao.getByName(factory.getFactoryName()) != null)
             return new Message(201, "工厂名已存在", null);
 
-        // 通过UUID生成随机信息
-//        String randomInfo = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 6);
-
         // 默认注册一位管理员，等待后续修改
         TUser user = new TUser();
-        userDao.setUserInfo(user);
+        userDao.insertUser(user);
         // 将该userId作为工厂创建人ID置入
         factory.setFlag(0); // 有效工厂
         factory.setCreateUserid(user.getId());

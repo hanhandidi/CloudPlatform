@@ -7,8 +7,10 @@ public class TUser {
   private long flag;
   private java.sql.Timestamp createTime;
   private long createUserid;
+  private TUser createUser;
   private java.sql.Timestamp updateTime;
   private long updateUserid;
+  private TUser updateUser;
   private long userStatus;
   private String userName;
   private String userRealName;
@@ -17,6 +19,7 @@ public class TUser {
   private String userPhoneNum;
   private String userEmail;
   private long roleId;
+  private TUserRole userRole;
   private long factoryId;
 
 
@@ -154,4 +157,27 @@ public class TUser {
     this.factoryId = factoryId;
   }
 
+  public TUser getCreateUser() {
+    return createUser;
+  }
+
+  public void setCreateUser(TUser createUser) {
+    this.createUser = createUser;
+  }
+
+  public TUser getUpdateUser() {
+    return updateUser;
+  }
+
+  public void setUpdateUser(TUser updateUser) {
+    this.updateUser = updateUser;
+  }
+
+  public TUserRole getUserRole() {
+    return userRole;
+  }
+
+  public void setUserRole(TUserRole userRole) {
+    this.userRole = userRole;
+  }
 }
