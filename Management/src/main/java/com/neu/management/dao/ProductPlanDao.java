@@ -28,7 +28,7 @@ public interface ProductPlanDao {
     @Update({
             "update t_product_plan",
             "set flag=#{flag},update_time=#{updateTime},update_userid=#{updateUserid}," +
-            "plan_count=#{planCount},plan_start_date=#{planStartDate},plan_end_date=#{planEndDate} ",
+            "plan_count=#{planCount},plan_start_date=#{planStartDate},plan_end_date=#{planEndDate},plan_status=#{planStatus} ",
             "where id = #{id}"
     })
     int update(TProductPlan tProductPlan);
